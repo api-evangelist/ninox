@@ -1,0 +1,785 @@
+openapi: 3.0.0
+info:
+  title: Ninox Public Fields Records API
+  description: 'The Ninox Public API provides programmatic access to workspace resources, enabling seamless integration for managing modules, tables, fields and records.
+
+
+    ### Authentication
+
+    All requests require a Workspace API Key passed in the HTTP header as follows:
+
+    **<code>Authorization: Bearer {apiKey}</code>**
+
+
+    API keys can be generated and managed within the **Workspace Integration** settings in the Ninox app.'
+  version: 1.0.0
+  contact: {}
+servers: []
+tags:
+- name: Records
+paths:
+  /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/records:
+    post:
+      operationId: RowsV1Controller_addRows
+      summary: Create records in a table
+      description: Creates new records in an existing table (max. 6MB payload size)
+      parameters:
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddRowsBody'
+            examples:
+              all_fields:
+                value:
+                  records:
+                  - any_field:
+                      source: import
+                      score: 98
+                    appointment_field: '[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)'
+                    array_field:
+                    - alpha
+                    - beta
+                    - gamma
+                    boolean_field: true
+                    choice_field: Gold
+                    color_field: '#ffcc00'
+                    date_field: '2024-02-15'
+                    file_field: file_123
+                    html_field: <p>Rich text</p>
+                    icon_field: check-circle
+                    multi_field:
+                    - Gold
+                    - Silver
+                    number_field: 1234.56
+                    react_field: <Component name="Badge" />
+                    reference_field: 42
+                    string_field: Hello world
+                    styled_field: 'font-weight: 600;'
+                    time_field: 09:30
+                    timeinterval_field: 09:00-17:00
+                    timestamp_field: '2024-02-15T13:45:30Z'
+                    unknown_field:
+                      raw: true
+                    user_field: user_123
+      responses:
+        '201':
+          description: Records created successfully
+          example:
+            data:
+              ids:
+              - '101'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateRowsResponse'
+              example:
+                data:
+                  ids:
+                  - '101'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Records
+    delete:
+      operationId: RowsV1Controller_deleteRows
+      summary: Delete records from a table
+      description: Deletes existing records from a table in a single transaction. If any record id is invalid, does not exist, or deletion fails, all changes are rolled back.
+      parameters:
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteRowsBody'
+            examples:
+              delete_records:
+                description: Delete multiple records in a single request
+                value:
+                  records:
+                  - 101
+                  - '102'
+                  - 103
+      responses:
+        '200':
+          description: Records deleted successfully
+          example:
+            data:
+              deletedIds:
+              - '101'
+              - '102'
+              - '103'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteRowsResponse'
+              example:
+                data:
+                  deletedIds:
+                  - '101'
+                  - '102'
+                  - '103'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found (workspace, module, table, or record)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Records
+    get:
+      operationId: RowsV1Controller_getRows
+      summary: Get records from a table
+      description: Retrieves paginated rows from a table with optional filtering and sorting
+      parameters:
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          example: crm
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          example: contacts
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          example: 5rdco4s18swu
+          type: string
+      - name: fields
+        required: false
+        in: query
+        description: Comma-separated list of field names to include
+        schema:
+          type: string
+      - name: filter
+        required: false
+        in: query
+        description: 'Filter conditions as a JSON string (e.g., {"email": "test@example.com"})'
+        schema:
+          type: string
+      - name: limit
+        required: false
+        in: query
+        description: Maximum number of rows to return (1-100)
+        schema:
+          minimum: 1
+          maximum: 100
+          type: number
+      - name: offset
+        required: false
+        in: query
+        description: Number of rows to skip (starts with 0)
+        schema:
+          minimum: 0
+          type: number
+      - name: sort
+        required: false
+        in: query
+        description: Field name to sort by
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Rows retrieved successfully
+          example:
+            data:
+            - id: '1'
+              values:
+                category: Audio
+                item-name: Aura Headphones
+                price-usd: 199.99
+                product-id: 101
+                stock-level: 25
+            - id: '2'
+              values:
+                category: Wearables
+                item-name: Zenith Smartwatch
+                price-usd: 249.5
+                product-id: 102
+                stock-level: 12
+            page_info:
+              has_more: true
+              limit: 2
+              offset: 0
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RowsResponse'
+              example:
+                data:
+                - id: '1'
+                  values:
+                    category: Audio
+                    item-name: Aura Headphones
+                    price-usd: 199.99
+                    product-id: 101
+                    stock-level: 25
+                - id: '2'
+                  values:
+                    category: Wearables
+                    item-name: Zenith Smartwatch
+                    price-usd: 249.5
+                    product-id: 102
+                    stock-level: 12
+                page_info:
+                  has_more: true
+                  limit: 2
+                  offset: 0
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Table not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Records
+    patch:
+      operationId: RowsV1Controller_updateRows
+      summary: Update records in a table
+      description: 'Updates existing records in a table (max. 6MB payload size). Each record must include an `id` field referencing an existing record. The update is transactional — if any record fails validation or does not exist, all changes are rolled back.
+
+
+        **Field type rules:**
+
+        - `multi` — must be an **array of strings** (e.g. `["Gold", "Silver"]`). A plain string is not accepted.
+
+        - `choice` — a single string (e.g. `"Gold"`) or an array of strings.
+
+        - `boolean` — `true` or `false` only; numeric `1`/`0` are not accepted.
+
+        - `number` — a finite number or a numeric string (e.g. `"42.5"`).
+
+        - `date` / `timestamp` / `appointment` — ISO 8601 string or Unix timestamp (ms).
+
+        - Any field may be set to `null` to clear its value.'
+      parameters:
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRowsBody'
+            examples:
+              all_fields:
+                value:
+                  records:
+                  - any_field:
+                      source: import
+                      score: 98
+                    appointment_field: '[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)'
+                    array_field:
+                    - alpha
+                    - beta
+                    - gamma
+                    boolean_field: true
+                    choice_field: Gold
+                    color_field: '#ffcc00'
+                    date_field: '2024-02-15'
+                    file_field: file_123
+                    html_field: <p>Rich text</p>
+                    icon_field: '{"icon":"check-circle","color":"#4CAF50","filling":1}'
+                    id: 1
+                    multi_field:
+                    - Gold
+                    - Silver
+                    number_field: 1234.56
+                    react_field: <Component name="Badge" />
+                    reference_field: 42
+                    string_field: Hello world
+                    styled_field: 'font-weight: 600;'
+                    time_field: 09:30
+                    timeinterval_field: 08:00:00
+                    timestamp_field: '2024-02-15T13:45:30Z'
+                    unknown_field:
+                      raw: true
+                    user_field: user_123
+      responses:
+        '200':
+          description: Records updated successfully
+          example:
+            data:
+              updatedIds:
+              - '1'
+              - '2'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateRowsResponse'
+              example:
+                data:
+                  updatedIds:
+                  - '1'
+                  - '2'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found (workspace, module, table, or record)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '413':
+          description: Payload too large (max 6 MB)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Records
+  /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/records/import/csv:
+    post:
+      operationId: RowsV1Controller_importCSV
+      summary: Import records from CSV file
+      description: "Import records from a CSV file into an existing table.\n        \nThe endpoint accepts multipart/form-data with:\n- A CSV file (max 50 MB)\n- Optional parsing and import options\n\n**Auto-mapping**: By default, CSV columns are automatically mapped to table fields by matching column header names to field names (case-insensitive).\n\n**Import Modes**:\n- `append`: Always create new records (default)\n- `update`: Only update existing records (requires key field mappings)\n- `upsert`: Update existing records or create new ones (requires key field mappings)\n\n**Field Mappings**: Optionally provide explicit mappings to control which CSV columns map to which table fields, and which fields are used as keys for update/upsert operations.\n\nThe entire import is processed within a single transaction - if any record fails to import, all changes are rolled back."
+      parameters:
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: CSV file to import (max 50 MB)
+                hasHeader:
+                  type: boolean
+                  default: true
+                  description: Whether the CSV file has a header row
+                delimiter:
+                  type: string
+                  description: CSV delimiter character (auto-detected if not specified)
+                quoteChar:
+                  type: string
+                  default: '"'
+                  description: CSV quote character
+                encoding:
+                  type: string
+                  enum:
+                  - utf8
+                  - ascii
+                  - latin1
+                  - iso-latin1
+                  - utf16
+                  - windows-cp1252
+                  default: utf8
+                  description: CSV file encoding
+                importMode:
+                  type: string
+                  enum:
+                  - append
+                  - update
+                  - upsert
+                  default: append
+                  description: 'Import mode: append (insert all), update (update existing only), upsert (insert or update)'
+                numberFormat:
+                  type: string
+                  enum:
+                  - us
+                  - european
+                  default: us
+                  description: Number format for parsing numeric values
+                batchSize:
+                  type: integer
+                  minimum: 10
+                  maximum: 200
+                  default: 100
+                  description: Number of records to process per batch
+                mappings:
+                  type: string
+                  description: 'JSON array of field mappings: [{"csvColumnName": "Name", "fieldName": "name", "updatePolicy": "key"}]'
+      responses:
+        '201':
+          description: CSV import completed successfully
+          example:
+            data:
+              rowsImported: 100
+              rowsSkipped: 0
+              rowsUpdated: 0
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportCSVResponse'
+              example:
+                data:
+                  rowsImported: 100
+                  rowsSkipped: 0
+                  rowsUpdated: 0
+        '400':
+          description: Bad request (invalid CSV, missing file, etc.)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Table not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '413':
+          description: File too large (max 50 MB)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Records
+components:
+  schemas:
+    CreateRowsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            ids:
+              type: array
+              items:
+                type: string
+              description: Created row ids
+      required:
+      - data
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Error message
+      required:
+      - error
+    RowsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              values:
+                type: object
+                additionalProperties:
+                  anyOf:
+                  - type: boolean
+                  - type: number
+                  - type: string
+                  nullable: true
+            required:
+            - id
+            - values
+          description: List of rows
+        meta:
+          type: object
+          properties:
+            filter:
+              type: object
+              additionalProperties:
+                anyOf:
+                - type: boolean
+                - type: number
+                - type: string
+                nullable: true
+              description: Applied filter conditions
+            sort:
+              type: string
+              description: Applied sort field
+        page_info:
+          type: object
+          properties:
+            has_more:
+              type: boolean
+              description: Whether more rows are available
+            limit:
+              type: number
+              description: Maximum rows per page
+            offset:
+              type: number
+              description: Current offset
+          description: Pagination information
+      required:
+      - data
+      - page_info
+    DeleteRowsBody:
+      type: object
+      properties:
+        records:
+          minItems: 1
+          type: array
+          items:
+            type: integer
+            exclusiveMinimum: true
+            maximum: 9007199254740991
+            minimum: 0
+          description: Array of record ids to delete
+      required:
+      - records
+      additionalProperties: false
+    AddRowsBody:
+      type: object
+      properties:
+        records:
+          minItems: 1
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+          description: Array of records to add to the target table
+      required:
+      - records
+      additionalProperties: false
+    DeleteRowsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            deletedIds:
+              type: array
+              items:
+                type: string
+              description: Deleted row ids
+      required:
+      - data
+    UpdateRowsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            updatedIds:
+              type: array
+              items:
+                type: string
+              description: Updated row ids
+      required:
+      - data
+    UpdateRowsBody:
+      type: object
+      properties:
+        records:
+          minItems: 1
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                exclusiveMinimum: true
+                maximum: 9007199254740991
+                minimum: 0
+            additionalProperties: {}
+          description: Array of records to update (each must include an id field as a positive integer)
+      required:
+      - records
+      additionalProperties: false
+    ImportCSVResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            rowsImported:
+              type: number
+              description: Number of rows successfully imported
+            rowsSkipped:
+              type: number
+              description: Number of rows skipped (for update mode when no match is found)
+            rowsUpdated:
+              type: number
+              description: Number of existing rows updated
+      required:
+      - data
+  securitySchemes:
+    bearer:
+      scheme: bearer
+      bearerFormat: API Key
+      description: "Enter your Workspace API key. \n\n API keys can be generated and managed within the **Workspace Integration** settings in the Ninox app."
+      in: header
+      name: Authorization
+      type: http

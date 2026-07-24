@@ -1,0 +1,1547 @@
+openapi: 3.0.0
+info:
+  title: Ninox Public Fields API
+  description: 'The Ninox Public API provides programmatic access to workspace resources, enabling seamless integration for managing modules, tables, fields and records.
+
+
+    ### Authentication
+
+    All requests require a Workspace API Key passed in the HTTP header as follows:
+
+    **<code>Authorization: Bearer {apiKey}</code>**
+
+
+    API keys can be generated and managed within the **Workspace Integration** settings in the Ninox app.'
+  version: 1.0.0
+  contact: {}
+servers: []
+tags:
+- name: Fields
+paths:
+  /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/fields:
+    post:
+      operationId: FieldsV1Controller_createField
+      summary: Create a field
+      description: 'Creates a new field in a table.
+
+
+        **Choice / multi fields:** provide an `options` array with initial values. Each option receives a server-assigned stable `id` returned in the response.
+
+
+        **Dynamic choice / dmulti fields:** `options` is required and must be an expression that resolves the selectable records at runtime. `optionName`, `optionIcon`, and `optionColor` are optional display-value expressions. All expressions are validated after save — if any are invalid the field is still created and the response includes an `expressionErrors` array.
+
+
+        **Logic (function) fields:** `expression` is validated after save; errors are returned in `expressionErrors`.'
+      parameters:
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: crm
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: contacts
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          example: 5rdco4s18swu
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFieldBody'
+            examples:
+              'Example 1: String Field (with all optional properties)':
+                value:
+                  index: true
+                  labels:
+                    ? ''
+                    : Description
+                    de: Beschreibung
+                  name: description
+                  readRoles:
+                  - admin
+                  - user
+                  refTableName: null
+                  required: false
+                  search: true
+                  type: string
+                  unique: false
+                  variant: multiline-text
+                  writeRoles:
+                  - admin
+              'Example 2: Reference Field':
+                value:
+                  index: true
+                  labels:
+                    ? ''
+                    : Customer
+                  name: customer_ref
+                  refTableName: customers
+                  required: true
+                  type: reference
+              'Example 3: Number Field':
+                value:
+                  labels:
+                    ? ''
+                    : Amount
+                  name: amount
+                  refTableName: null
+                  required: true
+                  type: number
+              'Example 4: Logic (function) Field':
+                description: Logic (function) Field are computed from an expression. If the expression has syntax errors the field is still created and the response includes an expressionErrors array.
+                value:
+                  expression: quantity * unitPrice
+                  labels:
+                    ? ''
+                    : Total Price
+                    de: Gesamtpreis
+                  name: total_price
+                  type: function
+              'Example 5: Static Choice Field (single select)':
+                description: Provide an initial options array. Each option gets a stable id assigned by the server. Options can be added, reordered, or recolored later via PATCH.
+                value:
+                  labels:
+                    ? ''
+                    : Status
+                  name: status
+                  options:
+                  - color: '#4CAF50'
+                    name: Active
+                    order: 0
+                  - color: '#FF9800'
+                    name: Pending
+                    order: 1
+                  - color: '#F44336'
+                    name: Inactive
+                    order: 2
+                  required: true
+                  type: choice
+              'Example 6: Static Multi-Choice Field (multi select)':
+                value:
+                  labels:
+                    ? ''
+                    : Tags
+                  name: tags
+                  options:
+                  - name: VIP
+                    order: 0
+                  - name: Newsletter
+                    order: 1
+                  - name: Partner
+                    order: 2
+                  type: multi
+              'Example 7: Dynamic Choice Field (dchoice)':
+                description: options is an expression that returns the available choices at runtime. optionName is an expression that returns the display label for each record in the result set. If the expression has syntax errors the field is still created and the response includes an expressionErrors array.
+                value:
+                  labels:
+                    ? ''
+                    : Assigned User
+                  name: assigned_user
+                  optionName: text(firstName) + " " + text(lastName)
+                  options: select users
+                  type: dchoice
+              'Example 8: Dynamic Multi-Choice Field (dmulti)':
+                description: Like dchoice but allows selecting multiple values. optionColor and optionName are expressions evaluated per record in the options result set.
+                value:
+                  labels:
+                    ? ''
+                    : Related Projects
+                  name: related_projects
+                  optionColor: statusColor
+                  optionName: text(title)
+                  options: select projects
+                  type: dmulti
+      responses:
+        '201':
+          description: Field created successfully. If the field contains an expression (function, dchoice, dmulti) and it has syntax errors, the response still returns 201 but includes an `expressionErrors` array.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldResponse'
+        '400':
+          description: Bad request — validation failure (e.g., missing required fields, field already exists, invalid field type)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Workspace, module or table not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Fields
+    get:
+      operationId: FieldsV1Controller_getFields
+      summary: List all fields in a table
+      description: 'Retrieves all fields defined in a table. Each field in the response includes type-specific properties: `options` (array for choice/multi, expression string for dchoice/dmulti), `optionName` / `optionIcon` / `optionColor` for dchoice/dmulti, and `expression` for function fields.'
+      parameters:
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: crm
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: contacts
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          example: 5rdco4s18swu
+          type: string
+      responses:
+        '200':
+          description: Fields retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldsResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Table not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Fields
+  /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/fields/batch:
+    post:
+      operationId: FieldsV1Controller_createFieldsBatch
+      summary: Create multiple fields (batch)
+      description: 'Creates multiple fields in a table within a single transaction. If any field creation fails, all changes are rolled back.
+
+
+        The same rules as the single-create endpoint apply per field: choice/multi fields accept an initial `options` array; dchoice/dmulti fields require an `options` expression; logic fields accept an optional `expression`. All expressions are validated after save — invalid expressions do not prevent creation but add an `expressionErrors` array to the affected field in the response.'
+      parameters:
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: crm
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: contacts
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          example: 5rdco4s18swu
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFieldsBatchBody'
+            examples:
+              'Example 1: Basic fields':
+                value:
+                - labels:
+                    ? ''
+                    : First Name
+                  name: first_name
+                  type: string
+                - labels:
+                    ? ''
+                    : Last Name
+                  name: last_name
+                  type: string
+                - labels:
+                    ? ''
+                    : Age
+                  name: age
+                  required: true
+                  type: number
+              'Example 2: Email and Number fields with all properties':
+                value:
+                - index: true
+                  labels:
+                    ? ''
+                    : Email Address
+                    de: E-Mail-Adresse
+                  name: email
+                  readRoles:
+                  - admin
+                  - user
+                  required: true
+                  search: true
+                  type: string
+                  unique: true
+                  variant: email
+                  writeRoles:
+                  - admin
+                  - user
+                - index: false
+                  labels:
+                    ? ''
+                    : Age
+                    de: Alter
+                  name: age
+                  readRoles:
+                  - admin
+                  - user
+                  required: false
+                  search: false
+                  type: number
+                  unique: false
+                  writeRoles:
+                  - admin
+                  - user
+              'Example 3: Text, URL and Reverse fields':
+                value:
+                - labels:
+                    ? ''
+                    : Events
+                    de: Veranstaltungen
+                  name: events
+                  type: string
+                  variant: text
+                - index: true
+                  labels:
+                    ? ''
+                    : Website
+                    de: Webseite
+                  name: website
+                  required: false
+                  search: true
+                  type: string
+                  variant: url
+                - index: false
+                  labels:
+                    ? ''
+                    : Related Contacts
+                    de: Verwandte Kontakte
+                  name: related_contacts
+                  refTableName: contacts
+                  required: false
+                  type: reverse
+              'Example 4: Logic and Choice fields':
+                description: 'Mixed batch: a logic field, a static choice field, and a dynamic choice field. Expressions are validated after save; errors appear in `expressionErrors` on the affected field.'
+                value:
+                - expression: text(firstName) + " " + text(lastName)
+                  labels:
+                    ? ''
+                    : Full Name
+                  name: full_name
+                  type: function
+                - labels:
+                    ? ''
+                    : Priority
+                  name: priority
+                  options:
+                  - color: '#F44336'
+                    name: High
+                    order: 0
+                  - color: '#FF9800'
+                    name: Medium
+                    order: 1
+                  - color: '#4CAF50'
+                    name: Low
+                    order: 2
+                  type: choice
+                - labels:
+                    ? ''
+                    : Assigned Users
+                  name: assigned_users
+                  optionName: text(firstName) + " " + text(lastName)
+                  options: select(Users, active = true)
+                  type: dmulti
+      responses:
+        '201':
+          description: Fields created successfully. Fields with invalid expressions still return 201 but include an `expressionErrors` array.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldsResponse'
+        '400':
+          description: Bad request — validation failure (e.g., duplicate field names in the batch, field already exists)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Workspace, module or table not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Fields
+    delete:
+      operationId: FieldsV1Controller_deleteFieldsBatch
+      summary: Delete multiple fields (batch)
+      description: Deletes multiple fields in a table within a single transaction. If any field deletion fails, all changes are rolled back.
+      parameters:
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: crm
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: contacts
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          example: 5rdco4s18swu
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteFieldsBatchBody'
+            examples:
+              'Example 1: Delete basic fields':
+                description: Delete multiple simple fields in a single transaction
+                value:
+                  fieldNames:
+                  - description
+                  - status
+                  - assigned_user
+              'Example 2: Delete reference field':
+                description: Deletes the reference field and automatically deletes its counterpart reverse field in the referenced table
+                value:
+                  fieldNames:
+                  - customer_ref
+              'Example 3: Delete mixed field types':
+                description: Delete a combination of string fields and reference fields
+                value:
+                  fieldNames:
+                  - first_name
+                  - email
+                  - company_ref
+                  - notes
+      responses:
+        '200':
+          description: Fields deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldsResponse'
+        '400':
+          description: Bad request (e.g., duplicates in request)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Field not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Fields
+  /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/fields/{fieldName}:
+    delete:
+      operationId: FieldsV1Controller_deleteField
+      summary: Delete a field
+      description: Deletes a field in a table
+      parameters:
+      - name: fieldName
+        required: true
+        in: path
+        description: Field name
+        schema:
+          example: email
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          example: contacts
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          example: crm
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          example: 5rdco4s18swu
+      responses:
+        '200':
+          description: Field deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Field not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Fields
+    get:
+      operationId: FieldsV1Controller_getField
+      summary: Get a specific field
+      description: Retrieves detailed information about a specific field in a table. For choice/multi fields the response includes an `options` array with stable ids. For dchoice/dmulti fields the response includes the `options` expression and any configured `optionName`, `optionIcon`, `optionColor` formulas. For function fields the response includes the `expression`.
+      parameters:
+      - name: fieldName
+        required: true
+        in: path
+        description: Field name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: email
+          type: string
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: crm
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: contacts
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          example: 5rdco4s18swu
+          type: string
+      responses:
+        '200':
+          description: Field details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Field not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Fields
+    patch:
+      operationId: FieldsV1Controller_updateField
+      summary: Update a field
+      description: 'Updates an existing field in a table.
+
+
+        **choice / multi fields:** `options` replaces the full option list. Include the stable `id` for existing options you want to keep; omit `id` for new options. Sending an options array to a non-choice field or an options expression to a non-dynamic-choice field returns 400.
+
+
+        **dchoice / dmulti fields:** `options` updates the selection expression. `optionName`, `optionIcon`, and `optionColor` update the corresponding display-value formulas. All expressions are validated after save — if any are invalid the field is still saved and the response includes an `expressionErrors` array. `optionName`, `optionIcon`, `optionColor` cannot be sent to non-dynamic-choice fields (returns 400).
+
+
+        **Logic (function) fields:** `expression` is validated after save; errors are returned in `expressionErrors`.'
+      parameters:
+      - name: fieldName
+        required: true
+        in: path
+        description: Field name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: email
+          type: string
+      - name: moduleName
+        required: true
+        in: path
+        description: Module name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: crm
+          type: string
+      - name: tableName
+        required: true
+        in: path
+        description: Table name
+        schema:
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          example: contacts
+          type: string
+      - name: workspaceId
+        required: true
+        in: path
+        description: Workspace ID
+        schema:
+          minLength: 12
+          maxLength: 12
+          pattern: ^[a-z0-9]+$
+          example: 5rdco4s18swu
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFieldBody'
+            examples:
+              'Example 1: Update Labels and Required status':
+                value:
+                  labels:
+                    ? ''
+                    : Updated Label
+                    de: Aktualisiertes Label
+                  required: true
+              'Example 2: Update Permissions':
+                value:
+                  readRoles:
+                  - admin
+                  writeRoles:
+                  - admin
+              'Example 3: Update Name and Searchability':
+                value:
+                  name: new_field_name
+                  search: true
+              'Example 4: Update Logic Field Expression':
+                description: Updates the expression of a function field. The new expression is validated after save; syntax errors are returned in `expressionErrors` without preventing the update.
+                value:
+                  expression: price * quantity * (1 - discount / 100)
+              'Example 5: Replace static choice options (choice / multi)':
+                description: Sends the full desired options list. Include the stable `id` for existing options to preserve them; omit `id` for new options (the server assigns one). Sending an options array to a non-choice field returns 400.
+                value:
+                  options:
+                  - color: '#4CAF50'
+                    id: a1b2c3d4
+                    name: Active
+                    order: 0
+                  - color: '#FF9800'
+                    id: e5f6g7h8
+                    name: Pending
+                    order: 1
+                  - color: '#9C27B0'
+                    name: On Hold
+                    order: 2
+              'Example 6: Update dynamic choice expression (dchoice / dmulti)':
+                description: Updates the options expression and display-name expression for a dchoice or dmulti field. All expressions are validated after save; syntax errors are returned in `expressionErrors` without preventing the update. Sending an options expression string to a non-dynamic-choice field returns 400.
+                value:
+                  optionName: text(firstName) + " " + text(lastName)
+                  options: select(Users, active = true)
+      responses:
+        '200':
+          description: Field updated successfully. If the field contains an updated expression (function, dchoice, dmulti) and it has syntax errors, the response still returns 200 but includes an `expressionErrors` array.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldResponse'
+        '400':
+          description: Bad request (e.g., field already exists)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Field not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - bearer: []
+      tags:
+      - Fields
+components:
+  schemas:
+    FieldResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            expression:
+              description: Expression (for function type)
+              type: string
+            expressionErrors:
+              description: Expression validation errors (for function type)
+              type: array
+              items:
+                type: object
+                properties:
+                  column:
+                    type: number
+                    description: Column number where the error occurred
+                  line:
+                    type: number
+                    description: Line number where the error occurred
+                  message:
+                    type: string
+                    description: Error message
+                required:
+                - column
+                - line
+                - message
+            index:
+              description: Field is indexed
+              type: boolean
+            labels:
+              description: Field labels (localized)
+              type: object
+              additionalProperties:
+                type: string
+            name:
+              type: string
+              description: Field name
+            optionColor:
+              description: Color expression for dchoice/dmulti fields
+              type: string
+            optionIcon:
+              description: Icon expression for dchoice/dmulti fields
+              type: string
+            optionName:
+              description: Display name expression for dchoice/dmulti fields
+              type: string
+            options:
+              description: Options array for choice/multi fields, or selection expression for dchoice/dmulti fields
+              anyOf:
+              - type: array
+                items:
+                  type: object
+                  properties:
+                    color:
+                      description: Option color (hex string)
+                      type: string
+                    icon:
+                      description: Option icon name
+                      type: string
+                    id:
+                      type: string
+                      description: Stable option id
+                    labels:
+                      description: Localized option labels
+                      type: object
+                      additionalProperties:
+                        type: string
+                    name:
+                      type: string
+                      description: Option name
+                    order:
+                      type: number
+                      description: Option display order
+                    textColor:
+                      description: Option text color (hex string)
+                      type: string
+                  required:
+                  - id
+                  - name
+                  - order
+              - type: string
+            readRoles:
+              description: Roles allowed to read the field
+              type: array
+              items:
+                type: string
+            refTableId:
+              description: Reference table id
+              type: string
+            required:
+              description: Field is required
+              type: boolean
+            search:
+              description: Field is searchable
+              type: boolean
+            type:
+              type: string
+              enum:
+              - any
+              - appointment
+              - boolean
+              - choice
+              - color
+              - date
+              - dchoice
+              - dmulti
+              - file
+              - function
+              - html
+              - icon
+              - lambda
+              - multi
+              - number
+              - react
+              - reference
+              - reverse
+              - rowId
+              - string
+              - styled
+              - time
+              - timeinterval
+              - timestamp
+              - unknown
+              - user
+              - void
+              description: Field type
+            unique:
+              description: Field is unique
+              type: boolean
+            variant:
+              description: Field variant (for string type)
+              type: string
+            writeRoles:
+              description: Roles allowed to write to the field
+              type: array
+              items:
+                type: string
+          description: Field details
+      required:
+      - data
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Error message
+      required:
+      - error
+    CreateFieldsBatchBody:
+      minItems: 1
+      type: array
+      items:
+        type: object
+        properties:
+          expression:
+            description: Expression (for function type)
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+              minLength: 1
+              maxLength: 100
+            description: Field labels (localized)
+          name:
+            type: string
+            minLength: 1
+            maxLength: 100
+            pattern: ^[a-z0-9_]+$
+            description: Field name
+          optionColor:
+            description: Color expression (for dchoice/dmulti types)
+            type: string
+          optionIcon:
+            description: Icon expression (for dchoice/dmulti types)
+            type: string
+          optionName:
+            description: Display name expression (for dchoice/dmulti types)
+            type: string
+          options:
+            description: Options array (for choice/multi types) or selection expression (for dchoice/dmulti types)
+            anyOf:
+            - type: array
+              items:
+                type: object
+                properties:
+                  color:
+                    description: Option color (hex string)
+                    type: string
+                  icon:
+                    description: Option icon name
+                    type: string
+                  id:
+                    description: Stable option id (omit for new options; system assigns id)
+                    type: string
+                  labels:
+                    description: Localized option labels
+                    type: object
+                    additionalProperties:
+                      type: string
+                  name:
+                    type: string
+                    minLength: 1
+                    description: Option name
+                  order:
+                    description: Option display order
+                    type: integer
+                    minimum: 0
+                    maximum: 9007199254740991
+                  textColor:
+                    description: Option text color (hex string)
+                    type: string
+                required:
+                - name
+                additionalProperties: false
+            - type: string
+          refTableName:
+            type: string
+            minLength: 1
+            maxLength: 100
+            pattern: ^[a-z0-9_]+$
+            default: null
+            description: Reference table name (for reference/reverse types)
+            nullable: true
+          type:
+            type: string
+            enum:
+            - string
+            - number
+            - boolean
+            - choice
+            - dchoice
+            - multi
+            - dmulti
+            - file
+            - date
+            - timestamp
+            - time
+            - timeinterval
+            - appointment
+            - icon
+            - color
+            - user
+            - reference
+            - reverse
+            - function
+            description: Field type
+          variant:
+            description: Field variant (for string type)
+            type: string
+            enum:
+            - multiline-text
+            - text
+            - phone
+            - email
+            - url
+            - location
+            - signature
+          index:
+            description: Field is indexed
+            type: boolean
+          readRoles:
+            description: Roles allowed to read the field
+            minItems: 1
+            maxItems: 2
+            type: array
+            items:
+              type: string
+              enum:
+              - admin
+              - user
+          required:
+            description: Field is required
+            type: boolean
+          search:
+            description: Field is searchable
+            type: boolean
+          unique:
+            description: Field is unique
+            type: boolean
+          writeRoles:
+            description: Roles allowed to write to the field
+            minItems: 1
+            maxItems: 2
+            type: array
+            items:
+              type: string
+              enum:
+              - admin
+              - user
+        required:
+        - labels
+        - name
+        - type
+        additionalProperties: false
+    CreateFieldBody:
+      type: object
+      properties:
+        expression:
+          description: Expression (for function type)
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+            minLength: 1
+            maxLength: 100
+          description: Field labels (localized)
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          description: Field name
+        optionColor:
+          description: Color expression (for dchoice/dmulti types)
+          type: string
+        optionIcon:
+          description: Icon expression (for dchoice/dmulti types)
+          type: string
+        optionName:
+          description: Display name expression (for dchoice/dmulti types)
+          type: string
+        options:
+          description: Options array (for choice/multi types) or selection expression (for dchoice/dmulti types)
+          anyOf:
+          - type: array
+            items:
+              type: object
+              properties:
+                color:
+                  description: Option color (hex string)
+                  type: string
+                icon:
+                  description: Option icon name
+                  type: string
+                id:
+                  description: Stable option id (omit for new options; system assigns id)
+                  type: string
+                labels:
+                  description: Localized option labels
+                  type: object
+                  additionalProperties:
+                    type: string
+                name:
+                  type: string
+                  minLength: 1
+                  description: Option name
+                order:
+                  description: Option display order
+                  type: integer
+                  minimum: 0
+                  maximum: 9007199254740991
+                textColor:
+                  description: Option text color (hex string)
+                  type: string
+              required:
+              - name
+              additionalProperties: false
+          - type: string
+        refTableName:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          default: null
+          description: Reference table name (for reference/reverse types)
+          nullable: true
+        type:
+          type: string
+          enum:
+          - string
+          - number
+          - boolean
+          - choice
+          - dchoice
+          - multi
+          - dmulti
+          - file
+          - date
+          - timestamp
+          - time
+          - timeinterval
+          - appointment
+          - icon
+          - color
+          - user
+          - reference
+          - reverse
+          - function
+          description: Field type
+        variant:
+          description: Field variant (for string type)
+          type: string
+          enum:
+          - multiline-text
+          - text
+          - phone
+          - email
+          - url
+          - location
+          - signature
+        index:
+          description: Field is indexed
+          type: boolean
+        readRoles:
+          description: Roles allowed to read the field
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - user
+        required:
+          description: Field is required
+          type: boolean
+        search:
+          description: Field is searchable
+          type: boolean
+        unique:
+          description: Field is unique
+          type: boolean
+        writeRoles:
+          description: Roles allowed to write to the field
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - user
+      required:
+      - labels
+      - name
+      - type
+      additionalProperties: false
+    FieldsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              expression:
+                description: Expression (for function type)
+                type: string
+              expressionErrors:
+                description: Expression validation errors (for function type)
+                type: array
+                items:
+                  type: object
+                  properties:
+                    column:
+                      type: number
+                      description: Column number where the error occurred
+                    line:
+                      type: number
+                      description: Line number where the error occurred
+                    message:
+                      type: string
+                      description: Error message
+                  required:
+                  - column
+                  - line
+                  - message
+              index:
+                description: Field is indexed
+                type: boolean
+              labels:
+                description: Field labels (localized)
+                type: object
+                additionalProperties:
+                  type: string
+              name:
+                type: string
+                description: Field name
+              optionColor:
+                description: Color expression for dchoice/dmulti fields
+                type: string
+              optionIcon:
+                description: Icon expression for dchoice/dmulti fields
+                type: string
+              optionName:
+                description: Display name expression for dchoice/dmulti fields
+                type: string
+              options:
+                description: Options array for choice/multi fields, or selection expression for dchoice/dmulti fields
+                anyOf:
+                - type: array
+                  items:
+                    type: object
+                    properties:
+                      color:
+                        description: Option color (hex string)
+                        type: string
+                      icon:
+                        description: Option icon name
+                        type: string
+                      id:
+                        type: string
+                        description: Stable option id
+                      labels:
+                        description: Localized option labels
+                        type: object
+                        additionalProperties:
+                          type: string
+                      name:
+                        type: string
+                        description: Option name
+                      order:
+                        type: number
+                        description: Option display order
+                      textColor:
+                        description: Option text color (hex string)
+                        type: string
+                    required:
+                    - id
+                    - name
+                    - order
+                - type: string
+              readRoles:
+                description: Roles allowed to read the field
+                type: array
+                items:
+                  type: string
+              refTableId:
+                description: Reference table id
+                type: string
+              required:
+                description: Field is required
+                type: boolean
+              search:
+                description: Field is searchable
+                type: boolean
+              type:
+                type: string
+                enum:
+                - any
+                - appointment
+                - boolean
+                - choice
+                - color
+                - date
+                - dchoice
+                - dmulti
+                - file
+                - function
+                - html
+                - icon
+                - lambda
+                - multi
+                - number
+                - react
+                - reference
+                - reverse
+                - rowId
+                - string
+                - styled
+                - time
+                - timeinterval
+                - timestamp
+                - unknown
+                - user
+                - void
+                description: Field type
+              unique:
+                description: Field is unique
+                type: boolean
+              variant:
+                description: Field variant (for string type)
+                type: string
+              writeRoles:
+                description: Roles allowed to write to the field
+                type: array
+                items:
+                  type: string
+            required:
+            - name
+            - type
+          description: List of fields
+      required:
+      - data
+    UpdateFieldBody:
+      type: object
+      properties:
+        expression:
+          description: Expression (for function type)
+          type: string
+        labels:
+          description: Field labels (localized)
+          type: object
+          additionalProperties:
+            type: string
+            minLength: 1
+            maxLength: 100
+        name:
+          description: Field name
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+        optionColor:
+          description: Color expression (for dchoice/dmulti types)
+          type: string
+        optionIcon:
+          description: Icon expression (for dchoice/dmulti types)
+          type: string
+        optionName:
+          description: Display name expression (for dchoice/dmulti types)
+          type: string
+        options:
+          description: Options array (for choice/multi types) or selection expression (for dchoice/dmulti types)
+          anyOf:
+          - type: array
+            items:
+              type: object
+              properties:
+                color:
+                  description: Option color (hex string)
+                  type: string
+                icon:
+                  description: Option icon name
+                  type: string
+                id:
+                  description: Stable option id (omit for new options; system assigns id)
+                  type: string
+                labels:
+                  description: Localized option labels
+                  type: object
+                  additionalProperties:
+                    type: string
+                name:
+                  type: string
+                  minLength: 1
+                  description: Option name
+                order:
+                  description: Option display order
+                  type: integer
+                  minimum: 0
+                  maximum: 9007199254740991
+                textColor:
+                  description: Option text color (hex string)
+                  type: string
+              required:
+              - name
+              additionalProperties: false
+          - type: string
+        index:
+          description: Field is indexed
+          type: boolean
+        readRoles:
+          description: Roles allowed to read the field
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - user
+        required:
+          description: Field is required
+          type: boolean
+        search:
+          description: Field is searchable
+          type: boolean
+        unique:
+          description: Field is unique
+          type: boolean
+        writeRoles:
+          description: Roles allowed to write to the field
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - user
+      additionalProperties: false
+    DeleteFieldsBatchBody:
+      type: object
+      properties:
+        fieldNames:
+          minItems: 1
+          type: array
+          items:
+            type: string
+            minLength: 1
+            maxLength: 100
+            pattern: ^[a-z0-9_]+$
+            description: Field name
+      required:
+      - fieldNames
+      additionalProperties: false
+  securitySchemes:
+    bearer:
+      scheme: bearer
+      bearerFormat: API Key
+      description: "Enter your Workspace API key. \n\n API keys can be generated and managed within the **Workspace Integration** settings in the Ninox app."
+      in: header
+      name: Authorization
+      type: http
