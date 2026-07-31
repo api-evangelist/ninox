@@ -1,0 +1,79 @@
+arazzo: 1.0.1
+info:
+  title: Ninox — Create a table and add records
+  version: 1.0.0
+  summary: Create a table in a module, add fields in batch, insert records, then read them back.
+sourceDescriptions:
+- name: ninox
+  url: ../openapi/ninox-public-openapi-original.json
+  type: openapi
+workflows:
+- workflowId: createTableAndAddRecords
+  summary: Provision a table with fields and load records into it.
+  inputs:
+    type: object
+    required: [workspaceId, moduleName]
+    properties:
+      workspaceId: { type: string }
+      moduleName: { type: string }
+      tableName: { type: string, default: Products }
+  steps:
+  - stepId: createTable
+    operationId: TablesV1Controller_createTable
+    parameters:
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: moduleName
+      in: path
+      value: $inputs.moduleName
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      tableName: $response.body#/name
+  - stepId: createFields
+    operationId: FieldsV1Controller_createFieldsBatch
+    parameters:
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: moduleName
+      in: path
+      value: $inputs.moduleName
+    - name: tableName
+      in: path
+      value: $steps.createTable.outputs.tableName
+    successCriteria:
+    - condition: $statusCode == 201
+  - stepId: addRecords
+    operationId: RowsV1Controller_addRows
+    parameters:
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: moduleName
+      in: path
+      value: $inputs.moduleName
+    - name: tableName
+      in: path
+      value: $steps.createTable.outputs.tableName
+    successCriteria:
+    - condition: $statusCode == 201
+  - stepId: readRecords
+    operationId: RowsV1Controller_getRows
+    parameters:
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: moduleName
+      in: path
+      value: $inputs.moduleName
+    - name: tableName
+      in: path
+      value: $steps.createTable.outputs.tableName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      records: $response.body#/data
+  outputs:
+    records: $steps.readRecords.outputs.records

@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/ninox-public-openapi-original.json
+format: custom
+envelope:
+  shape: '{ "error": { "message": string } }'
+  content_type: application/json
+  schema: ErrorResponse
+  note: >-
+    Ninox returns a custom error envelope with a single error.message string, not RFC 9457
+    application/problem+json.
+problems:
+- status: 400
+  title: Bad Request
+  description: The request was malformed or contained invalid parameters/body.
+- status: 401
+  title: Unauthorized
+  description: Missing or invalid workspace API key in the Authorization bearer header.
+- status: 404
+  title: Not Found
+  description: The referenced workspace, module, table, field, or record does not exist.
+- status: 413
+  title: Payload Too Large
+  description: The request body (e.g. batch or CSV import) exceeds the allowed size.
+- status: 500
+  title: Internal Server Error
+  description: An unexpected error occurred on the Ninox server.

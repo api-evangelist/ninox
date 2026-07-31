@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.ninox.com/en/resources/product-updates
+scheme: semver
+note: >-
+  Ninox publishes dated product release notes for the platform (web app, Docker, desktop,
+  and mobile). From version 3.18.8 onward a dedicated release changelog is maintained. The
+  Public API itself is versioned in the URI path (v1). Exact per-version entries are
+  maintained on the live release-notes pages; this artifact records the sources rather than
+  duplicating full history.
+sources:
+- https://docs.ninox.com/en/resources/product-updates
+- https://forum.ninox.com/t/q6ygldd/release-changelog
+- https://forum.ninox.com/t/g9yzkrh/release-notes
+- https://forum.ninox.com/category/service-status
+entries: []

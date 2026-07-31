@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/ninox-public-openapi-original.json
+workflows:
+- file: ninox-create-table-and-add-records.yml
+  workflowId: createTableAndAddRecords
+  title: Create a table and add records
+  summary: Create a table in a module, add fields in batch, insert records, then read them back.
+- file: ninox-provision-module.yml
+  workflowId: provisionModule
+  title: Provision a module with tables and fields
+  summary: Create a module in a workspace, add a table, and define its fields.

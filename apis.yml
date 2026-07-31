@@ -1,7 +1,14 @@
 aid: ninox
 name: Ninox
-description: Ninox is a company surfaced as a portfolio company of techstars and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Ninox is an AI-native low-code database and application platform that lets business teams
+  build custom apps, databases, and workflows without traditional coding. Teams model data as
+  modules, tables, fields, and records, automate processes with the Ninox scripting language,
+  generate documents, and collaborate across organizations and workspaces. The Ninox Public
+  REST API provides programmatic access to workspace resources — creating and managing modules,
+  tables, fields, and records, plus CSV import — authenticated with per-workspace API keys sent
+  as bearer tokens. Ninox is delivered as public cloud, private cloud, and on-premises
+  deployments, and is backed by Techstars.
 url: https://raw.githubusercontent.com/api-evangelist/ninox/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +16,162 @@ x-backed-by:
 - techstars
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://ninox.com/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Low-Code
+- Database
+- No-Code
+- Application Development
+- Workflow Automation
+- Business Apps
+- Productivity
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: ninox:ninox-fields-api
+  name: Ninox Fields API
+  description: The Fields API from Ninox — 3 operation(s) for fields.
+  humanURL: https://docs.ninox.com/ninox-api
+  baseURL: https://go.ninox.com
+  tags:
+  - Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/ninox-fields-api-openapi.yml
+  - type: APIReference
+    url: https://docs.ninox.com/ninox-api/api-reference/api-endpoints
+- aid: ninox:ninox-modules-api
+  name: Ninox Modules API
+  description: The Modules API from Ninox — 2 operation(s) for modules.
+  humanURL: https://docs.ninox.com/ninox-api
+  baseURL: https://go.ninox.com
+  tags:
+  - Modules
+  properties:
+  - type: OpenAPI
+    url: openapi/ninox-modules-api-openapi.yml
+  - type: APIReference
+    url: https://docs.ninox.com/ninox-api/api-reference/api-endpoints
+- aid: ninox:ninox-records-api
+  name: Ninox Records API
+  description: The Records API from Ninox — 2 operation(s) for records.
+  humanURL: https://docs.ninox.com/ninox-api
+  baseURL: https://go.ninox.com
+  tags:
+  - Records
+  properties:
+  - type: OpenAPI
+    url: openapi/ninox-records-api-openapi.yml
+  - type: APIReference
+    url: https://docs.ninox.com/ninox-api/api-reference/api-endpoints
+- aid: ninox:ninox-tables-api
+  name: Ninox Tables API
+  description: The Tables API from Ninox — 2 operation(s) for tables.
+  humanURL: https://docs.ninox.com/ninox-api
+  baseURL: https://go.ninox.com
+  tags:
+  - Tables
+  properties:
+  - type: OpenAPI
+    url: openapi/ninox-tables-api-openapi.yml
+  - type: APIReference
+    url: https://docs.ninox.com/ninox-api/api-reference/api-endpoints
+- aid: ninox:ninox-workspace-api
+  name: Ninox Workspace API
+  description: The Workspace API from Ninox — 1 operation(s) for workspace.
+  humanURL: https://docs.ninox.com/ninox-api
+  baseURL: https://go.ninox.com
+  tags:
+  - Workspace
+  properties:
+  - type: OpenAPI
+    url: openapi/ninox-workspace-api-openapi.yml
+  - type: APIReference
+    url: https://docs.ninox.com/ninox-api/api-reference/api-endpoints
 common:
+- type: DeveloperPortal
+  url: https://docs.ninox.com/ninox-api
+- type: Documentation
+  url: https://docs.ninox.com/
+- type: APIReference
+  url: https://docs.ninox.com/ninox-api/api-reference/api-endpoints
+- type: GettingStarted
+  url: https://docs.ninox.com/ninox-api/api-reference/introduction-to-ninox-public-api
+- type: Authentication
+  url: authentication/ninox-authentication.yml
+- type: Pricing
+  url: https://go.ninox.com/en/pricing
+- type: SignUp
+  url: https://go.ninox.com/user/signup
+- type: Login
+  url: https://go.ninox.com/user/signin
+- type: TermsOfService
+  url: https://go.ninox.com/en/legal-notices/terms
+- type: PrivacyPolicy
+  url: https://go.ninox.com/en/legal-notices/privacy
+- type: Support
+  url: https://go.ninox.com/en/resources/support
+- type: Blog
+  url: https://go.ninox.com/en/resources/blog
+- type: Community
+  url: https://forum.ninox.com/
+- type: StatusPage
+  url: https://forum.ninox.com/category/service-status
+- type: ChangeLog
+  url: changelog/ninox-changelog.yml
+- type: Lifecycle
+  url: lifecycle/ninox-lifecycle.yml
+- type: LLMsTxt
+  url: llms/ninox-llms.txt
+- type: Packages
+  url: packages/ninox-packages.yml
+- type: CLI
+  url: cli/ninox-cli.yml
+- type: MCPServer
+  url: mcp/ninox-mcp.yml
+- type: Conventions
+  url: conventions/ninox-conventions.yml
+- type: ErrorCatalog
+  url: errors/ninox-problem-types.yml
+- type: Conformance
+  url: conformance/ninox-conformance.yml
+- type: DataModel
+  url: data-model/ninox-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Arazzo
+  name: Create table and add records
+  url: arazzo/ninox-create-table-and-add-records.yml
+- type: Arazzo
+  name: Provision a module with tables and fields
+  url: arazzo/ninox-provision-module.yml
+- type: AgenticAccess
+  url: agentic-access/ninox-agentic-access.yml
+- type: DomainSecurity
+  url: security/ninox-domain-security.yml
 - type: Website
-  url: https://ninoxdb.de/
+  url: https://ninox.com/
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 22
+  pass: local-v1

@@ -1,0 +1,51 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/ninox-public-openapi-original.json
+note: >-
+  Entity graph derived from the Ninox Public API resource hierarchy expressed in the OpenAPI
+  path structure (workspace > module > table > field / record).
+entities:
+- name: Workspace
+  id: workspaceId
+  description: Top-level container holding modules; scoped by a workspace API key.
+- name: Module
+  id: moduleName
+  description: A Ninox app/module within a workspace; groups related tables.
+- name: Table
+  id: tableName
+  description: A table within a module; holds fields (schema) and records (data).
+- name: Field
+  id: fieldName
+  description: A typed column definition on a table.
+- name: Record
+  id: id
+  description: A data row within a table, exposing a values map keyed by field.
+relationships:
+- from: Workspace
+  to: Module
+  type: has_many
+  via: workspaceId
+- from: Module
+  to: Workspace
+  type: belongs_to
+  via: workspaceId
+- from: Module
+  to: Table
+  type: has_many
+  via: moduleName
+- from: Table
+  to: Module
+  type: belongs_to
+  via: moduleName
+- from: Table
+  to: Field
+  type: has_many
+  via: tableName
+- from: Table
+  to: Record
+  type: has_many
+  via: tableName
+- from: Record
+  to: Table
+  type: belongs_to
+  via: tableName

@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.npmjs.com/package/@ninox/ninox
+cli:
+  name: ninox
+  package: "@ninox/ninox"
+  registry: npm
+  official: true
+  latest_version: 0.1.9
+  description: >-
+    First-party Ninox Database CLI for developer workflows, published to npm under the Ninox
+    account (maintainer "ninox").
+  install:
+  - npm install -g @ninox/ninox
+  usage: ninox <command>
+  surface_note: >-
+    The CLI wraps the Ninox Public API (workspace/modules/tables/fields/records). The full
+    command surface is defined by the published package; commands map to the same workspace
+    resource operations exposed by openapi/ninox-public-openapi-original.json.
+  auth: Workspace API key (Authorization bearer), same as the Public API.

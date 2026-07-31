@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/ninox-public-openapi-original.json
+authentication:
+  style: http-bearer
+  header: Authorization
+  token: Workspace API key (bearerFormat "API Key")
+  docs: https://docs.ninox.com/ninox-api/api-reference/introduction-to-ninox-public-api
+  ref: authentication/ninox-authentication.yml
+idempotency:
+  supported: false
+  note: No Idempotency-Key header or idempotency contract is documented in the OpenAPI or docs.
+pagination:
+  style: offset
+  params:
+  - limit
+  - offset
+  response_fields:
+    envelope: page_info
+    fields:
+    - has_more
+    - limit
+    - offset
+  note: Record listing endpoints return page_info { has_more, limit, offset }.
+versioning:
+  style: uri-path
+  current: v1
+  ref: lifecycle/ninox-lifecycle.yml
+error_envelope:
+  shape: '{ "error": { "message": string } }'
+  format: custom
+  ref: errors/ninox-problem-types.yml
+rate_limit_signal:
+  documented: false
+  note: No published rate-limit headers or quota documentation found.
+resource_model:
+  hierarchy: workspace > module > table > field / record
+  data_format: JSON

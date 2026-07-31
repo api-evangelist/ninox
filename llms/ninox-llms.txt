@@ -1,0 +1,168 @@
+# Ninox 4 Documentation
+
+## Home
+
+- [Welcome to the Ninox documentation](https://docs.ninox.com/readme.md): Welcome to the Ninox documentation
+
+## Getting started
+
+- [Getting started](https://docs.ninox.com/getting-started/getting-started.md): Find the right starting path for how you use Ninox.
+- [Main elements of Ninox](https://docs.ninox.com/getting-started/user-getting-started/main-elements-of-ninox.md): Learn the main screens and UI areas you use every day in Ninox.
+- [Basic actions you need to know](https://docs.ninox.com/getting-started/user-getting-started/basic-actions-you-need-to-know.md): Learn the core actions users perform every day in Ninox.
+- [Quickstart - create your first app](https://docs.ninox.com/getting-started/builder-getting-started/quickstart-create-your-first-app.md): Go from sign-up to a working first app in minutes with the Ninox AI assistant.
+- [Set up your Ninox manually](https://docs.ninox.com/getting-started/builder-getting-started/set-up-your-ninox-manually.md): Repeat the Quickstart without the AI assistant to set up your organization, build your first app, add automations, and invite your team.
+- [Your first organization and workspace](https://docs.ninox.com/getting-started/builder-getting-started/set-up-your-ninox-manually/your-first-organization-and-workspace.md): Learn how organizations and workspaces structure your Ninox environment, and how to create them.
+- [Your first app](https://docs.ninox.com/getting-started/builder-getting-started/set-up-your-ninox-manually/your-first-app.md): Build your first Ninox app manually by creating tables, fields, and relationships for an invoice management example.
+- [Your first automations](https://docs.ninox.com/getting-started/builder-getting-started/set-up-your-ninox-manually/your-first-automations.md): Set up automations and logic fields to copy data, calculate totals, and generate invoice numbers.
+- [Create print layouts and generate PDFs](https://docs.ninox.com/getting-started/builder-getting-started/set-up-your-ninox-manually/create-print-layouts-and-generate-pdfs.md): Learn how to create print layouts, edit them, and generate PDFs from your records.
+- [Invite your team and assign roles](https://docs.ninox.com/getting-started/builder-getting-started/set-up-your-ninox-manually/invite-your-team-and-assign-roles.md): Invite users at organization or workspace level, assign roles, and manage their status.
+- [Intro to the Ninox UI](https://docs.ninox.com/getting-started/builder-getting-started/intro-to-the-ninox-ui.md): Get a mental map of Ninox: main screens, menus, and panels.
+- [App screen - your main working screen](https://docs.ninox.com/getting-started/builder-getting-started/intro-to-the-ninox-ui/app-screen-your-main-working-screen.md): Learn where everything lives on the app screen and how record editing works.
+- [Settings screen - user, organization, workspace](https://docs.ninox.com/getting-started/builder-getting-started/intro-to-the-ninox-ui/settings-screen-user-organization-workspace.md): Learn what you can configure at user, organization, and workspace level in Settings.
+- [Main navigation - settings, profile, and global menu](https://docs.ninox.com/getting-started/builder-getting-started/intro-to-the-ninox-ui/main-navigation-settings-profile-and-global-menu.md): Learn how the main navigation helps you switch context and open Settings.
+- [Workspace home - inbox, documents, bookmarks, and history](https://docs.ninox.com/getting-started/builder-getting-started/intro-to-the-ninox-ui/workspace-home-inbox-documents-bookmarks-and-history.md): Learn what you can do on workspace home, from email to documents and recent records.
+- [Ninox AI assistant](https://docs.ninox.com/getting-started/builder-getting-started/intro-to-the-ninox-ui/ninox-ai-assistant.md): Learn when to use the Ninox AI assistant and what to include for great results.
+- [Prompting](https://docs.ninox.com/getting-started/builder-getting-started/prompting.md): Get better results from Ninox AI with practical prompting tips and examples.
+- [Intro to the Ninox API](https://docs.ninox.com/getting-started/ninox-api-getting-started/intro-to-the-ninox-api.md): Learn what the Ninox Public API does, how it works, and which core resources it exposes.
+- [Glossary](https://docs.ninox.com/getting-started/basics/glossary.md): Quick definitions of terms used across the docs.
+
+## User Hub
+
+- [User Hub](https://docs.ninox.com/user-hub/user-hub.md): Find the guidance you need to work faster and with confidence in Ninox.
+- [Organizations and workspaces](https://docs.ninox.com/user-hub/ninox-basics/organizations-and-workspaces.md)
+- [Documents](https://docs.ninox.com/user-hub/ninox-basics/documents.md): The Documents screen is where you manage files stored in the current workspace.
+- [Bookmarks](https://docs.ninox.com/user-hub/ninox-basics/bookmarks.md): Bookmark important records for quick access.
+- [History](https://docs.ninox.com/user-hub/ninox-basics/history.md): Review recent record activity in the current workspace and see who changed what and when.
+- [Work with data](https://docs.ninox.com/user-hub/common-tasks/work-with-data.md)
+- [Work with print layouts and generate PDFs](https://docs.ninox.com/user-hub/common-tasks/work-with-print-layouts-and-generate-pdfs.md): Print layouts and generate PDFs from your records.
+- [Work with emails](https://docs.ninox.com/user-hub/common-tasks/work-with-emails.md): Connect your inbox, manage email communication, and link emails to records in your workspace.
+- [Im- and export data](https://docs.ninox.com/user-hub/common-tasks/im-and-export-data.md): Import data into your app and export table data for reuse or sharing.
+- [Manage your profile](https://docs.ninox.com/user-hub/administration/manage-your-profile.md): Update your personal details, profile image, and account settings.
+- [Contact Support](https://docs.ninox.com/user-hub/administration/contact-support.md): Send a support request.
+
+## Builder Hub
+
+- [Builder Hub](https://docs.ninox.com/builder-hub/readme.md): Find the guides you need to design, organize, and scale Ninox apps.
+- [Ninox AI](https://docs.ninox.com/builder-hub/ninox-ai/ninox-ai.md): Learn when to use the Ninox AI assistant and what to include for great results.
+- [Prompting](https://docs.ninox.com/builder-hub/ninox-ai/prompting.md): Get better results from Ninox AI with practical prompting tips and examples.
+- [Create and manage apps](https://docs.ninox.com/builder-hub/design-your-app/create-and-manage-apps.md): Create apps and manage their settings.
+- [Create and manage tables](https://docs.ninox.com/builder-hub/design-your-app/create-and-manage-tables.md): Create, rename, and delete tables.
+- [Add and edit data fields in your tables](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables.md): Add and adjust data fields in tables, forms, the data model, or with Ninox AI.
+- [All data fields](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields.md): Browse every Ninox data field and open a dedicated page for its settings, behavior, and use cases.
+- [Shared field settings](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/shared-field-settings.md): Review the settings that Ninox data fields have in common.
+- [Appointment](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/appointment.md): Store a time range with a start and end for meetings, bookings, or events.
+- [Color](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/color.md): Store a color value for views, charts, and visual display.
+- [Date](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/date.md): Store a calendar date such as a start date, due date, or deadline.
+- [Date and time (Timestamp)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/date-and-time-timestamp.md): Store a calendar date together with a specific time.
+- [Duration (Timeinterval)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/duration-timeinterval.md): Store an elapsed time span such as hours worked or response time.
+- [Dynamic choice (Dchoice)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/dynamic-choice-dchoice.md): Let users select one value from a dynamic list built from logic.
+- [Dynamic multi-choice (Dmulti)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/dynamic-multi-choice-dmulti.md): Let users select several values from a dynamic list built from logic.
+- [Email](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/email.md): Store an email address and support email actions from the form.
+- [File](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/file.md): Store uploaded files and attachments on a record.
+- [Icon](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/icon.md): Store a visual icon for views, charts, and dynamic choices.
+- [Link many records (Reverse)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/link-many-records-reverse.md): Connect one record to several records from another table.
+- [Link one record (Reference)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/link-one-record-reference.md): Connect one record to one record in another table.
+- [Location](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/location.md): Store a place or address with geographic coordinates.
+- [Logic (Function)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/logic-function.md): Store a calculated value from a formula or script.
+- [Multi-choice (Multi)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/multi-choice-multi.md): Let users select several values from a fixed list.
+- [Multi-line text](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/multi-line-text.md): Store longer notes, descriptions, comments, and explanations.
+- [Number](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/number.md): Store numeric values you want to calculate, compare, or format consistently.
+- [Phone](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/phone.md): Store a phone number and support call actions from the form.
+- [Rich text (Html)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/rich-text-html.md): Store formatted text for descriptions, instructions, and content blocks.
+- [Signature](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/signature.md): Store a handwritten signature on a record.
+- [Single-choice (Choice)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/single-choice-choice.md): Let users select one value from a fixed list.
+- [Text](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/text.md): Store short free-form values such as names, titles, codes, or destinations.
+- [Time](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/time.md): Store a time value without a date.
+- [URL](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/url.md): Store a web address and open it directly from the form.
+- [User](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/user.md): Store one user from the current workspace.
+- [Yes/no (Boolean)](https://docs.ninox.com/builder-hub/design-your-app/add-and-edit-data-fields-in-your-tables/all-data-fields/yes-no-boolean.md): Store a simple yes-or-no state such as approved, active, or complete.
+- [Import and export data](https://docs.ninox.com/builder-hub/design-your-app/import-and-export-data.md): Move data between Ninox and spreadsheet files with import and export workflows.
+- [Import data](https://docs.ninox.com/builder-hub/design-your-app/import-and-export-data/import-data.md): Import data to add, update, and structure records in Ninox.
+- [Export data](https://docs.ninox.com/builder-hub/design-your-app/import-and-export-data/export-data.md): Export table data from Ninox as CSV or JSON for reporting, sharing, or reuse.
+- [Work with views](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/work-with-views.md): Create views to organize, filter, and focus the records users see.
+- [Table view](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/work-with-views/table-view.md): Create, filter, and edit records in rows and columns.
+- [Kanban view](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/work-with-views/kanban-view.md): Group records by status and move them through your workflow.
+- [Calendar view](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/work-with-views/calendar-view.md): Display dates, appointments, and deadlines in a calendar layout.
+- [Chart view](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/work-with-views/chart-view.md): Visualize grouped values with bar, line, and pie charts.
+- [Maps view](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/work-with-views/maps-view.md): Display locations on a map based on a Location field.
+- [Gallery view](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/work-with-views/gallery-view.md): Display records as visual cards with images and key field values.
+- [Pivot view](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/work-with-views/pivot-view.md): Summarize and compare data in a pivot table.
+- [Create and customize pages](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-customize-pages.md): Create pages to build dashboards, structure information, and guide users through your app.
+- [Table component](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-customize-pages/table-component.md): Add a Table component to a page to show records in rows and columns.
+- [Kanban component](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-customize-pages/kanban-component.md): Track work by stage in a Kanban.
+- [Calendar component](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-customize-pages/calendar-component.md): Organize date-based records in a calendar layout.
+- [Map component](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-customize-pages/map-component.md): Show location-based records on a map with markers.
+- [Metric card component](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-customize-pages/metric-card-component.md): Highlight one key value with a metric card.
+- [Chart components](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-customize-pages/chart-components.md): Visualize table data on a page with bar, line, pie, and progress charts.
+- [Container component](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-customize-pages/container-component.md): Group related page components with shared layout and spacing.
+- [Tabs component](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-customize-pages/tabs-component.md): Use tabs to organize related sections on a page.
+- [Accordion component](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-customize-pages/accordion-component.md): Organize longer page content into expandable sections.
+- [Create and adjust print layouts](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/create-and-adjust-print-layouts.md): Create print layouts to visualize your data and generate the PDF files you need.
+- [Style your tables with conditional formatting](https://docs.ninox.com/builder-hub/visualize-and-organize-your-data/style-your-tables-with-conditional-formatting.md): Use conditional formatting to style table views and view elements based on conditions.
+- [Manage your organization](https://docs.ninox.com/builder-hub/manage-your-organization-and-workspace/manage-your-organization.md): Manage settings, access, subscriptions, and workspaces at the organization level.
+- [Manage organization settings](https://docs.ninox.com/builder-hub/manage-your-organization-and-workspace/manage-your-organization/manage-organization-settings.md): Change your organization name, review the internal name, and delete an organization when needed.
+- [Manage organization access](https://docs.ninox.com/builder-hub/manage-your-organization-and-workspace/manage-your-organization/manage-organization-access.md): Manage members, assign organization roles, and control who can manage your organization.
+- [Subscriptions and usage](https://docs.ninox.com/builder-hub/manage-your-organization-and-workspace/manage-your-organization/subscriptions-and-usage.md)
+- [Organize your workspace](https://docs.ninox.com/builder-hub/manage-your-organization-and-workspace/organize-your-workspace.md): Manage settings, backups, access, API keys, and email connections for one workspace.
+- [Manage workspace settings](https://docs.ninox.com/builder-hub/manage-your-organization-and-workspace/organize-your-workspace/manage-workspace-settings.md): Change your workspace name, review the internal name, and delete a workspace when needed.
+- [Manage workspace access](https://docs.ninox.com/builder-hub/manage-your-organization-and-workspace/organize-your-workspace/manage-workspace-access.md): Manage members, assign workspace roles, and control access inside one workspace.
+- [API and integrations](https://docs.ninox.com/builder-hub/manage-your-organization-and-workspace/organize-your-workspace/api-and-integrations.md): Create, review, and revoke workspace API keys for the Ninox public API.
+- [Email integration](https://docs.ninox.com/builder-hub/manage-your-organization-and-workspace/organize-your-workspace/email-integration.md): Connect or disconnect a Google or Microsoft inbox for workspace email features.
+- [Backup and restore your data](https://docs.ninox.com/builder-hub/manage-your-organization-and-workspace/backup-and-restore-your-data.md): Restore a workspace from a saved point in time and understand how workspace backups work.
+
+## Ninox Scripting
+
+- [Ninox Scripting](https://docs.ninox.com/ninox-scripting/ninox-scripting.md): Ninox scripting lets you calculate, automate, and connect your app with custom logic.
+- [Introduction to scripting at Ninox](https://docs.ninox.com/ninox-scripting/automate-your-workflows/introduction-to-scripting-at-ninox.md): Learn what Ninox scripting is, where you can use it, and the core terms you need to start writing scripts.
+- [Explore core scripting elements](https://docs.ninox.com/ninox-scripting/automate-your-workflows/explore-core-scripting-elements.md): Learn the core building blocks of Ninox scripting, including statements, variables, data types, operators, and built-in functions.
+- [Variables](https://docs.ninox.com/ninox-scripting/automate-your-workflows/explore-core-scripting-elements/variables.md): Learn how to declare variables, store values, and reuse results in Ninox logic.
+- [Operators](https://docs.ninox.com/ninox-scripting/automate-your-workflows/explore-core-scripting-elements/operators.md): Learn how to calculate, compare, assign, and access values with operators in Ninox logic.
+- [Statements](https://docs.ninox.com/ninox-scripting/automate-your-workflows/explore-core-scripting-elements/statements.md): Learn how to use core Ninox statements to make decisions, query and sort records, repeat logic, and create or delete records.
+- [Logic editor features](https://docs.ninox.com/ninox-scripting/automate-your-workflows/explore-core-scripting-elements/logic-editor-features.md): Learn how the Ninox logic editor helps you write, format, search, and troubleshoot scripts faster.
+- [Work with functions](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions.md): Learn how to use Ninox functions by category, and find the right tools for calculations, text, dates, records, and more.
+- [Text and strings](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions/text-and-strings.md): Learn how to build, clean, search, format, and convert text values for labels, logic, and integrations in Ninox.
+- [Numbers and math](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions/numbers-and-math.md): Learn how to summarize values, convert data to numbers, generate ranges, and use common math functions in Ninox scripts.
+- [Dates and time](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions/dates-and-time.md): Learn how to create dates and times, measure durations, extract date parts, and build reporting periods in Ninox scripts.
+- [Records and tables](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions/records-and-tables.md): Learn how to sort, inspect, update, and reuse records and record lists in Ninox scripts.
+- [User interface](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions/user-interface.md): Learn how to show messages in Ninox scripts.
+- [Files and export](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions/files-and-export.md): Learn how to import files, create exports, inspect attachments, and manage file and view sharing in Ninox scripts.
+- [Users and roles](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions/users-and-roles.md): Learn how to read user details, check roles and admin status, and adapt scripts to the current app, language, and workspace context.
+- [Location and devices](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions/location-and-devices.md): Learn how to read device location, open links, start calls, encode URLs, and scan barcodes in Ninox scripts.
+- [Integration and HTTP](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions/integration-and-http.md): Learn how to call external services, validate XML against XSD schemas, transform XML, send emails, and create calendar items in Ninox scripts.
+- [System and flow control](https://docs.ninox.com/ninox-scripting/automate-your-workflows/work-with-functions/system-and-flow-control.md): Learn how to pause scripts, inspect the app execution context.
+- [Automations](https://docs.ninox.com/ninox-scripting/automate-your-workflows/automations.md): Learn when automations run and how to use On create, On update, and On delete in Ninox.
+- [Best practices and common pitfalls](https://docs.ninox.com/ninox-scripting/automate-your-workflows/best-practices-and-common-pitfalls.md): Learn how Ninox executes read and write transactions, and how to avoid common performance issues in scripts.
+- [Functions library](https://docs.ninox.com/ninox-scripting/functions-and-script-library/functions-library.md)
+- [Data types and operators](https://docs.ninox.com/ninox-scripting/functions-and-script-library/data-types-and-operators.md): Find common Ninox data types, operators, and conversion helpers fast.
+
+## Ninox API
+
+- [Ninox API](https://docs.ninox.com/ninox-api/readme.md): Find everything you need to start building with the Ninox API.
+- [Introduction to Ninox public API](https://docs.ninox.com/ninox-api/api-reference/introduction-to-ninox-public-api.md): Learn what the Ninox Public API does, how it works, and which core resources it exposes.
+- [API endpoints](https://docs.ninox.com/ninox-api/api-reference/api-endpoints.md): Browse Ninox API resources and jump to each endpoint reference.
+- [Fields](https://docs.ninox.com/ninox-api/api-reference/api-endpoints/fields.md)
+- [Modules](https://docs.ninox.com/ninox-api/api-reference/api-endpoints/modules.md)
+- [Records](https://docs.ninox.com/ninox-api/api-reference/api-endpoints/records.md)
+- [Tables](https://docs.ninox.com/ninox-api/api-reference/api-endpoints/tables.md)
+- [Workspace](https://docs.ninox.com/ninox-api/api-reference/api-endpoints/workspace.md)
+- [Models](https://docs.ninox.com/ninox-api/api-reference/api-endpoints/models.md)
+
+## Release Notes
+
+- [Ninox 4 release notes](https://docs.ninox.com/release-notes/readme.md): Updates and improvements
+
+
+---
+
+# Agent Instructions
+This documentation is published with GitBook. GitBook is the documentation platform designed so that both humans and AI agents can read, navigate, and reason over technical content effectively. Learn more at gitbook.com.
+
+## Querying This Documentation
+If you need additional information, you can query the documentation dynamically by asking a question.
+Perform an HTTP GET request on a page URL with the `ask` query parameter:
+```
+GET https://docs.ninox.com/readme.md?ask=<question>
+```
+The question should be specific, self-contained, and written in natural language.
+The response will contain a direct answer to the question and relevant excerpts and sources from the documentation.
+Use this mechanism when the answer is not explicitly present in the current page, you need clarification or additional context, or you want to retrieve related documentation sections.

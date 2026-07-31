@@ -1,0 +1,336 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/ninox-public-openapi-original.json
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 23
+  by_action_class:
+    acting: 15
+    connected: 8
+  by_consequence:
+    safety-critical: 15
+    read: 8
+  human_in_the_loop_required: 15
+operations:
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/fields
+  method: post
+  operationId: FieldsV1Controller_createField
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/fields
+  method: get
+  operationId: FieldsV1Controller_getFields
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/fields/batch
+  method: post
+  operationId: FieldsV1Controller_createFieldsBatch
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/fields/batch
+  method: delete
+  operationId: FieldsV1Controller_deleteFieldsBatch
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/fields/{fieldName}
+  method: delete
+  operationId: FieldsV1Controller_deleteField
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/fields/{fieldName}
+  method: get
+  operationId: FieldsV1Controller_getField
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/fields/{fieldName}
+  method: patch
+  operationId: FieldsV1Controller_updateField
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules
+  method: post
+  operationId: ModulesV1Controller_createModule
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules
+  method: get
+  operationId: ModulesV1Controller_getModules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}
+  method: delete
+  operationId: ModulesV1Controller_deleteModule
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}
+  method: get
+  operationId: ModulesV1Controller_getModule
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}
+  method: patch
+  operationId: ModulesV1Controller_updateModule
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/records
+  method: post
+  operationId: RowsV1Controller_addRows
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/records
+  method: delete
+  operationId: RowsV1Controller_deleteRows
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/records
+  method: get
+  operationId: RowsV1Controller_getRows
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/records
+  method: patch
+  operationId: RowsV1Controller_updateRows
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}/records/import/csv
+  method: post
+  operationId: RowsV1Controller_importCSV
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables
+  method: post
+  operationId: TablesV1Controller_createTable
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables
+  method: get
+  operationId: TablesV1Controller_getTables
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}
+  method: delete
+  operationId: TablesV1Controller_deleteTable
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}
+  method: get
+  operationId: TablesV1Controller_getTable
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/workspace/{workspaceId}/modules/{moduleName}/tables/{tableName}
+  method: patch
+  operationId: TablesV1Controller_updateTable
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/workspace/{workspaceId}
+  method: get
+  operationId: WorkspacesV1Controller_getWorkspace
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

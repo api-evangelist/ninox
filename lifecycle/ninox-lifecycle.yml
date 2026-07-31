@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.ninox.com/en/resources/product-updates
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://docs.ninox.com/ninox-api/api-reference/api-endpoints
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal API deprecation policy or RFC 8594 Sunset/Deprecation header support found.
+sla:
+  url: null
+status_page: https://forum.ninox.com/category/service-status
+release_notes:
+  - https://docs.ninox.com/en/resources/product-updates
+  - https://forum.ninox.com/t/q6ygldd/release-changelog
+deprecated_operations: []

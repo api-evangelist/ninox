@@ -1,0 +1,60 @@
+arazzo: 1.0.1
+info:
+  title: Ninox — Provision a module with tables and fields
+  version: 1.0.0
+  summary: Create a module in a workspace, add a table, and define its fields.
+sourceDescriptions:
+- name: ninox
+  url: ../openapi/ninox-public-openapi-original.json
+  type: openapi
+workflows:
+- workflowId: provisionModule
+  summary: Stand up a new module, add a table, and create fields on it.
+  inputs:
+    type: object
+    required: [workspaceId]
+    properties:
+      workspaceId: { type: string }
+      moduleName: { type: string, default: CRM }
+      tableName: { type: string, default: Contacts }
+  steps:
+  - stepId: createModule
+    operationId: ModulesV1Controller_createModule
+    parameters:
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      moduleName: $response.body#/name
+  - stepId: createTable
+    operationId: TablesV1Controller_createTable
+    parameters:
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: moduleName
+      in: path
+      value: $steps.createModule.outputs.moduleName
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      tableName: $response.body#/name
+  - stepId: createFields
+    operationId: FieldsV1Controller_createFieldsBatch
+    parameters:
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: moduleName
+      in: path
+      value: $steps.createModule.outputs.moduleName
+    - name: tableName
+      in: path
+      value: $steps.createTable.outputs.tableName
+    successCriteria:
+    - condition: $statusCode == 201
+  outputs:
+    moduleName: $steps.createModule.outputs.moduleName
+    tableName: $steps.createTable.outputs.tableName

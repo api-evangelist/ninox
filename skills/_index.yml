@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/ninox-public-openapi-original.json
+skills:
+- file: ninox-create-table-and-add-records.md
+  name: Create a table and add records
+  api: openapi/ninox-public-openapi-original.json
+  operations:
+  - TablesV1Controller_createTable
+  - FieldsV1Controller_createFieldsBatch
+  - RowsV1Controller_addRows
+  - RowsV1Controller_getRows
+- file: ninox-query-and-update-records.md
+  name: Query and update records in a table
+  api: openapi/ninox-public-openapi-original.json
+  operations:
+  - ModulesV1Controller_getModules
+  - TablesV1Controller_getTables
+  - RowsV1Controller_getRows
+  - RowsV1Controller_updateRows

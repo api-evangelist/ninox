@@ -1,0 +1,49 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.npmjs.com/search?q=ninox
+packages:
+- language: javascript
+  registry: npm
+  name: "@ninox/ninox"
+  url: https://www.npmjs.com/package/@ninox/ninox
+  install: npm install -g @ninox/ninox
+  description: Ninox Database CLI for developer workflows (first-party, maintainer "ninox").
+  official: true
+- language: javascript
+  registry: npm
+  name: ninox-logger
+  url: https://www.npmjs.com/package/ninox-logger
+  install: npm install ninox-logger
+  description: Logging utility published by the Ninox npm account (maintainer "ninox").
+  official: true
+- language: javascript
+  registry: npm
+  name: ninoxjs
+  url: https://www.npmjs.com/package/ninoxjs
+  install: npm install ninoxjs
+  description: Community JavaScript client for the Ninox API (AxelRothe).
+  official: false
+- language: php
+  registry: github
+  name: geckse/ninox-api-wrapper
+  url: https://github.com/geckse/ninox-api-wrapper
+  description: Community PHP (Lumen) wrapper for the Ninox REST API.
+  official: false
+- language: python
+  registry: pypi
+  name: ninox
+  url: https://pypi.org/project/ninox/
+  install: pip install ninox
+  description: Community Python wrapper for the Ninox DB API (AndyTheFactory/ninox-api).
+  official: false
+- language: javascript
+  registry: npm
+  name: n8n-nodes-ninox
+  url: https://www.npmjs.com/package/n8n-nodes-ninox
+  description: Community n8n integration node for Ninox (geckse).
+  official: false
+notes: >-
+  Ninox publishes a first-party CLI (@ninox/ninox) but does not ship an official server-side
+  client SDK library; language client libraries in the ecosystem are community-maintained. No
+  SDKs pointer is emitted because no first-party client library was found (the CLI is
+  catalogued here and its command surface in cli/).

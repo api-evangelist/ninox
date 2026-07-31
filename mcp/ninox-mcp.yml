@@ -1,0 +1,81 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/ninox-public-openapi-original.json
+note: >-
+  No official hosted/remote Ninox MCP server was found (searched docs, npm @modelcontextprotocol,
+  MCP registries). This is a DERIVED candidate tool list, one tool per OpenAPI operation, offered
+  as a starting point for an MCP server over the Ninox Public API.
+server:
+  name: ninox
+  transport: http
+tools:
+- name: get_workspace
+  description: Get workspace details
+  source_operation: openapi/ninox-public-openapi-original.json#WorkspacesV1Controller_getWorkspace
+- name: list_modules
+  description: List all modules in a workspace
+  source_operation: openapi/ninox-public-openapi-original.json#ModulesV1Controller_getModules
+- name: get_module
+  description: Get a specific module
+  source_operation: openapi/ninox-public-openapi-original.json#ModulesV1Controller_getModule
+- name: create_module
+  description: Create a module
+  source_operation: openapi/ninox-public-openapi-original.json#ModulesV1Controller_createModule
+- name: update_module
+  description: Update a module
+  source_operation: openapi/ninox-public-openapi-original.json#ModulesV1Controller_updateModule
+- name: delete_module
+  description: Delete a module
+  source_operation: openapi/ninox-public-openapi-original.json#ModulesV1Controller_deleteModule
+- name: list_tables
+  description: List all tables in a module
+  source_operation: openapi/ninox-public-openapi-original.json#TablesV1Controller_getTables
+- name: get_table
+  description: Get a specific table
+  source_operation: openapi/ninox-public-openapi-original.json#TablesV1Controller_getTable
+- name: create_table
+  description: Create a table
+  source_operation: openapi/ninox-public-openapi-original.json#TablesV1Controller_createTable
+- name: update_table
+  description: Update a table
+  source_operation: openapi/ninox-public-openapi-original.json#TablesV1Controller_updateTable
+- name: delete_table
+  description: Delete a table
+  source_operation: openapi/ninox-public-openapi-original.json#TablesV1Controller_deleteTable
+- name: list_fields
+  description: List all fields in a table
+  source_operation: openapi/ninox-public-openapi-original.json#FieldsV1Controller_getFields
+- name: get_field
+  description: Get a specific field
+  source_operation: openapi/ninox-public-openapi-original.json#FieldsV1Controller_getField
+- name: create_field
+  description: Create a field
+  source_operation: openapi/ninox-public-openapi-original.json#FieldsV1Controller_createField
+- name: create_fields_batch
+  description: Create multiple fields (batch)
+  source_operation: openapi/ninox-public-openapi-original.json#FieldsV1Controller_createFieldsBatch
+- name: update_field
+  description: Update a field
+  source_operation: openapi/ninox-public-openapi-original.json#FieldsV1Controller_updateField
+- name: delete_field
+  description: Delete a field
+  source_operation: openapi/ninox-public-openapi-original.json#FieldsV1Controller_deleteField
+- name: delete_fields_batch
+  description: Delete multiple fields (batch)
+  source_operation: openapi/ninox-public-openapi-original.json#FieldsV1Controller_deleteFieldsBatch
+- name: get_records
+  description: Get records from a table
+  source_operation: openapi/ninox-public-openapi-original.json#RowsV1Controller_getRows
+- name: add_records
+  description: Create records in a table
+  source_operation: openapi/ninox-public-openapi-original.json#RowsV1Controller_addRows
+- name: update_records
+  description: Update records in a table
+  source_operation: openapi/ninox-public-openapi-original.json#RowsV1Controller_updateRows
+- name: delete_records
+  description: Delete records from a table
+  source_operation: openapi/ninox-public-openapi-original.json#RowsV1Controller_deleteRows
+- name: import_csv
+  description: Import records from CSV file
+  source_operation: openapi/ninox-public-openapi-original.json#RowsV1Controller_importCSV

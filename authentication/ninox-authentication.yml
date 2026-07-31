@@ -1,0 +1,15 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/ninox-public-openapi-original.json
+summary:
+  types:
+  - http
+schemes:
+- name: bearer
+  type: http
+  scheme: bearer
+  bearerFormat: API Key
+  description: "Enter your Workspace API key. \n\n API keys can be generated and managed within\
+    \ the **Workspace Integration** settings in the Ninox app."
+  sources:
+  - openapi/ninox-public-openapi-original.json

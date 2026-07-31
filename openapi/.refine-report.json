@@ -1,0 +1,22 @@
+{
+  "provider": "ninox",
+  "sources": [
+    "ninox-fields-api-openapi.yml",
+    "ninox-modules-api-openapi.yml",
+    "ninox-records-api-openapi.yml",
+    "ninox-tables-api-openapi.yml",
+    "ninox-workspace-api-openapi.yml"
+  ],
+  "outputs": [
+    "ninox-fields-api-openapi.yml",
+    "ninox-modules-api-openapi.yml",
+    "ninox-records-api-openapi.yml",
+    "ninox-tables-api-openapi.yml",
+    "ninox-workspace-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
