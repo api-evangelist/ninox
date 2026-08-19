@@ -1,0 +1,302 @@
+{
+  "item": [
+    {
+      "id": "6923dfae-07b1-4e5a-9ed4-a96b1984e2a5",
+      "name": "Workspace",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "590f71bb-73a6-4dda-af9d-9bd16f9474c4",
+          "name": "Get workspace details",
+          "request": {
+            "name": "Get workspace details",
+            "description": {
+              "content": "Retrieves comprehensive details about a workspace, including all its modules",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b16f5d43-a9e3-42c0-bd2f-e40a8fea8a5a",
+              "name": "Workspace details retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"modules\": [\n      {\n        \"name\": \"string\",\n        \"hideNavigation\": true,\n        \"icon\": {\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"filling\": 0\n        },\n        \"isHidden\": false,\n        \"labels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"openRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tables\": [\n          {\n            \"name\": \"string\",\n            \"createRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"deleteRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"fields\": [\n              {\n                \"name\": \"string\",\n                \"type\": \"function\",\n                \"expression\": \"string\",\n                \"expressionErrors\": [\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"index\": false,\n                \"labels\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\"\n                },\n                \"optionColor\": \"string\",\n                \"optionIcon\": \"string\",\n                \"optionName\": \"string\",\n                \"options\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"readRoles\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"refTableId\": \"string\",\n                \"required\": false,\n                \"search\": false,\n                \"unique\": true,\n                \"variant\": \"string\",\n                \"writeRoles\": [\n                  \"string\",\n                  \"string\"\n                ]\n              },\n              {\n                \"name\": \"string\",\n                \"type\": \"appointment\",\n                \"expression\": \"string\",\n                \"expressionErrors\": [\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"index\": true,\n                \"labels\": {\n                  \"key_0\": \"string\"\n                },\n                \"optionColor\": \"string\",\n                \"optionIcon\": \"string\",\n                \"optionName\": \"string\",\n                \"options\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"readRoles\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"refTableId\": \"string\",\n                \"required\": false,\n                \"search\": true,\n                \"unique\": true,\n                \"variant\": \"string\",\n                \"writeRoles\": [\n                  \"string\",\n                  \"string\"\n                ]\n              }\n            ],\n            \"hasFiles\": false,\n            \"hasGlobalSearch\": true,\n            \"hasHistory\": false,\n            \"icon\": {\n              \"icon\": \"string\",\n              \"color\": \"string\",\n              \"filling\": 0\n            },\n            \"isEmailLinkingEnabled\": false,\n            \"isHidden\": false,\n            \"labels\": {\n              \"key_0\": \"string\"\n            },\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"createRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"deleteRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"fields\": [\n              {\n                \"name\": \"string\",\n                \"type\": \"timeinterval\",\n                \"expression\": \"string\",\n                \"expressionErrors\": [\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"index\": false,\n                \"labels\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\"\n                },\n                \"optionColor\": \"string\",\n                \"optionIcon\": \"string\",\n                \"optionName\": \"string\",\n                \"options\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"readRoles\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"refTableId\": \"string\",\n                \"required\": false,\n                \"search\": false,\n                \"unique\": true,\n                \"variant\": \"string\",\n                \"writeRoles\": [\n                  \"string\",\n                  \"string\"\n                ]\n              },\n              {\n                \"name\": \"string\",\n                \"type\": \"function\",\n                \"expression\": \"string\",\n                \"expressionErrors\": [\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"index\": true,\n                \"labels\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\",\n                  \"key_2\": \"string\"\n                },\n                \"optionColor\": \"string\",\n                \"optionIcon\": \"string\",\n                \"optionName\": \"string\",\n                \"options\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"readRoles\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"refTableId\": \"string\",\n                \"required\": true,\n                \"search\": false,\n                \"unique\": true,\n                \"variant\": \"string\",\n                \"writeRoles\": [\n                  \"string\",\n                  \"string\"\n                ]\n              }\n            ],\n            \"hasFiles\": true,\n            \"hasGlobalSearch\": false,\n            \"hasHistory\": false,\n            \"icon\": {\n              \"icon\": \"string\",\n              \"color\": \"string\",\n              \"filling\": 0\n            },\n            \"isEmailLinkingEnabled\": true,\n            \"isHidden\": true,\n            \"labels\": {\n              \"key_0\": \"string\"\n            },\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"hideNavigation\": false,\n        \"icon\": {\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"filling\": 0\n        },\n        \"isHidden\": false,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"openRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tables\": [\n          {\n            \"name\": \"string\",\n            \"createRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"deleteRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"fields\": [\n              {\n                \"name\": \"string\",\n                \"type\": \"reverse\",\n                \"expression\": \"string\",\n                \"expressionErrors\": [\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"index\": false,\n                \"labels\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\",\n                  \"key_2\": \"string\"\n                },\n                \"optionColor\": \"string\",\n                \"optionIcon\": \"string\",\n                \"optionName\": \"string\",\n                \"options\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"readRoles\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"refTableId\": \"string\",\n                \"required\": true,\n                \"search\": false,\n                \"unique\": false,\n                \"variant\": \"string\",\n                \"writeRoles\": [\n                  \"string\",\n                  \"string\"\n                ]\n              },\n              {\n                \"name\": \"string\",\n                \"type\": \"time\",\n                \"expression\": \"string\",\n                \"expressionErrors\": [\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"index\": true,\n                \"labels\": {\n                  \"key_0\": \"string\"\n                },\n                \"optionColor\": \"string\",\n                \"optionIcon\": \"string\",\n                \"optionName\": \"string\",\n                \"options\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"readRoles\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"refTableId\": \"string\",\n                \"required\": false,\n                \"search\": false,\n                \"unique\": false,\n                \"variant\": \"string\",\n                \"writeRoles\": [\n                  \"string\",\n                  \"string\"\n                ]\n              }\n            ],\n            \"hasFiles\": true,\n            \"hasGlobalSearch\": true,\n            \"hasHistory\": false,\n            \"icon\": {\n              \"icon\": \"string\",\n              \"color\": \"string\",\n              \"filling\": 0\n            },\n            \"isEmailLinkingEnabled\": false,\n            \"isHidden\": false,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"createRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"deleteRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"fields\": [\n              {\n                \"name\": \"string\",\n                \"type\": \"html\",\n                \"expression\": \"string\",\n                \"expressionErrors\": [\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"index\": true,\n                \"labels\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\",\n                  \"key_2\": \"string\",\n                  \"key_3\": \"string\"\n                },\n                \"optionColor\": \"string\",\n                \"optionIcon\": \"string\",\n                \"optionName\": \"string\",\n                \"options\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"readRoles\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"refTableId\": \"string\",\n                \"required\": true,\n                \"search\": true,\n                \"unique\": true,\n                \"variant\": \"string\",\n                \"writeRoles\": [\n                  \"string\",\n                  \"string\"\n                ]\n              },\n              {\n                \"name\": \"string\",\n                \"type\": \"timestamp\",\n                \"expression\": \"string\",\n                \"expressionErrors\": [\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"column\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"line\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"message\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"index\": true,\n                \"labels\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\"\n                },\n                \"optionColor\": \"string\",\n                \"optionIcon\": \"string\",\n                \"optionName\": \"string\",\n                \"options\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"readRoles\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"refTableId\": \"string\",\n                \"required\": true,\n                \"search\": true,\n                \"unique\": true,\n                \"variant\": \"string\",\n                \"writeRoles\": [\n                  \"string\",\n                  \"string\"\n                ]\n              }\n            ],\n            \"hasFiles\": false,\n            \"hasGlobalSearch\": true,\n            \"hasHistory\": true,\n            \"icon\": {\n              \"icon\": \"string\",\n              \"color\": \"string\",\n              \"filling\": 0\n            },\n            \"isEmailLinkingEnabled\": true,\n            \"isHidden\": true,\n            \"labels\": {\n              \"key_0\": \"string\"\n            },\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          }\n        ]\n      }\n    ],\n    \"name\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95a84730-3002-4140-b9ac-d07a71aea147",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88e47eae-96df-4a55-b9db-f22d03191e00",
+              "name": "Workspace not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40fb961e-9a82-4a3c-96c9-3cbe81176873",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a4b52628-b047-4c3a-b240-958ee294fb9e",
+    "name": "Ninox Public Fields Workspace API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ninox Public API provides programmatic access to workspace resources, enabling seamless integration for managing modules, tables, fields and records.\n\n### Authentication\nAll requests require a Workspace API Key passed in the HTTP header as follows:\n**<code>Authorization: Bearer {apiKey}</code>**\n\nAPI keys can be generated and managed within the **Workspace Integration** settings in the Ninox app.",
+      "type": "text/plain"
+    }
+  }
+}

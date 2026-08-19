@@ -1,0 +1,2920 @@
+{
+  "item": [
+    {
+      "id": "a38f43e6-1fc1-4bff-a2f7-1e88ccc15e39",
+      "name": "Records",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d8aedff3-848d-4dcc-8ca9-f0af307439b2",
+          "name": "Create records in a table",
+          "request": {
+            "name": "Create records in a table",
+            "description": {
+              "content": "Creates new records in an existing table (max. 6MB payload size)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName",
+                "tables",
+                ":tableName",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) Table name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"records\": [\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "64d6225b-fc13-4c0b-af6f-b38cb06d0c50",
+              "name": "Records created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    {\n      \"any_field\": {\n        \"source\": \"import\",\n        \"score\": 98\n      },\n      \"appointment_field\": \"[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)\",\n      \"array_field\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n      ],\n      \"boolean_field\": true,\n      \"choice_field\": \"Gold\",\n      \"color_field\": \"#ffcc00\",\n      \"date_field\": \"2024-02-15\",\n      \"file_field\": \"file_123\",\n      \"html_field\": \"<p>Rich text</p>\",\n      \"icon_field\": \"check-circle\",\n      \"multi_field\": [\n        \"Gold\",\n        \"Silver\"\n      ],\n      \"number_field\": 1234.56,\n      \"react_field\": \"<Component name=\\\"Badge\\\" />\",\n      \"reference_field\": 42,\n      \"string_field\": \"Hello world\",\n      \"styled_field\": \"font-weight: 600;\",\n      \"time_field\": \"09:30\",\n      \"timeinterval_field\": \"09:00-17:00\",\n      \"timestamp_field\": \"2024-02-15T13:45:30Z\",\n      \"unknown_field\": {\n        \"raw\": true\n      },\n      \"user_field\": \"user_123\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"ids\": [\n      \"101\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d9f630d-a32b-461b-bcb8-ca1640a8661c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    {\n      \"any_field\": {\n        \"source\": \"import\",\n        \"score\": 98\n      },\n      \"appointment_field\": \"[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)\",\n      \"array_field\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n      ],\n      \"boolean_field\": true,\n      \"choice_field\": \"Gold\",\n      \"color_field\": \"#ffcc00\",\n      \"date_field\": \"2024-02-15\",\n      \"file_field\": \"file_123\",\n      \"html_field\": \"<p>Rich text</p>\",\n      \"icon_field\": \"check-circle\",\n      \"multi_field\": [\n        \"Gold\",\n        \"Silver\"\n      ],\n      \"number_field\": 1234.56,\n      \"react_field\": \"<Component name=\\\"Badge\\\" />\",\n      \"reference_field\": 42,\n      \"string_field\": \"Hello world\",\n      \"styled_field\": \"font-weight: 600;\",\n      \"time_field\": \"09:30\",\n      \"timeinterval_field\": \"09:00-17:00\",\n      \"timestamp_field\": \"2024-02-15T13:45:30Z\",\n      \"unknown_field\": {\n        \"raw\": true\n      },\n      \"user_field\": \"user_123\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c94a012-e5ed-485f-a412-1fea1659de99",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    {\n      \"any_field\": {\n        \"source\": \"import\",\n        \"score\": 98\n      },\n      \"appointment_field\": \"[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)\",\n      \"array_field\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n      ],\n      \"boolean_field\": true,\n      \"choice_field\": \"Gold\",\n      \"color_field\": \"#ffcc00\",\n      \"date_field\": \"2024-02-15\",\n      \"file_field\": \"file_123\",\n      \"html_field\": \"<p>Rich text</p>\",\n      \"icon_field\": \"check-circle\",\n      \"multi_field\": [\n        \"Gold\",\n        \"Silver\"\n      ],\n      \"number_field\": 1234.56,\n      \"react_field\": \"<Component name=\\\"Badge\\\" />\",\n      \"reference_field\": 42,\n      \"string_field\": \"Hello world\",\n      \"styled_field\": \"font-weight: 600;\",\n      \"time_field\": \"09:30\",\n      \"timeinterval_field\": \"09:00-17:00\",\n      \"timestamp_field\": \"2024-02-15T13:45:30Z\",\n      \"unknown_field\": {\n        \"raw\": true\n      },\n      \"user_field\": \"user_123\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e40cf76-0f22-40cc-9370-1e108d391a78",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    {\n      \"any_field\": {\n        \"source\": \"import\",\n        \"score\": 98\n      },\n      \"appointment_field\": \"[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)\",\n      \"array_field\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n      ],\n      \"boolean_field\": true,\n      \"choice_field\": \"Gold\",\n      \"color_field\": \"#ffcc00\",\n      \"date_field\": \"2024-02-15\",\n      \"file_field\": \"file_123\",\n      \"html_field\": \"<p>Rich text</p>\",\n      \"icon_field\": \"check-circle\",\n      \"multi_field\": [\n        \"Gold\",\n        \"Silver\"\n      ],\n      \"number_field\": 1234.56,\n      \"react_field\": \"<Component name=\\\"Badge\\\" />\",\n      \"reference_field\": 42,\n      \"string_field\": \"Hello world\",\n      \"styled_field\": \"font-weight: 600;\",\n      \"time_field\": \"09:30\",\n      \"timeinterval_field\": \"09:00-17:00\",\n      \"timestamp_field\": \"2024-02-15T13:45:30Z\",\n      \"unknown_field\": {\n        \"raw\": true\n      },\n      \"user_field\": \"user_123\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bfed861-ba5e-4e37-b9b7-0530d43084aa",
+          "name": "Delete records from a table",
+          "request": {
+            "name": "Delete records from a table",
+            "description": {
+              "content": "Deletes existing records from a table in a single transaction. If any record id is invalid, does not exist, or deletion fails, all changes are rolled back.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName",
+                "tables",
+                ":tableName",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) Table name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"records\": [\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75ef8cb3-3519-45bb-9536-de71a4cdfb39",
+              "name": "Records deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    101,\n    \"102\",\n    103\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"deletedIds\": [\n      \"101\",\n      \"102\",\n      \"103\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7bc38e97-faac-4076-b0ab-bf2205218668",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    101,\n    \"102\",\n    103\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7276bae-d8f4-440d-96ee-e7598deaa60b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    101,\n    \"102\",\n    103\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f788ed29-371e-41bd-9b89-3a77564ee50d",
+              "name": "Not found (workspace, module, table, or record)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    101,\n    \"102\",\n    103\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e201d7e-d43a-4d26-834b-2909325cbba6",
+          "name": "Get records from a table",
+          "request": {
+            "name": "Get records from a table",
+            "description": {
+              "content": "Retrieves paginated rows from a table with optional filtering and sorting",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName",
+                "tables",
+                ":tableName",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter conditions as a JSON string (e.g., {\"email\": \"test@example.com\"})"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "Maximum number of rows to return (1-100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<number>",
+                  "description": "Number of rows to skip (starts with 0)"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Field name to sort by"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) Table name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f94c23a7-a75b-4792-a8d3-56154fce8111",
+              "name": "Rows retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"values\": {\n        \"category\": \"Audio\",\n        \"item-name\": \"Aura Headphones\",\n        \"price-usd\": 199.99,\n        \"product-id\": 101,\n        \"stock-level\": 25\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"values\": {\n        \"category\": \"Wearables\",\n        \"item-name\": \"Zenith Smartwatch\",\n        \"price-usd\": 249.5,\n        \"product-id\": 102,\n        \"stock-level\": 12\n      }\n    }\n  ],\n  \"page_info\": {\n    \"has_more\": true,\n    \"limit\": 2,\n    \"offset\": 0\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a855599e-a2ec-4cbe-8870-f8f9c4d1645b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e613a2a-3fe1-47e6-83f6-e4ed5475e5d6",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2fa3369-9e7e-49df-af87-9fbafded827e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cd8bccb-90ae-4aa1-961a-56334bcd7bfc",
+          "name": "Update records in a table",
+          "request": {
+            "name": "Update records in a table",
+            "description": {
+              "content": "Updates existing records in a table (max. 6MB payload size). Each record must include an `id` field referencing an existing record. The update is transactional — if any record fails validation or does not exist, all changes are rolled back.\n\n**Field type rules:**\n- `multi` — must be an **array of strings** (e.g. `[\"Gold\", \"Silver\"]`). A plain string is not accepted.\n- `choice` — a single string (e.g. `\"Gold\"`) or an array of strings.\n- `boolean` — `true` or `false` only; numeric `1`/`0` are not accepted.\n- `number` — a finite number or a numeric string (e.g. `\"42.5\"`).\n- `date` / `timestamp` / `appointment` — ISO 8601 string or Unix timestamp (ms).\n- Any field may be set to `null` to clear its value.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName",
+                "tables",
+                ":tableName",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) Table name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"records\": [\n    {\n      \"id\": \"<integer>\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "352b9a8b-00d8-4b40-b5e7-81c0fa219f27",
+              "name": "Records updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    {\n      \"any_field\": {\n        \"source\": \"import\",\n        \"score\": 98\n      },\n      \"appointment_field\": \"[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)\",\n      \"array_field\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n      ],\n      \"boolean_field\": true,\n      \"choice_field\": \"Gold\",\n      \"color_field\": \"#ffcc00\",\n      \"date_field\": \"2024-02-15\",\n      \"file_field\": \"file_123\",\n      \"html_field\": \"<p>Rich text</p>\",\n      \"icon_field\": \"{\\\"icon\\\":\\\"check-circle\\\",\\\"color\\\":\\\"#4CAF50\\\",\\\"filling\\\":1}\",\n      \"id\": 1,\n      \"multi_field\": [\n        \"Gold\",\n        \"Silver\"\n      ],\n      \"number_field\": 1234.56,\n      \"react_field\": \"<Component name=\\\"Badge\\\" />\",\n      \"reference_field\": 42,\n      \"string_field\": \"Hello world\",\n      \"styled_field\": \"font-weight: 600;\",\n      \"time_field\": \"09:30\",\n      \"timeinterval_field\": \"08:00:00\",\n      \"timestamp_field\": \"2024-02-15T13:45:30Z\",\n      \"unknown_field\": {\n        \"raw\": true\n      },\n      \"user_field\": \"user_123\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"updatedIds\": [\n      \"1\",\n      \"2\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e89d14a1-de9e-4f74-b3fd-3c6d1258e73b",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    {\n      \"any_field\": {\n        \"source\": \"import\",\n        \"score\": 98\n      },\n      \"appointment_field\": \"[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)\",\n      \"array_field\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n      ],\n      \"boolean_field\": true,\n      \"choice_field\": \"Gold\",\n      \"color_field\": \"#ffcc00\",\n      \"date_field\": \"2024-02-15\",\n      \"file_field\": \"file_123\",\n      \"html_field\": \"<p>Rich text</p>\",\n      \"icon_field\": \"{\\\"icon\\\":\\\"check-circle\\\",\\\"color\\\":\\\"#4CAF50\\\",\\\"filling\\\":1}\",\n      \"id\": 1,\n      \"multi_field\": [\n        \"Gold\",\n        \"Silver\"\n      ],\n      \"number_field\": 1234.56,\n      \"react_field\": \"<Component name=\\\"Badge\\\" />\",\n      \"reference_field\": 42,\n      \"string_field\": \"Hello world\",\n      \"styled_field\": \"font-weight: 600;\",\n      \"time_field\": \"09:30\",\n      \"timeinterval_field\": \"08:00:00\",\n      \"timestamp_field\": \"2024-02-15T13:45:30Z\",\n      \"unknown_field\": {\n        \"raw\": true\n      },\n      \"user_field\": \"user_123\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c2804b1-a50f-409c-9011-ef3eb1ff0f3e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    {\n      \"any_field\": {\n        \"source\": \"import\",\n        \"score\": 98\n      },\n      \"appointment_field\": \"[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)\",\n      \"array_field\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n      ],\n      \"boolean_field\": true,\n      \"choice_field\": \"Gold\",\n      \"color_field\": \"#ffcc00\",\n      \"date_field\": \"2024-02-15\",\n      \"file_field\": \"file_123\",\n      \"html_field\": \"<p>Rich text</p>\",\n      \"icon_field\": \"{\\\"icon\\\":\\\"check-circle\\\",\\\"color\\\":\\\"#4CAF50\\\",\\\"filling\\\":1}\",\n      \"id\": 1,\n      \"multi_field\": [\n        \"Gold\",\n        \"Silver\"\n      ],\n      \"number_field\": 1234.56,\n      \"react_field\": \"<Component name=\\\"Badge\\\" />\",\n      \"reference_field\": 42,\n      \"string_field\": \"Hello world\",\n      \"styled_field\": \"font-weight: 600;\",\n      \"time_field\": \"09:30\",\n      \"timeinterval_field\": \"08:00:00\",\n      \"timestamp_field\": \"2024-02-15T13:45:30Z\",\n      \"unknown_field\": {\n        \"raw\": true\n      },\n      \"user_field\": \"user_123\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04a437cd-721c-40c4-ae23-b1624d4cfc9d",
+              "name": "Not found (workspace, module, table, or record)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    {\n      \"any_field\": {\n        \"source\": \"import\",\n        \"score\": 98\n      },\n      \"appointment_field\": \"[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)\",\n      \"array_field\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n      ],\n      \"boolean_field\": true,\n      \"choice_field\": \"Gold\",\n      \"color_field\": \"#ffcc00\",\n      \"date_field\": \"2024-02-15\",\n      \"file_field\": \"file_123\",\n      \"html_field\": \"<p>Rich text</p>\",\n      \"icon_field\": \"{\\\"icon\\\":\\\"check-circle\\\",\\\"color\\\":\\\"#4CAF50\\\",\\\"filling\\\":1}\",\n      \"id\": 1,\n      \"multi_field\": [\n        \"Gold\",\n        \"Silver\"\n      ],\n      \"number_field\": 1234.56,\n      \"react_field\": \"<Component name=\\\"Badge\\\" />\",\n      \"reference_field\": 42,\n      \"string_field\": \"Hello world\",\n      \"styled_field\": \"font-weight: 600;\",\n      \"time_field\": \"09:30\",\n      \"timeinterval_field\": \"08:00:00\",\n      \"timestamp_field\": \"2024-02-15T13:45:30Z\",\n      \"unknown_field\": {\n        \"raw\": true\n      },\n      \"user_field\": \"user_123\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0362b6ea-e122-4371-ae94-25fde62fcf3f",
+              "name": "Payload too large (max 6 MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"records\": [\n    {\n      \"any_field\": {\n        \"source\": \"import\",\n        \"score\": 98\n      },\n      \"appointment_field\": \"[2024-02-15T09:00:00Z,2024-02-15T10:00:00Z)\",\n      \"array_field\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n      ],\n      \"boolean_field\": true,\n      \"choice_field\": \"Gold\",\n      \"color_field\": \"#ffcc00\",\n      \"date_field\": \"2024-02-15\",\n      \"file_field\": \"file_123\",\n      \"html_field\": \"<p>Rich text</p>\",\n      \"icon_field\": \"{\\\"icon\\\":\\\"check-circle\\\",\\\"color\\\":\\\"#4CAF50\\\",\\\"filling\\\":1}\",\n      \"id\": 1,\n      \"multi_field\": [\n        \"Gold\",\n        \"Silver\"\n      ],\n      \"number_field\": 1234.56,\n      \"react_field\": \"<Component name=\\\"Badge\\\" />\",\n      \"reference_field\": 42,\n      \"string_field\": \"Hello world\",\n      \"styled_field\": \"font-weight: 600;\",\n      \"time_field\": \"09:30\",\n      \"timeinterval_field\": \"08:00:00\",\n      \"timestamp_field\": \"2024-02-15T13:45:30Z\",\n      \"unknown_field\": {\n        \"raw\": true\n      },\n      \"user_field\": \"user_123\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba91d983-a7bf-44a5-a232-0eb6c49e6b49",
+          "name": "Import records from CSV file",
+          "request": {
+            "name": "Import records from CSV file",
+            "description": {
+              "content": "Import records from a CSV file into an existing table.\n        \nThe endpoint accepts multipart/form-data with:\n- A CSV file (max 50 MB)\n- Optional parsing and import options\n\n**Auto-mapping**: By default, CSV columns are automatically mapped to table fields by matching column header names to field names (case-insensitive).\n\n**Import Modes**:\n- `append`: Always create new records (default)\n- `update`: Only update existing records (requires key field mappings)\n- `upsert`: Update existing records or create new ones (requires key field mappings)\n\n**Field Mappings**: Optionally provide explicit mappings to control which CSV columns map to which table fields, and which fields are used as keys for update/upsert operations.\n\nThe entire import is processed within a single transaction - if any record fails to import, all changes are rolled back.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName",
+                "tables",
+                ":tableName",
+                "records",
+                "import",
+                "csv"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) Table name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) CSV file to import (max 50 MB)"
+                },
+                {
+                  "key": "hasHeader",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Whether the CSV file has a header row"
+                },
+                {
+                  "key": "delimiter",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "CSV delimiter character (auto-detected if not specified)"
+                },
+                {
+                  "key": "quoteChar",
+                  "value": "\"",
+                  "type": "text",
+                  "description": "CSV quote character"
+                },
+                {
+                  "key": "encoding",
+                  "value": "utf8",
+                  "type": "text",
+                  "description": "CSV file encoding (This can only be one of utf8,ascii,latin1,iso-latin1,utf16,windows-cp1252)"
+                },
+                {
+                  "key": "importMode",
+                  "value": "append",
+                  "type": "text",
+                  "description": "Import mode: append (insert all), update (update existing only), upsert (insert or update) (This can only be one of append,update,upsert)"
+                },
+                {
+                  "key": "numberFormat",
+                  "value": "us",
+                  "type": "text",
+                  "description": "Number format for parsing numeric values (This can only be one of us,european)"
+                },
+                {
+                  "key": "batchSize",
+                  "value": "100",
+                  "type": "text",
+                  "description": "Number of records to process per batch"
+                },
+                {
+                  "key": "mappings",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "JSON array of field mappings: [{\"csvColumnName\": \"Name\", \"fieldName\": \"name\", \"updatePolicy\": \"key\"}]"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8d419a81-24f1-4bfe-a7cc-d45d599f8d76",
+              "name": "CSV import completed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records",
+                    "import",
+                    "csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) CSV file to import (max 50 MB)",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether the CSV file has a header row",
+                        "type": "text/plain"
+                      },
+                      "key": "hasHeader",
+                      "value": "true",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV delimiter character (auto-detected if not specified)",
+                        "type": "text/plain"
+                      },
+                      "key": "delimiter",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV quote character",
+                        "type": "text/plain"
+                      },
+                      "key": "quoteChar",
+                      "value": "\"",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV file encoding (This can only be one of utf8,ascii,latin1,iso-latin1,utf16,windows-cp1252)",
+                        "type": "text/plain"
+                      },
+                      "key": "encoding",
+                      "value": "utf8",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Import mode: append (insert all), update (update existing only), upsert (insert or update) (This can only be one of append,update,upsert)",
+                        "type": "text/plain"
+                      },
+                      "key": "importMode",
+                      "value": "append",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number format for parsing numeric values (This can only be one of us,european)",
+                        "type": "text/plain"
+                      },
+                      "key": "numberFormat",
+                      "value": "us",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number of records to process per batch",
+                        "type": "text/plain"
+                      },
+                      "key": "batchSize",
+                      "value": "100",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of field mappings: [{\"csvColumnName\": \"Name\", \"fieldName\": \"name\", \"updatePolicy\": \"key\"}]",
+                        "type": "text/plain"
+                      },
+                      "key": "mappings",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"rowsImported\": 100,\n    \"rowsSkipped\": 0,\n    \"rowsUpdated\": 0\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ccb606b-1043-4055-9322-d82525dae633",
+              "name": "Bad request (invalid CSV, missing file, etc.)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records",
+                    "import",
+                    "csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) CSV file to import (max 50 MB)",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether the CSV file has a header row",
+                        "type": "text/plain"
+                      },
+                      "key": "hasHeader",
+                      "value": "true",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV delimiter character (auto-detected if not specified)",
+                        "type": "text/plain"
+                      },
+                      "key": "delimiter",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV quote character",
+                        "type": "text/plain"
+                      },
+                      "key": "quoteChar",
+                      "value": "\"",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV file encoding (This can only be one of utf8,ascii,latin1,iso-latin1,utf16,windows-cp1252)",
+                        "type": "text/plain"
+                      },
+                      "key": "encoding",
+                      "value": "utf8",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Import mode: append (insert all), update (update existing only), upsert (insert or update) (This can only be one of append,update,upsert)",
+                        "type": "text/plain"
+                      },
+                      "key": "importMode",
+                      "value": "append",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number format for parsing numeric values (This can only be one of us,european)",
+                        "type": "text/plain"
+                      },
+                      "key": "numberFormat",
+                      "value": "us",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number of records to process per batch",
+                        "type": "text/plain"
+                      },
+                      "key": "batchSize",
+                      "value": "100",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of field mappings: [{\"csvColumnName\": \"Name\", \"fieldName\": \"name\", \"updatePolicy\": \"key\"}]",
+                        "type": "text/plain"
+                      },
+                      "key": "mappings",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de573cd0-012f-4c96-a184-9231f7c68fe2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records",
+                    "import",
+                    "csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) CSV file to import (max 50 MB)",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether the CSV file has a header row",
+                        "type": "text/plain"
+                      },
+                      "key": "hasHeader",
+                      "value": "true",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV delimiter character (auto-detected if not specified)",
+                        "type": "text/plain"
+                      },
+                      "key": "delimiter",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV quote character",
+                        "type": "text/plain"
+                      },
+                      "key": "quoteChar",
+                      "value": "\"",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV file encoding (This can only be one of utf8,ascii,latin1,iso-latin1,utf16,windows-cp1252)",
+                        "type": "text/plain"
+                      },
+                      "key": "encoding",
+                      "value": "utf8",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Import mode: append (insert all), update (update existing only), upsert (insert or update) (This can only be one of append,update,upsert)",
+                        "type": "text/plain"
+                      },
+                      "key": "importMode",
+                      "value": "append",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number format for parsing numeric values (This can only be one of us,european)",
+                        "type": "text/plain"
+                      },
+                      "key": "numberFormat",
+                      "value": "us",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number of records to process per batch",
+                        "type": "text/plain"
+                      },
+                      "key": "batchSize",
+                      "value": "100",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of field mappings: [{\"csvColumnName\": \"Name\", \"fieldName\": \"name\", \"updatePolicy\": \"key\"}]",
+                        "type": "text/plain"
+                      },
+                      "key": "mappings",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6abc848d-c22b-4a81-bf74-260165be686f",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records",
+                    "import",
+                    "csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) CSV file to import (max 50 MB)",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether the CSV file has a header row",
+                        "type": "text/plain"
+                      },
+                      "key": "hasHeader",
+                      "value": "true",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV delimiter character (auto-detected if not specified)",
+                        "type": "text/plain"
+                      },
+                      "key": "delimiter",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV quote character",
+                        "type": "text/plain"
+                      },
+                      "key": "quoteChar",
+                      "value": "\"",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV file encoding (This can only be one of utf8,ascii,latin1,iso-latin1,utf16,windows-cp1252)",
+                        "type": "text/plain"
+                      },
+                      "key": "encoding",
+                      "value": "utf8",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Import mode: append (insert all), update (update existing only), upsert (insert or update) (This can only be one of append,update,upsert)",
+                        "type": "text/plain"
+                      },
+                      "key": "importMode",
+                      "value": "append",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number format for parsing numeric values (This can only be one of us,european)",
+                        "type": "text/plain"
+                      },
+                      "key": "numberFormat",
+                      "value": "us",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number of records to process per batch",
+                        "type": "text/plain"
+                      },
+                      "key": "batchSize",
+                      "value": "100",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of field mappings: [{\"csvColumnName\": \"Name\", \"fieldName\": \"name\", \"updatePolicy\": \"key\"}]",
+                        "type": "text/plain"
+                      },
+                      "key": "mappings",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c97fd64-e1c7-4b17-879c-db4ed9fd0cc4",
+              "name": "File too large (max 50 MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records",
+                    "import",
+                    "csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) CSV file to import (max 50 MB)",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether the CSV file has a header row",
+                        "type": "text/plain"
+                      },
+                      "key": "hasHeader",
+                      "value": "true",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV delimiter character (auto-detected if not specified)",
+                        "type": "text/plain"
+                      },
+                      "key": "delimiter",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV quote character",
+                        "type": "text/plain"
+                      },
+                      "key": "quoteChar",
+                      "value": "\"",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV file encoding (This can only be one of utf8,ascii,latin1,iso-latin1,utf16,windows-cp1252)",
+                        "type": "text/plain"
+                      },
+                      "key": "encoding",
+                      "value": "utf8",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Import mode: append (insert all), update (update existing only), upsert (insert or update) (This can only be one of append,update,upsert)",
+                        "type": "text/plain"
+                      },
+                      "key": "importMode",
+                      "value": "append",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number format for parsing numeric values (This can only be one of us,european)",
+                        "type": "text/plain"
+                      },
+                      "key": "numberFormat",
+                      "value": "us",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number of records to process per batch",
+                        "type": "text/plain"
+                      },
+                      "key": "batchSize",
+                      "value": "100",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of field mappings: [{\"csvColumnName\": \"Name\", \"fieldName\": \"name\", \"updatePolicy\": \"key\"}]",
+                        "type": "text/plain"
+                      },
+                      "key": "mappings",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b4e42ea-cfc0-42e4-af2b-0929fa16f969",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName",
+                    "records",
+                    "import",
+                    "csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) CSV file to import (max 50 MB)",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether the CSV file has a header row",
+                        "type": "text/plain"
+                      },
+                      "key": "hasHeader",
+                      "value": "true",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV delimiter character (auto-detected if not specified)",
+                        "type": "text/plain"
+                      },
+                      "key": "delimiter",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV quote character",
+                        "type": "text/plain"
+                      },
+                      "key": "quoteChar",
+                      "value": "\"",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "CSV file encoding (This can only be one of utf8,ascii,latin1,iso-latin1,utf16,windows-cp1252)",
+                        "type": "text/plain"
+                      },
+                      "key": "encoding",
+                      "value": "utf8",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Import mode: append (insert all), update (update existing only), upsert (insert or update) (This can only be one of append,update,upsert)",
+                        "type": "text/plain"
+                      },
+                      "key": "importMode",
+                      "value": "append",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number format for parsing numeric values (This can only be one of us,european)",
+                        "type": "text/plain"
+                      },
+                      "key": "numberFormat",
+                      "value": "us",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number of records to process per batch",
+                        "type": "text/plain"
+                      },
+                      "key": "batchSize",
+                      "value": "100",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of field mappings: [{\"csvColumnName\": \"Name\", \"fieldName\": \"name\", \"updatePolicy\": \"key\"}]",
+                        "type": "text/plain"
+                      },
+                      "key": "mappings",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b7028be2-9021-4000-993f-b8a2ef15bb83",
+    "name": "Ninox Public Fields Records API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ninox Public API provides programmatic access to workspace resources, enabling seamless integration for managing modules, tables, fields and records.\n\n### Authentication\nAll requests require a Workspace API Key passed in the HTTP header as follows:\n**<code>Authorization: Bearer {apiKey}</code>**\n\nAPI keys can be generated and managed within the **Workspace Integration** settings in the Ninox app.",
+      "type": "text/plain"
+    }
+  }
+}

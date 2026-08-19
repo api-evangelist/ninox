@@ -1,0 +1,285 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ninox Public Fields Records API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Records",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get records from a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/records",
+            "params": [
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field names to include"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter conditions as a JSON string (e.g., {\"email\": \"test@example.com\"})"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of rows to return (1-100)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of rows to skip (starts with 0)"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Field name to sort by"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves paginated rows from a table with optional filtering and sorting"
+        },
+        {
+          "info": {
+            "name": "Create records in a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/records",
+            "params": [
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates new records in an existing table (max. 6MB payload size)"
+        },
+        {
+          "info": {
+            "name": "Update records in a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/records",
+            "params": [
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates existing records in a table (max. 6MB payload size). Each record must include an `id` field referencing an existing record. The update is transactional — if any record fails validation or does not exist, all changes are rolled back.\n\n**Field type rules:**\n- `multi` — must be an **array of strings** (e.g. `[\"Gold\", \"Silver\"]`). A plain string is not accepted.\n- `choice` — a single string (e.g. `\"Gold\"`) or an array of strings.\n- `boolean` — `true` or `false` only; numeric `1`/`0` are not "
+        },
+        {
+          "info": {
+            "name": "Delete records from a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/records",
+            "params": [
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes existing records from a table in a single transaction. If any record id is invalid, does not exist, or deletion fails, all changes are rolled back."
+        },
+        {
+          "info": {
+            "name": "Import records from CSV file",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/records/import/csv",
+            "params": [
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "hasHeader",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "delimiter",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "quoteChar",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "encoding",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "importMode",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "numberFormat",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "batchSize",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mappings",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Import records from a CSV file into an existing table.\n        \nThe endpoint accepts multipart/form-data with:\n- A CSV file (max 50 MB)\n- Optional parsing and import options\n\n**Auto-mapping**: By default, CSV columns are automatically mapped to table fields by matching column header names to field names (case-insensitive).\n\n**Import Modes**:\n- `append`: Always create new records (default)\n- `update`: Only update existing records (requires key field mappings)\n- `upsert`: Update existing records o"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

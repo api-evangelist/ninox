@@ -1,0 +1,1751 @@
+{
+  "item": [
+    {
+      "id": "da25f25c-abdb-4505-b68c-7e286c605275",
+      "name": "Modules",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53820a24-d2aa-4787-89fd-753abb439040",
+          "name": "Create a module",
+          "request": {
+            "name": "Create a module",
+            "description": {
+              "content": "Creates a new module in a workspace",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"hideNavigation\": \"<boolean>\",\n  \"icon\": {\n    \"color\": \"<string>\",\n    \"filling\": \"<number>\",\n    \"icon\": \"<string>\"\n  },\n  \"isHidden\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"openRoles\": [\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a7a30b0c-42dd-487d-8b7b-f258111c1733",
+              "name": "Module created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"icon\": {\n    \"color\": \"#bada55\",\n    \"filling\": 0,\n    \"icon\": \"favorite\"\n  },\n  \"labels\": {\n    \"\": \"The events module\"\n  },\n  \"name\": \"the_events_module\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"hideNavigation\": true,\n    \"icon\": {\n      \"icon\": \"string\",\n      \"color\": \"string\",\n      \"filling\": 0\n    },\n    \"isHidden\": true,\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"name\": \"string\",\n    \"openRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tables\": [\n      {\n        \"name\": \"string\",\n        \"createRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deleteRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": [\n          {\n            \"name\": \"string\",\n            \"type\": \"unknown\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 780.6153951792327,\n                \"line\": 8824.404263560064,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 8657.626257026493,\n                \"line\": 1264.1539776985867,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": false,\n            \"labels\": {\n              \"key_0\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 2126.0513331046004,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_3\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_4\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 243.78403089489242,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": false,\n            \"search\": false,\n            \"unique\": true,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"type\": \"html\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 2964.468199905358,\n                \"line\": 9544.000808409206,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 6893.789965703498,\n                \"line\": 3605.670425095648,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": false,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 1438.0578736112282,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_3\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 2446.486837589962,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_3\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": true,\n            \"search\": true,\n            \"unique\": false,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          }\n        ],\n        \"hasFiles\": true,\n        \"hasGlobalSearch\": true,\n        \"hasHistory\": true,\n        \"icon\": {\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"filling\": 0\n        },\n        \"isEmailLinkingEnabled\": true,\n        \"isHidden\": true,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"createRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deleteRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": [\n          {\n            \"name\": \"string\",\n            \"type\": \"dchoice\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 70.46518622883636,\n                \"line\": 7805.927873854918,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 8074.766326117789,\n                \"line\": 2081.917706190125,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": true,\n            \"labels\": {\n              \"key_0\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 9498.262018125573,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 5386.755975837806,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": true,\n            \"search\": false,\n            \"unique\": false,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"type\": \"rowId\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 5477.913789473324,\n                \"line\": 8967.901189982813,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 4750.3222230982265,\n                \"line\": 1340.1918588132799,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": true,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 5067.279072492036,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 7266.00023505402,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": true,\n            \"search\": false,\n            \"unique\": true,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          }\n        ],\n        \"hasFiles\": true,\n        \"hasGlobalSearch\": false,\n        \"hasHistory\": true,\n        \"icon\": {\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"filling\": 0\n        },\n        \"isEmailLinkingEnabled\": false,\n        \"isHidden\": true,\n        \"labels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33a2e18c-31f6-4123-bd3d-15ab7f3a11f9",
+              "name": "Bad request (e.g., module already exists)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"icon\": {\n    \"color\": \"#bada55\",\n    \"filling\": 0,\n    \"icon\": \"favorite\"\n  },\n  \"labels\": {\n    \"\": \"The events module\"\n  },\n  \"name\": \"the_events_module\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd3c33d0-d4d4-43e3-af0d-c6245fb9a987",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"icon\": {\n    \"color\": \"#bada55\",\n    \"filling\": 0,\n    \"icon\": \"favorite\"\n  },\n  \"labels\": {\n    \"\": \"The events module\"\n  },\n  \"name\": \"the_events_module\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db68e5e2-3e56-4174-a395-7160ef5addc2",
+              "name": "Workspace not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"icon\": {\n    \"color\": \"#bada55\",\n    \"filling\": 0,\n    \"icon\": \"favorite\"\n  },\n  \"labels\": {\n    \"\": \"The events module\"\n  },\n  \"name\": \"the_events_module\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "336d1e7e-0b27-4e8b-9a7b-aa4a4621ba95",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"icon\": {\n    \"color\": \"#bada55\",\n    \"filling\": 0,\n    \"icon\": \"favorite\"\n  },\n  \"labels\": {\n    \"\": \"The events module\"\n  },\n  \"name\": \"the_events_module\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d665c89d-5897-4137-a18a-5d49051622ca",
+          "name": "List all modules in a workspace",
+          "request": {
+            "name": "List all modules in a workspace",
+            "description": {
+              "content": "Retrieves all modules available in a workspace",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "08382341-ca49-4340-97b7-b8b5de8f2799",
+              "name": "Modules retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"string\",\n      \"hideNavigation\": true,\n      \"icon\": {\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"filling\": 0\n      },\n      \"isHidden\": true,\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"openRoles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tables\": [\n        {\n          \"name\": \"string\",\n          \"createRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deleteRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": [\n            {\n              \"name\": \"string\",\n              \"type\": \"rowId\",\n              \"expression\": \"string\",\n              \"expressionErrors\": [\n                {\n                  \"column\": 307.1342625162754,\n                  \"line\": 5583.529996487709,\n                  \"message\": \"string\"\n                },\n                {\n                  \"column\": 5151.513453654963,\n                  \"line\": 8670.42275853068,\n                  \"message\": \"string\"\n                }\n              ],\n              \"index\": true,\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"optionColor\": \"string\",\n              \"optionIcon\": \"string\",\n              \"optionName\": \"string\",\n              \"options\": [\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"readRoles\": [\n                \"string\",\n                \"string\"\n              ],\n              \"refTableId\": \"string\",\n              \"required\": false,\n              \"search\": false,\n              \"unique\": true,\n              \"variant\": \"string\",\n              \"writeRoles\": [\n                \"string\",\n                \"string\"\n              ]\n            },\n            {\n              \"name\": \"string\",\n              \"type\": \"boolean\",\n              \"expression\": \"string\",\n              \"expressionErrors\": [\n                {\n                  \"column\": 1970.1588847391615,\n                  \"line\": 6738.895618921896,\n                  \"message\": \"string\"\n                },\n                {\n                  \"column\": 1713.480653710634,\n                  \"line\": 237.25537205584567,\n                  \"message\": \"string\"\n                }\n              ],\n              \"index\": true,\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"optionColor\": \"string\",\n              \"optionIcon\": \"string\",\n              \"optionName\": \"string\",\n              \"options\": [\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"readRoles\": [\n                \"string\",\n                \"string\"\n              ],\n              \"refTableId\": \"string\",\n              \"required\": true,\n              \"search\": false,\n              \"unique\": true,\n              \"variant\": \"string\",\n              \"writeRoles\": [\n                \"string\",\n                \"string\"\n              ]\n            }\n          ],\n          \"hasFiles\": true,\n          \"hasGlobalSearch\": true,\n          \"hasHistory\": false,\n          \"icon\": {\n            \"icon\": \"string\",\n            \"color\": \"string\",\n            \"filling\": 0\n          },\n          \"isEmailLinkingEnabled\": true,\n          \"isHidden\": false,\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"readRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"writeRoles\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"createRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deleteRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": [\n            {\n              \"name\": \"string\",\n              \"type\": \"function\",\n              \"expression\": \"string\",\n              \"expressionErrors\": [\n                {\n                  \"column\": 3507.3375136362197,\n                  \"line\": 1340.4949068379246,\n                  \"message\": \"string\"\n                },\n                {\n                  \"column\": 7856.964611674874,\n                  \"line\": 2605.368564810334,\n                  \"message\": \"string\"\n                }\n              ],\n              \"index\": true,\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"optionColor\": \"string\",\n              \"optionIcon\": \"string\",\n              \"optionName\": \"string\",\n              \"options\": [\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"readRoles\": [\n                \"string\",\n                \"string\"\n              ],\n              \"refTableId\": \"string\",\n              \"required\": false,\n              \"search\": true,\n              \"unique\": true,\n              \"variant\": \"string\",\n              \"writeRoles\": [\n                \"string\",\n                \"string\"\n              ]\n            },\n            {\n              \"name\": \"string\",\n              \"type\": \"file\",\n              \"expression\": \"string\",\n              \"expressionErrors\": [\n                {\n                  \"column\": 9515.58258033464,\n                  \"line\": 7893.924447160848,\n                  \"message\": \"string\"\n                },\n                {\n                  \"column\": 4933.080007650396,\n                  \"line\": 5933.643490413224,\n                  \"message\": \"string\"\n                }\n              ],\n              \"index\": true,\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"optionColor\": \"string\",\n              \"optionIcon\": \"string\",\n              \"optionName\": \"string\",\n              \"options\": [\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"readRoles\": [\n                \"string\",\n                \"string\"\n              ],\n              \"refTableId\": \"string\",\n              \"required\": false,\n              \"search\": false,\n              \"unique\": false,\n              \"variant\": \"string\",\n              \"writeRoles\": [\n                \"string\",\n                \"string\"\n              ]\n            }\n          ],\n          \"hasFiles\": true,\n          \"hasGlobalSearch\": true,\n          \"hasHistory\": false,\n          \"icon\": {\n            \"icon\": \"string\",\n            \"color\": \"string\",\n            \"filling\": 0\n          },\n          \"isEmailLinkingEnabled\": false,\n          \"isHidden\": true,\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"readRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"writeRoles\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"hideNavigation\": false,\n      \"icon\": {\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"filling\": 0\n      },\n      \"isHidden\": false,\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"openRoles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tables\": [\n        {\n          \"name\": \"string\",\n          \"createRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deleteRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": [\n            {\n              \"name\": \"string\",\n              \"type\": \"react\",\n              \"expression\": \"string\",\n              \"expressionErrors\": [\n                {\n                  \"column\": 37.682005986922064,\n                  \"line\": 7003.777636728826,\n                  \"message\": \"string\"\n                },\n                {\n                  \"column\": 1332.3345786726138,\n                  \"line\": 6038.154463207636,\n                  \"message\": \"string\"\n                }\n              ],\n              \"index\": false,\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"optionColor\": \"string\",\n              \"optionIcon\": \"string\",\n              \"optionName\": \"string\",\n              \"options\": [\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"readRoles\": [\n                \"string\",\n                \"string\"\n              ],\n              \"refTableId\": \"string\",\n              \"required\": false,\n              \"search\": false,\n              \"unique\": true,\n              \"variant\": \"string\",\n              \"writeRoles\": [\n                \"string\",\n                \"string\"\n              ]\n            },\n            {\n              \"name\": \"string\",\n              \"type\": \"timestamp\",\n              \"expression\": \"string\",\n              \"expressionErrors\": [\n                {\n                  \"column\": 364.4050872721405,\n                  \"line\": 473.6697555232572,\n                  \"message\": \"string\"\n                },\n                {\n                  \"column\": 4411.008109386713,\n                  \"line\": 2794.0403607403096,\n                  \"message\": \"string\"\n                }\n              ],\n              \"index\": false,\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"optionColor\": \"string\",\n              \"optionIcon\": \"string\",\n              \"optionName\": \"string\",\n              \"options\": [\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"readRoles\": [\n                \"string\",\n                \"string\"\n              ],\n              \"refTableId\": \"string\",\n              \"required\": true,\n              \"search\": true,\n              \"unique\": false,\n              \"variant\": \"string\",\n              \"writeRoles\": [\n                \"string\",\n                \"string\"\n              ]\n            }\n          ],\n          \"hasFiles\": true,\n          \"hasGlobalSearch\": true,\n          \"hasHistory\": false,\n          \"icon\": {\n            \"icon\": \"string\",\n            \"color\": \"string\",\n            \"filling\": 0\n          },\n          \"isEmailLinkingEnabled\": false,\n          \"isHidden\": false,\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"readRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"writeRoles\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"createRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deleteRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": [\n            {\n              \"name\": \"string\",\n              \"type\": \"boolean\",\n              \"expression\": \"string\",\n              \"expressionErrors\": [\n                {\n                  \"column\": 1787.2291661330808,\n                  \"line\": 519.7329531457307,\n                  \"message\": \"string\"\n                },\n                {\n                  \"column\": 4011.099897991417,\n                  \"line\": 5359.067971664457,\n                  \"message\": \"string\"\n                }\n              ],\n              \"index\": false,\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\",\n                \"key_3\": \"string\",\n                \"key_4\": \"string\"\n              },\n              \"optionColor\": \"string\",\n              \"optionIcon\": \"string\",\n              \"optionName\": \"string\",\n              \"options\": [\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"readRoles\": [\n                \"string\",\n                \"string\"\n              ],\n              \"refTableId\": \"string\",\n              \"required\": true,\n              \"search\": true,\n              \"unique\": false,\n              \"variant\": \"string\",\n              \"writeRoles\": [\n                \"string\",\n                \"string\"\n              ]\n            },\n            {\n              \"name\": \"string\",\n              \"type\": \"dchoice\",\n              \"expression\": \"string\",\n              \"expressionErrors\": [\n                {\n                  \"column\": 2437.293834143135,\n                  \"line\": 3176.055336783533,\n                  \"message\": \"string\"\n                },\n                {\n                  \"column\": 3267.4245382811064,\n                  \"line\": 4595.150875927138,\n                  \"message\": \"string\"\n                }\n              ],\n              \"index\": true,\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"optionColor\": \"string\",\n              \"optionIcon\": \"string\",\n              \"optionName\": \"string\",\n              \"options\": [\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"id\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"order\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"color\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"icon\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"textColor\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"readRoles\": [\n                \"string\",\n                \"string\"\n              ],\n              \"refTableId\": \"string\",\n              \"required\": true,\n              \"search\": true,\n              \"unique\": true,\n              \"variant\": \"string\",\n              \"writeRoles\": [\n                \"string\",\n                \"string\"\n              ]\n            }\n          ],\n          \"hasFiles\": true,\n          \"hasGlobalSearch\": true,\n          \"hasHistory\": true,\n          \"icon\": {\n            \"icon\": \"string\",\n            \"color\": \"string\",\n            \"filling\": 0\n          },\n          \"isEmailLinkingEnabled\": true,\n          \"isHidden\": false,\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"readRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"writeRoles\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea045726-56be-4fa6-8a1b-c00309c6f83f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d6d8ae4-64b7-4296-b46e-f2a46258416d",
+              "name": "Workspace not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50b988d5-2f19-4a5c-a5dd-477b24f3fefd",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2721958e-8bc8-42b0-94c3-f05496342a02",
+          "name": "Delete a module",
+          "request": {
+            "name": "Delete a module",
+            "description": {
+              "content": "Deletes a module in a workspace",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b992e755-5d38-4676-b459-2561c3dffe4a",
+              "name": "Module deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8b57499-17f5-46d2-a2d0-fab49c8c4df7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b71bc75a-1d5e-41ac-9b0f-17d905866cc1",
+              "name": "Module not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77dd03ab-6040-4025-b05f-9e040eb7d583",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "492422e5-db29-4cfe-a9c8-e7c93af03b6e",
+          "name": "Get a specific module",
+          "request": {
+            "name": "Get a specific module",
+            "description": {
+              "content": "Retrieves detailed information about a specific module, including its tables",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e28ac0cf-5862-4704-b932-171c4f2a2528",
+              "name": "Module details retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"hideNavigation\": false,\n    \"icon\": {\n      \"icon\": \"string\",\n      \"color\": \"string\",\n      \"filling\": 0\n    },\n    \"isHidden\": true,\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"name\": \"string\",\n    \"openRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tables\": [\n      {\n        \"name\": \"string\",\n        \"createRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deleteRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": [\n          {\n            \"name\": \"string\",\n            \"type\": \"timestamp\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 9574.56168423954,\n                \"line\": 2341.790388774798,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 6642.811472911724,\n                \"line\": 1683.5969223782442,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": false,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 6073.929878290144,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 8548.662965769478,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": true,\n            \"search\": true,\n            \"unique\": true,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"type\": \"reverse\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 9003.396944418731,\n                \"line\": 3325.3828541853613,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 9572.177182317437,\n                \"line\": 3862.177410480179,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": false,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 9073.467432496851,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 702.38250705834,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": true,\n            \"search\": false,\n            \"unique\": false,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          }\n        ],\n        \"hasFiles\": true,\n        \"hasGlobalSearch\": false,\n        \"hasHistory\": false,\n        \"icon\": {\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"filling\": 0\n        },\n        \"isEmailLinkingEnabled\": true,\n        \"isHidden\": false,\n        \"labels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"createRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deleteRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": [\n          {\n            \"name\": \"string\",\n            \"type\": \"string\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 1902.8728364371495,\n                \"line\": 9911.534927738816,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 6394.907998827235,\n                \"line\": 5343.366246451081,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": true,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 4518.609232043067,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 1763.830701732888,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": false,\n            \"search\": false,\n            \"unique\": true,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"type\": \"string\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 4524.209932163814,\n                \"line\": 7828.932000243833,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 3253.2979466370725,\n                \"line\": 9102.32610227201,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": false,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\",\n              \"key_3\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 7192.662953789818,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 7134.03220939054,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": true,\n            \"search\": false,\n            \"unique\": true,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          }\n        ],\n        \"hasFiles\": false,\n        \"hasGlobalSearch\": true,\n        \"hasHistory\": true,\n        \"icon\": {\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"filling\": 0\n        },\n        \"isEmailLinkingEnabled\": true,\n        \"isHidden\": true,\n        \"labels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "658affa1-395b-46d9-849d-972b454ab1ff",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5edee17e-fb3f-4fc6-a57e-90d3d6fe068b",
+              "name": "Module not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "718eee9e-8077-4e7a-9092-200ac75132df",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3da7d88b-f376-4075-9ab3-6350004bfc13",
+          "name": "Update a module",
+          "request": {
+            "name": "Update a module",
+            "description": {
+              "content": "Updates an existing module in a workspace",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"hideNavigation\": \"<boolean>\",\n  \"icon\": {\n    \"color\": \"<string>\",\n    \"filling\": \"<number>\",\n    \"icon\": \"<string>\"\n  },\n  \"isHidden\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  },\n  \"openRoles\": [\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f7edc1b7-29af-47c8-a753-ae46a7964fa9",
+              "name": "Module updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hideNavigation\": false,\n  \"icon\": {\n    \"icon\": \"database\"\n  },\n  \"isHidden\": false,\n  \"labels\": {\n    \"\": \"A new app\"\n  },\n  \"name\": \"a_new_application\",\n  \"openRoles\": [\n    \"editor\",\n    \"admin\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"hideNavigation\": false,\n    \"icon\": {\n      \"icon\": \"string\",\n      \"color\": \"string\",\n      \"filling\": 0\n    },\n    \"isHidden\": true,\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"name\": \"string\",\n    \"openRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tables\": [\n      {\n        \"name\": \"string\",\n        \"createRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deleteRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": [\n          {\n            \"name\": \"string\",\n            \"type\": \"timestamp\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 9574.56168423954,\n                \"line\": 2341.790388774798,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 6642.811472911724,\n                \"line\": 1683.5969223782442,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": false,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 6073.929878290144,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 8548.662965769478,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": true,\n            \"search\": true,\n            \"unique\": true,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"type\": \"reverse\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 9003.396944418731,\n                \"line\": 3325.3828541853613,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 9572.177182317437,\n                \"line\": 3862.177410480179,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": false,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 9073.467432496851,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 702.38250705834,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": true,\n            \"search\": false,\n            \"unique\": false,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          }\n        ],\n        \"hasFiles\": true,\n        \"hasGlobalSearch\": false,\n        \"hasHistory\": false,\n        \"icon\": {\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"filling\": 0\n        },\n        \"isEmailLinkingEnabled\": true,\n        \"isHidden\": false,\n        \"labels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"createRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deleteRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": [\n          {\n            \"name\": \"string\",\n            \"type\": \"string\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 1902.8728364371495,\n                \"line\": 9911.534927738816,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 6394.907998827235,\n                \"line\": 5343.366246451081,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": true,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 4518.609232043067,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 1763.830701732888,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": false,\n            \"search\": false,\n            \"unique\": true,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"type\": \"string\",\n            \"expression\": \"string\",\n            \"expressionErrors\": [\n              {\n                \"column\": 4524.209932163814,\n                \"line\": 7828.932000243833,\n                \"message\": \"string\"\n              },\n              {\n                \"column\": 3253.2979466370725,\n                \"line\": 9102.32610227201,\n                \"message\": \"string\"\n              }\n            ],\n            \"index\": false,\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\",\n              \"key_3\": \"string\"\n            },\n            \"optionColor\": \"string\",\n            \"optionIcon\": \"string\",\n            \"optionName\": \"string\",\n            \"options\": [\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 7192.662953789818,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"name\": \"string\",\n                \"order\": 7134.03220939054,\n                \"color\": \"string\",\n                \"icon\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"textColor\": \"string\"\n              }\n            ],\n            \"readRoles\": [\n              \"string\",\n              \"string\"\n            ],\n            \"refTableId\": \"string\",\n            \"required\": true,\n            \"search\": false,\n            \"unique\": true,\n            \"variant\": \"string\",\n            \"writeRoles\": [\n              \"string\",\n              \"string\"\n            ]\n          }\n        ],\n        \"hasFiles\": false,\n        \"hasGlobalSearch\": true,\n        \"hasHistory\": true,\n        \"icon\": {\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"filling\": 0\n        },\n        \"isEmailLinkingEnabled\": true,\n        \"isHidden\": true,\n        \"labels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54403ea5-6451-4e30-8857-38c8a2a20009",
+              "name": "Bad request (e.g., module already exists)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hideNavigation\": false,\n  \"icon\": {\n    \"icon\": \"database\"\n  },\n  \"isHidden\": false,\n  \"labels\": {\n    \"\": \"A new app\"\n  },\n  \"name\": \"a_new_application\",\n  \"openRoles\": [\n    \"editor\",\n    \"admin\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8373bc2d-e8e0-433a-a9c9-b52845860342",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hideNavigation\": false,\n  \"icon\": {\n    \"icon\": \"database\"\n  },\n  \"isHidden\": false,\n  \"labels\": {\n    \"\": \"A new app\"\n  },\n  \"name\": \"a_new_application\",\n  \"openRoles\": [\n    \"editor\",\n    \"admin\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0121a9f5-5eaa-4ff9-abcc-63899726f5f4",
+              "name": "Module not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hideNavigation\": false,\n  \"icon\": {\n    \"icon\": \"database\"\n  },\n  \"isHidden\": false,\n  \"labels\": {\n    \"\": \"A new app\"\n  },\n  \"name\": \"a_new_application\",\n  \"openRoles\": [\n    \"editor\",\n    \"admin\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ba343de-bc1d-4ccd-9bf4-5a0027199ac4",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hideNavigation\": false,\n  \"icon\": {\n    \"icon\": \"database\"\n  },\n  \"isHidden\": false,\n  \"labels\": {\n    \"\": \"A new app\"\n  },\n  \"name\": \"a_new_application\",\n  \"openRoles\": [\n    \"editor\",\n    \"admin\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bfb32490-7bb2-45c4-9f0e-3c8f038c683d",
+    "name": "Ninox Public Fields Modules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ninox Public API provides programmatic access to workspace resources, enabling seamless integration for managing modules, tables, fields and records.\n\n### Authentication\nAll requests require a Workspace API Key passed in the HTTP header as follows:\n**<code>Authorization: Bearer {apiKey}</code>**\n\nAPI keys can be generated and managed within the **Workspace Integration** settings in the Ninox app.",
+      "type": "text/plain"
+    }
+  }
+}

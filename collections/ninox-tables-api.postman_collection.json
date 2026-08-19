@@ -1,0 +1,1994 @@
+{
+  "item": [
+    {
+      "id": "4b873d22-e4b6-419b-91fc-eb44bffcd5fa",
+      "name": "Tables",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f09bc201-6b42-4e73-99cc-1c6a4428c681",
+          "name": "Create a table",
+          "request": {
+            "name": "Create a table",
+            "description": {
+              "content": "Creates a new table in a module",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName",
+                "tables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"icon\": {\n    \"color\": \"<string>\",\n    \"filling\": \"<number>\",\n    \"icon\": \"<string>\"\n  },\n  \"createRoles\": [\n    \"<string>\"\n  ],\n  \"deleteRoles\": [\n    \"<string>\"\n  ],\n  \"hasFiles\": \"<boolean>\",\n  \"hasGlobalSearch\": \"<boolean>\",\n  \"hasHistory\": \"<boolean>\",\n  \"isEmailLinkingEnabled\": \"<boolean>\",\n  \"isHidden\": \"<boolean>\",\n  \"readRoles\": [\n    \"<string>\"\n  ],\n  \"writeRoles\": [\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea6939c4-78ff-41bb-8fdd-7231197c5955",
+              "name": "Table created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"icon\": {\n    \"color\": \"#3381ff\",\n    \"icon\": \"school\"\n  },\n  \"labels\": {\n    \"\": \"Full table\"\n  },\n  \"name\": \"full_table\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"createRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"deleteRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"any\",\n        \"expression\": \"string\",\n        \"expressionErrors\": [\n          {\n            \"column\": 1881.6539071601346,\n            \"line\": 8501.831002821436,\n            \"message\": \"string\"\n          },\n          {\n            \"column\": 604.1785920306031,\n            \"line\": 4664.614887680066,\n            \"message\": \"string\"\n          }\n        ],\n        \"index\": false,\n        \"labels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"optionColor\": \"string\",\n        \"optionIcon\": \"string\",\n        \"optionName\": \"string\",\n        \"options\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 9416.698182378517,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\",\n              \"key_3\": \"string\"\n            },\n            \"textColor\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 1377.2345554869657,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\",\n              \"key_3\": \"string\",\n              \"key_4\": \"string\"\n            },\n            \"textColor\": \"string\"\n          }\n        ],\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"refTableId\": \"string\",\n        \"required\": true,\n        \"search\": true,\n        \"unique\": false,\n        \"variant\": \"string\",\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"multi\",\n        \"expression\": \"string\",\n        \"expressionErrors\": [\n          {\n            \"column\": 4893.098131341671,\n            \"line\": 3007.502477237659,\n            \"message\": \"string\"\n          },\n          {\n            \"column\": 4232.677833494239,\n            \"line\": 2323.0968727876834,\n            \"message\": \"string\"\n          }\n        ],\n        \"index\": true,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"optionColor\": \"string\",\n        \"optionIcon\": \"string\",\n        \"optionName\": \"string\",\n        \"options\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 6193.400696001855,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"textColor\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 2954.17345372563,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"textColor\": \"string\"\n          }\n        ],\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"refTableId\": \"string\",\n        \"required\": false,\n        \"search\": true,\n        \"unique\": true,\n        \"variant\": \"string\",\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"hasFiles\": true,\n    \"hasGlobalSearch\": true,\n    \"hasHistory\": true,\n    \"icon\": {\n      \"icon\": \"string\",\n      \"color\": \"string\",\n      \"filling\": 0\n    },\n    \"isEmailLinkingEnabled\": false,\n    \"isHidden\": false,\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"name\": \"string\",\n    \"readRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"writeRoles\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f47af2c8-6f01-4a31-a5ff-9d281926a06e",
+              "name": "Bad request (e.g., table already exists)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"icon\": {\n    \"color\": \"#3381ff\",\n    \"icon\": \"school\"\n  },\n  \"labels\": {\n    \"\": \"Full table\"\n  },\n  \"name\": \"full_table\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5dc1765c-2de4-4ec6-8870-7b3894c306a0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"icon\": {\n    \"color\": \"#3381ff\",\n    \"icon\": \"school\"\n  },\n  \"labels\": {\n    \"\": \"Full table\"\n  },\n  \"name\": \"full_table\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d7fe44c-12de-4e42-a3e5-a3cf5c78ed8b",
+              "name": "Workspace or module not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"icon\": {\n    \"color\": \"#3381ff\",\n    \"icon\": \"school\"\n  },\n  \"labels\": {\n    \"\": \"Full table\"\n  },\n  \"name\": \"full_table\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e199fda1-3e22-4690-8f3b-e426e738b3cc",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"icon\": {\n    \"color\": \"#3381ff\",\n    \"icon\": \"school\"\n  },\n  \"labels\": {\n    \"\": \"Full table\"\n  },\n  \"name\": \"full_table\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e18ac2d-93b2-4305-81fe-b933c4b305fd",
+          "name": "List all tables in a module",
+          "request": {
+            "name": "List all tables in a module",
+            "description": {
+              "content": "Retrieves all tables within a module",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName",
+                "tables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "826716c2-753d-4458-b81d-ef5e7499bc24",
+              "name": "Tables retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"string\",\n      \"createRoles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deleteRoles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"type\": \"date\",\n          \"expression\": \"string\",\n          \"expressionErrors\": [\n            {\n              \"column\": 4707.357850802111,\n              \"line\": 7185.27845251013,\n              \"message\": \"string\"\n            },\n            {\n              \"column\": 2431.1503261087087,\n              \"line\": 8348.510645197886,\n              \"message\": \"string\"\n            }\n          ],\n          \"index\": false,\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"optionColor\": \"string\",\n          \"optionIcon\": \"string\",\n          \"optionName\": \"string\",\n          \"options\": [\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"order\": 5024.084297742014,\n              \"color\": \"string\",\n              \"icon\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              },\n              \"textColor\": \"string\"\n            },\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"order\": 7553.123578480383,\n              \"color\": \"string\",\n              \"icon\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"textColor\": \"string\"\n            }\n          ],\n          \"readRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"refTableId\": \"string\",\n          \"required\": true,\n          \"search\": false,\n          \"unique\": true,\n          \"variant\": \"string\",\n          \"writeRoles\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"type\": \"timeinterval\",\n          \"expression\": \"string\",\n          \"expressionErrors\": [\n            {\n              \"column\": 1140.471060471535,\n              \"line\": 7017.663380153665,\n              \"message\": \"string\"\n            },\n            {\n              \"column\": 9930.968583198182,\n              \"line\": 5383.778482896389,\n              \"message\": \"string\"\n            }\n          ],\n          \"index\": true,\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"optionColor\": \"string\",\n          \"optionIcon\": \"string\",\n          \"optionName\": \"string\",\n          \"options\": [\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"order\": 7339.642904199673,\n              \"color\": \"string\",\n              \"icon\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"textColor\": \"string\"\n            },\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"order\": 2433.9211074523705,\n              \"color\": \"string\",\n              \"icon\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"textColor\": \"string\"\n            }\n          ],\n          \"readRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"refTableId\": \"string\",\n          \"required\": true,\n          \"search\": true,\n          \"unique\": false,\n          \"variant\": \"string\",\n          \"writeRoles\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ],\n      \"hasFiles\": true,\n      \"hasGlobalSearch\": false,\n      \"hasHistory\": true,\n      \"icon\": {\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"filling\": 0\n      },\n      \"isEmailLinkingEnabled\": false,\n      \"isHidden\": false,\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"readRoles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"writeRoles\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"createRoles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deleteRoles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"type\": \"void\",\n          \"expression\": \"string\",\n          \"expressionErrors\": [\n            {\n              \"column\": 8499.356024328492,\n              \"line\": 7951.944914465022,\n              \"message\": \"string\"\n            },\n            {\n              \"column\": 5171.6419559085425,\n              \"line\": 3307.5417291204258,\n              \"message\": \"string\"\n            }\n          ],\n          \"index\": false,\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"optionColor\": \"string\",\n          \"optionIcon\": \"string\",\n          \"optionName\": \"string\",\n          \"options\": [\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"order\": 9754.890673931814,\n              \"color\": \"string\",\n              \"icon\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"textColor\": \"string\"\n            },\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"order\": 6262.58929474827,\n              \"color\": \"string\",\n              \"icon\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"textColor\": \"string\"\n            }\n          ],\n          \"readRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"refTableId\": \"string\",\n          \"required\": false,\n          \"search\": false,\n          \"unique\": true,\n          \"variant\": \"string\",\n          \"writeRoles\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"type\": \"void\",\n          \"expression\": \"string\",\n          \"expressionErrors\": [\n            {\n              \"column\": 2134.8901731745295,\n              \"line\": 6660.740601132596,\n              \"message\": \"string\"\n            },\n            {\n              \"column\": 7912.585265109291,\n              \"line\": 8098.589520808086,\n              \"message\": \"string\"\n            }\n          ],\n          \"index\": true,\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"optionColor\": \"string\",\n          \"optionIcon\": \"string\",\n          \"optionName\": \"string\",\n          \"options\": [\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"order\": 3506.1474818694705,\n              \"color\": \"string\",\n              \"icon\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"textColor\": \"string\"\n            },\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"order\": 4032.5889507902934,\n              \"color\": \"string\",\n              \"icon\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"textColor\": \"string\"\n            }\n          ],\n          \"readRoles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"refTableId\": \"string\",\n          \"required\": false,\n          \"search\": false,\n          \"unique\": true,\n          \"variant\": \"string\",\n          \"writeRoles\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ],\n      \"hasFiles\": true,\n      \"hasGlobalSearch\": true,\n      \"hasHistory\": true,\n      \"icon\": {\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"filling\": 0\n      },\n      \"isEmailLinkingEnabled\": false,\n      \"isHidden\": false,\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"readRoles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"writeRoles\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51354fbc-5015-4fa3-aac0-4d2dee5223db",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d49447d-5d52-4c85-a106-8a9162770feb",
+              "name": "Module not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3a1528ea-e674-4898-9dac-415a91d5fc17",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abe8905e-2ecf-40e0-b023-8f1882de17e5",
+          "name": "Delete a table",
+          "request": {
+            "name": "Delete a table",
+            "description": {
+              "content": "Deletes a table in a module",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName",
+                "tables",
+                ":tableName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) Table name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a0ce0e63-f167-416b-ab1a-f7873ffbb547",
+              "name": "Table deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5ddde0a-2d77-492e-b3e0-6b3682ab8d4d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86cad6fe-005b-43d6-9ef8-cc679bec6e9c",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92935819-b774-4c10-86ed-bb25068f3dbc",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1073130b-715a-4486-83c6-79ed627f603b",
+          "name": "Get a specific table",
+          "request": {
+            "name": "Get a specific table",
+            "description": {
+              "content": "Retrieves detailed information about a specific table, including its fields",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName",
+                "tables",
+                ":tableName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) Table name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f1704727-0523-4b09-ad36-cc39ef6da236",
+              "name": "Table details retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"createRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"deleteRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"date\",\n        \"expression\": \"string\",\n        \"expressionErrors\": [\n          {\n            \"column\": 9929.824575520493,\n            \"line\": 8255.253949960248,\n            \"message\": \"string\"\n          },\n          {\n            \"column\": 9842.558751828778,\n            \"line\": 1274.8346174290405,\n            \"message\": \"string\"\n          }\n        ],\n        \"index\": true,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"optionColor\": \"string\",\n        \"optionIcon\": \"string\",\n        \"optionName\": \"string\",\n        \"options\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 909.8067604248516,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"textColor\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 7608.982791219822,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"textColor\": \"string\"\n          }\n        ],\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"refTableId\": \"string\",\n        \"required\": true,\n        \"search\": false,\n        \"unique\": true,\n        \"variant\": \"string\",\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"void\",\n        \"expression\": \"string\",\n        \"expressionErrors\": [\n          {\n            \"column\": 7920.426243979244,\n            \"line\": 1517.9792937648683,\n            \"message\": \"string\"\n          },\n          {\n            \"column\": 4970.072507079779,\n            \"line\": 3398.8443088418653,\n            \"message\": \"string\"\n          }\n        ],\n        \"index\": false,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"optionColor\": \"string\",\n        \"optionIcon\": \"string\",\n        \"optionName\": \"string\",\n        \"options\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 6042.37152532146,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"textColor\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 1057.3667568893798,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"textColor\": \"string\"\n          }\n        ],\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"refTableId\": \"string\",\n        \"required\": false,\n        \"search\": true,\n        \"unique\": true,\n        \"variant\": \"string\",\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"hasFiles\": false,\n    \"hasGlobalSearch\": true,\n    \"hasHistory\": false,\n    \"icon\": {\n      \"icon\": \"string\",\n      \"color\": \"string\",\n      \"filling\": 0\n    },\n    \"isEmailLinkingEnabled\": true,\n    \"isHidden\": true,\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"name\": \"string\",\n    \"readRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"writeRoles\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d967dd88-9cf8-4865-9a56-0c6f585fcc4b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "718405cc-beab-472b-b3af-7fda1bb1f51c",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "726699ed-abdb-42c8-88ba-d1908460cd26",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79eb912f-2487-41fd-bb9b-c13f02506377",
+          "name": "Update a table",
+          "request": {
+            "name": "Update a table",
+            "description": {
+              "content": "Updates an existing table in a module",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspace",
+                ":workspaceId",
+                "modules",
+                ":moduleName",
+                "tables",
+                ":tableName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "moduleName",
+                  "description": "(Required) Module name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) Table name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) Workspace ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"icon\": {\n    \"color\": \"<string>\",\n    \"filling\": \"<number>\",\n    \"icon\": \"<string>\"\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"createRoles\": [\n    \"<string>\"\n  ],\n  \"deleteRoles\": [\n    \"<string>\"\n  ],\n  \"hasFiles\": \"<boolean>\",\n  \"hasGlobalSearch\": \"<boolean>\",\n  \"hasHistory\": \"<boolean>\",\n  \"isEmailLinkingEnabled\": \"<boolean>\",\n  \"isHidden\": \"<boolean>\",\n  \"readRoles\": [\n    \"<string>\"\n  ],\n  \"writeRoles\": [\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fe3a4a4d-034e-480c-a966-781c028c3207",
+              "name": "Table updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createRoles\": [\n    \"editor\",\n    \"admin\"\n  ],\n  \"deleteRoles\": [\n    \"admin\"\n  ],\n  \"hasFiles\": true,\n  \"hasGlobalSearch\": true,\n  \"hasHistory\": true,\n  \"icon\": {\n    \"color\": \"#3381ff\",\n    \"icon\": \"school\"\n  },\n  \"isEmailLinkingEnabled\": true,\n  \"isHidden\": true,\n  \"labels\": {\n    \"\": \"Full table\"\n  },\n  \"name\": \"full_table\",\n  \"readRoles\": [\n    \"admin\",\n    \"editor\"\n  ],\n  \"writeRoles\": [\n    \"editor\",\n    \"admin\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"createRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"deleteRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"date\",\n        \"expression\": \"string\",\n        \"expressionErrors\": [\n          {\n            \"column\": 9929.824575520493,\n            \"line\": 8255.253949960248,\n            \"message\": \"string\"\n          },\n          {\n            \"column\": 9842.558751828778,\n            \"line\": 1274.8346174290405,\n            \"message\": \"string\"\n          }\n        ],\n        \"index\": true,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"optionColor\": \"string\",\n        \"optionIcon\": \"string\",\n        \"optionName\": \"string\",\n        \"options\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 909.8067604248516,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"textColor\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 7608.982791219822,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"textColor\": \"string\"\n          }\n        ],\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"refTableId\": \"string\",\n        \"required\": true,\n        \"search\": false,\n        \"unique\": true,\n        \"variant\": \"string\",\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"void\",\n        \"expression\": \"string\",\n        \"expressionErrors\": [\n          {\n            \"column\": 7920.426243979244,\n            \"line\": 1517.9792937648683,\n            \"message\": \"string\"\n          },\n          {\n            \"column\": 4970.072507079779,\n            \"line\": 3398.8443088418653,\n            \"message\": \"string\"\n          }\n        ],\n        \"index\": false,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"optionColor\": \"string\",\n        \"optionIcon\": \"string\",\n        \"optionName\": \"string\",\n        \"options\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 6042.37152532146,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"textColor\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"order\": 1057.3667568893798,\n            \"color\": \"string\",\n            \"icon\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"textColor\": \"string\"\n          }\n        ],\n        \"readRoles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"refTableId\": \"string\",\n        \"required\": false,\n        \"search\": true,\n        \"unique\": true,\n        \"variant\": \"string\",\n        \"writeRoles\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"hasFiles\": false,\n    \"hasGlobalSearch\": true,\n    \"hasHistory\": false,\n    \"icon\": {\n      \"icon\": \"string\",\n      \"color\": \"string\",\n      \"filling\": 0\n    },\n    \"isEmailLinkingEnabled\": true,\n    \"isHidden\": true,\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"name\": \"string\",\n    \"readRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"writeRoles\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f3ddb20-4e59-447b-89be-3c14591064e6",
+              "name": "Bad request (e.g., table already exists)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createRoles\": [\n    \"editor\",\n    \"admin\"\n  ],\n  \"deleteRoles\": [\n    \"admin\"\n  ],\n  \"hasFiles\": true,\n  \"hasGlobalSearch\": true,\n  \"hasHistory\": true,\n  \"icon\": {\n    \"color\": \"#3381ff\",\n    \"icon\": \"school\"\n  },\n  \"isEmailLinkingEnabled\": true,\n  \"isHidden\": true,\n  \"labels\": {\n    \"\": \"Full table\"\n  },\n  \"name\": \"full_table\",\n  \"readRoles\": [\n    \"admin\",\n    \"editor\"\n  ],\n  \"writeRoles\": [\n    \"editor\",\n    \"admin\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1686617-651f-423b-9351-186200963109",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createRoles\": [\n    \"editor\",\n    \"admin\"\n  ],\n  \"deleteRoles\": [\n    \"admin\"\n  ],\n  \"hasFiles\": true,\n  \"hasGlobalSearch\": true,\n  \"hasHistory\": true,\n  \"icon\": {\n    \"color\": \"#3381ff\",\n    \"icon\": \"school\"\n  },\n  \"isEmailLinkingEnabled\": true,\n  \"isHidden\": true,\n  \"labels\": {\n    \"\": \"Full table\"\n  },\n  \"name\": \"full_table\",\n  \"readRoles\": [\n    \"admin\",\n    \"editor\"\n  ],\n  \"writeRoles\": [\n    \"editor\",\n    \"admin\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0af93e2-8394-4a02-b740-003e1539b6fc",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createRoles\": [\n    \"editor\",\n    \"admin\"\n  ],\n  \"deleteRoles\": [\n    \"admin\"\n  ],\n  \"hasFiles\": true,\n  \"hasGlobalSearch\": true,\n  \"hasHistory\": true,\n  \"icon\": {\n    \"color\": \"#3381ff\",\n    \"icon\": \"school\"\n  },\n  \"isEmailLinkingEnabled\": true,\n  \"isHidden\": true,\n  \"labels\": {\n    \"\": \"Full table\"\n  },\n  \"name\": \"full_table\",\n  \"readRoles\": [\n    \"admin\",\n    \"editor\"\n  ],\n  \"writeRoles\": [\n    \"editor\",\n    \"admin\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52bcb09a-ce36-4dd3-bd9a-e6e31cdccd09",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspace",
+                    ":workspaceId",
+                    "modules",
+                    ":moduleName",
+                    "tables",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "moduleName",
+                      "description": "(Required) Module name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) Workspace ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createRoles\": [\n    \"editor\",\n    \"admin\"\n  ],\n  \"deleteRoles\": [\n    \"admin\"\n  ],\n  \"hasFiles\": true,\n  \"hasGlobalSearch\": true,\n  \"hasHistory\": true,\n  \"icon\": {\n    \"color\": \"#3381ff\",\n    \"icon\": \"school\"\n  },\n  \"isEmailLinkingEnabled\": true,\n  \"isHidden\": true,\n  \"labels\": {\n    \"\": \"Full table\"\n  },\n  \"name\": \"full_table\",\n  \"readRoles\": [\n    \"admin\",\n    \"editor\"\n  ],\n  \"writeRoles\": [\n    \"editor\",\n    \"admin\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "eadcee0f-4495-4779-8bcd-ec4c05b3f5b6",
+    "name": "Ninox Public Fields Tables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ninox Public API provides programmatic access to workspace resources, enabling seamless integration for managing modules, tables, fields and records.\n\n### Authentication\nAll requests require a Workspace API Key passed in the HTTP header as follows:\n**<code>Authorization: Bearer {apiKey}</code>**\n\nAPI keys can be generated and managed within the **Workspace Integration** settings in the Ninox app.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ninox Public Fields API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all fields in a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/fields",
+            "params": [
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves all fields defined in a table. Each field in the response includes type-specific properties: `options` (array for choice/multi, expression string for dchoice/dmulti), `optionName` / `optionIcon` / `optionColor` for dchoice/dmulti, and `expression` for function fields."
+        },
+        {
+          "info": {
+            "name": "Create a field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/fields",
+            "params": [
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new field in a table.\n\n**Choice / multi fields:** provide an `options` array with initial values. Each option receives a server-assigned stable `id` returned in the response.\n\n**Dynamic choice / dmulti fields:** `options` is required and must be an expression that resolves the selectable records at runtime. `optionName`, `optionIcon`, and `optionColor` are optional display-value expressions. All expressions are validated after save — if any are invalid the field is still created and th"
+        },
+        {
+          "info": {
+            "name": "Create multiple fields (batch)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/fields/batch",
+            "params": [
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates multiple fields in a table within a single transaction. If any field creation fails, all changes are rolled back.\n\nThe same rules as the single-create endpoint apply per field: choice/multi fields accept an initial `options` array; dchoice/dmulti fields require an `options` expression; logic fields accept an optional `expression`. All expressions are validated after save — invalid expressions do not prevent creation but add an `expressionErrors` array to the affected field in the respons"
+        },
+        {
+          "info": {
+            "name": "Delete multiple fields (batch)",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/fields/batch",
+            "params": [
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes multiple fields in a table within a single transaction. If any field deletion fails, all changes are rolled back."
+        },
+        {
+          "info": {
+            "name": "Get a specific field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/fields/:fieldName",
+            "params": [
+              {
+                "name": "fieldName",
+                "value": "",
+                "type": "path",
+                "description": "Field name"
+              },
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves detailed information about a specific field in a table. For choice/multi fields the response includes an `options` array with stable ids. For dchoice/dmulti fields the response includes the `options` expression and any configured `optionName`, `optionIcon`, `optionColor` formulas. For function fields the response includes the `expression`."
+        },
+        {
+          "info": {
+            "name": "Update a field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/fields/:fieldName",
+            "params": [
+              {
+                "name": "fieldName",
+                "value": "",
+                "type": "path",
+                "description": "Field name"
+              },
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates an existing field in a table.\n\n**choice / multi fields:** `options` replaces the full option list. Include the stable `id` for existing options you want to keep; omit `id` for new options. Sending an options array to a non-choice field or an options expression to a non-dynamic-choice field returns 400.\n\n**dchoice / dmulti fields:** `options` updates the selection expression. `optionName`, `optionIcon`, and `optionColor` update the corresponding display-value formulas. All expressions are"
+        },
+        {
+          "info": {
+            "name": "Delete a field",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/workspace/:workspaceId/modules/:moduleName/tables/:tableName/fields/:fieldName",
+            "params": [
+              {
+                "name": "fieldName",
+                "value": "",
+                "type": "path",
+                "description": "Field name"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              },
+              {
+                "name": "moduleName",
+                "value": "",
+                "type": "path",
+                "description": "Module name"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "Workspace ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes a field in a table"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
