@@ -4,8 +4,14 @@ info:
   version: 1.0.0
   summary: Create a module in a workspace, add a table, and define its fields.
 sourceDescriptions:
-- name: ninox
-  url: ../openapi/ninox-public-openapi-original.json
+- name: fieldsApi
+  url: ../openapi/ninox-fields-api-openapi.yml
+  type: openapi
+- name: modulesApi
+  url: ../openapi/ninox-modules-api-openapi.yml
+  type: openapi
+- name: tablesApi
+  url: ../openapi/ninox-tables-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provisionModule
@@ -14,9 +20,9 @@ workflows:
     type: object
     required: [workspaceId]
     properties:
-      workspaceId: { type: string }
-      moduleName: { type: string, default: CRM }
-      tableName: { type: string, default: Contacts }
+      workspaceId: {type: string}
+      moduleName: {type: string, default: CRM}
+      tableName: {type: string, default: Contacts}
   steps:
   - stepId: createModule
     operationId: ModulesV1Controller_createModule

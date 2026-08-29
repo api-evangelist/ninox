@@ -4,8 +4,14 @@ info:
   version: 1.0.0
   summary: Create a table in a module, add fields in batch, insert records, then read them back.
 sourceDescriptions:
-- name: ninox
-  url: ../openapi/ninox-public-openapi-original.json
+- name: fieldsApi
+  url: ../openapi/ninox-fields-api-openapi.yml
+  type: openapi
+- name: recordsApi
+  url: ../openapi/ninox-records-api-openapi.yml
+  type: openapi
+- name: tablesApi
+  url: ../openapi/ninox-tables-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: createTableAndAddRecords
@@ -14,9 +20,9 @@ workflows:
     type: object
     required: [workspaceId, moduleName]
     properties:
-      workspaceId: { type: string }
-      moduleName: { type: string }
-      tableName: { type: string, default: Products }
+      workspaceId: {type: string}
+      moduleName: {type: string}
+      tableName: {type: string, default: Products}
   steps:
   - stepId: createTable
     operationId: TablesV1Controller_createTable
