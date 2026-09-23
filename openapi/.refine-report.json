@@ -1,11 +1,7 @@
 {
   "provider": "ninox",
   "sources": [
-    "ninox-fields-api-openapi.yml",
-    "ninox-modules-api-openapi.yml",
-    "ninox-records-api-openapi.yml",
-    "ninox-tables-api-openapi.yml",
-    "ninox-workspace-api-openapi.yml"
+    "_original/ninox-public-openapi-original.json"
   ],
   "outputs": [
     "ninox-fields-api-openapi.yml",
@@ -17,6 +13,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "ninox-public-openapi-original.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "ninox-public-openapi-original.json: declared missing tag: Fields",
+    "ninox-public-openapi-original.json: declared missing tag: Modules",
+    "ninox-public-openapi-original.json: declared missing tag: Records",
+    "ninox-public-openapi-original.json: declared missing tag: Tables",
+    "ninox-public-openapi-original.json: declared missing tag: Workspace",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "ninox-fields-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ninox-modules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ninox-records-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ninox-tables-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ninox-workspace-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

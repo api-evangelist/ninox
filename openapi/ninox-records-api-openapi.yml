@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Ninox Public Fields Records API
+  title: Ninox Public Records API
   description: 'The Ninox Public API provides programmatic access to workspace resources, enabling seamless integration for managing modules, tables, fields and records.
 
 
@@ -8,7 +8,7 @@ info:
 
     All requests require a Workspace API Key passed in the HTTP header as follows:
 
-    **<code>Authorization: Bearer {apiKey}</code>**
+    **Authorization: Bearer {apiKey}**
 
 
     API keys can be generated and managed within the **Workspace Integration** settings in the Ninox app.'
@@ -471,7 +471,32 @@ paths:
     post:
       operationId: RowsV1Controller_importCSV
       summary: Import records from CSV file
-      description: "Import records from a CSV file into an existing table.\n        \nThe endpoint accepts multipart/form-data with:\n- A CSV file (max 50 MB)\n- Optional parsing and import options\n\n**Auto-mapping**: By default, CSV columns are automatically mapped to table fields by matching column header names to field names (case-insensitive).\n\n**Import Modes**:\n- `append`: Always create new records (default)\n- `update`: Only update existing records (requires key field mappings)\n- `upsert`: Update existing records or create new ones (requires key field mappings)\n\n**Field Mappings**: Optionally provide explicit mappings to control which CSV columns map to which table fields, and which fields are used as keys for update/upsert operations.\n\nThe entire import is processed within a single transaction - if any record fails to import, all changes are rolled back."
+      description: 'Import records from a CSV file into an existing table.
+
+
+        The endpoint accepts multipart/form-data with:
+
+        - A CSV file (max 50 MB)
+
+        - Optional parsing and import options
+
+
+        **Auto-mapping**: By default, CSV columns are automatically mapped to table fields by matching column header names to field names (case-insensitive).
+
+
+        **Import Modes**:
+
+        - `append`: Always create new records (default)
+
+        - `update`: Only update existing records (requires key field mappings)
+
+        - `upsert`: Update existing records or create new ones (requires key field mappings)
+
+
+        **Field Mappings**: Optionally provide explicit mappings to control which CSV columns map to which table fields, and which fields are used as keys for update/upsert operations.
+
+
+        The entire import is processed within a single transaction - if any record fails to import, all changes are rolled back.'
       parameters:
       - name: moduleName
         required: true
@@ -608,6 +633,30 @@ paths:
       - Records
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Error message
+      required:
+      - error
+    DeleteRowsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            deletedIds:
+              type: array
+              items:
+                type: string
+              description: Deleted row ids
+      required:
+      - data
     CreateRowsResponse:
       type: object
       properties:
@@ -621,17 +670,20 @@ components:
               description: Created row ids
       required:
       - data
-    ErrorResponse:
+    DeleteRowsBody:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-              description: Error message
+        records:
+          minItems: 1
+          type: array
+          items:
+            type: integer
+            maximum: 9007199254740991
+            exclusiveMinimum: 0
+          description: Array of record ids to delete
       required:
-      - error
+      - records
+      additionalProperties: false
     RowsResponse:
       type: object
       properties:
@@ -649,7 +701,6 @@ components:
                   - type: boolean
                   - type: number
                   - type: string
-                  nullable: true
             required:
             - id
             - values
@@ -664,7 +715,6 @@ components:
                 - type: boolean
                 - type: number
                 - type: string
-                nullable: true
               description: Applied filter conditions
             sort:
               type: string
@@ -685,47 +735,6 @@ components:
       required:
       - data
       - page_info
-    DeleteRowsBody:
-      type: object
-      properties:
-        records:
-          minItems: 1
-          type: array
-          items:
-            type: integer
-            exclusiveMinimum: true
-            maximum: 9007199254740991
-            minimum: 0
-          description: Array of record ids to delete
-      required:
-      - records
-      additionalProperties: false
-    AddRowsBody:
-      type: object
-      properties:
-        records:
-          minItems: 1
-          type: array
-          items:
-            type: object
-            additionalProperties: {}
-          description: Array of records to add to the target table
-      required:
-      - records
-      additionalProperties: false
-    DeleteRowsResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            deletedIds:
-              type: array
-              items:
-                type: string
-              description: Deleted row ids
-      required:
-      - data
     UpdateRowsResponse:
       type: object
       properties:
@@ -739,25 +748,6 @@ components:
               description: Updated row ids
       required:
       - data
-    UpdateRowsBody:
-      type: object
-      properties:
-        records:
-          minItems: 1
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-                exclusiveMinimum: true
-                maximum: 9007199254740991
-                minimum: 0
-            additionalProperties: {}
-          description: Array of records to update (each must include an id field as a positive integer)
-      required:
-      - records
-      additionalProperties: false
     ImportCSVResponse:
       type: object
       properties:
@@ -775,6 +765,37 @@ components:
               description: Number of existing rows updated
       required:
       - data
+    AddRowsBody:
+      type: object
+      properties:
+        records:
+          minItems: 1
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+          description: Array of records to add to the target table
+      required:
+      - records
+      additionalProperties: false
+    UpdateRowsBody:
+      type: object
+      properties:
+        records:
+          minItems: 1
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                maximum: 9007199254740991
+                exclusiveMinimum: 0
+            additionalProperties: {}
+          description: Array of records to update (each must include an id field as a positive integer)
+      required:
+      - records
+      additionalProperties: false
   securitySchemes:
     bearer:
       scheme: bearer
