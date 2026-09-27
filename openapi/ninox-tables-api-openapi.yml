@@ -413,17 +413,105 @@ paths:
       - Tables
 components:
   schemas:
-    ErrorResponse:
+    UpdateTableBody:
       type: object
       properties:
-        error:
+        icon:
+          description: Table icon
           type: object
           properties:
-            message:
+            color:
               type: string
-              description: Error message
+            filling:
+              anyOf:
+              - type: number
+                enum:
+                - 0
+              - type: number
+                enum:
+                - 1
+            icon:
+              type: string
+              minLength: 1
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+            minLength: 1
+            maxLength: 100
+          description: Table labels (localized)
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          description: Table name
+        createRoles:
+          description: Roles allowed to create records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+        deleteRoles:
+          description: Roles allowed to delete records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+        hasFiles:
+          description: Enable files for the table
+          type: boolean
+        hasGlobalSearch:
+          description: Enable global search for the table
+          type: boolean
+        hasHistory:
+          description: Enable history for the table
+          type: boolean
+        isEmailLinkingEnabled:
+          description: Enable email linking for the table
+          type: boolean
+        isHidden:
+          description: Hide the table
+          type: boolean
+        readRoles:
+          description: Roles allowed to read records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+        writeRoles:
+          description: Roles allowed to update records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+    DeleteTableResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Deleted table id
       required:
-      - error
+      - data
     CreateTableBody:
       type: object
       properties:
@@ -515,6 +603,230 @@ components:
       required:
       - labels
       - name
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Error message
+      required:
+      - error
+    TableResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            createRoles:
+              description: Roles allowed to create records
+              type: array
+              items:
+                type: string
+            deleteRoles:
+              description: Roles allowed to delete records
+              type: array
+              items:
+                type: string
+            fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  expression:
+                    description: Expression (for function type)
+                    type: string
+                  expressionErrors:
+                    description: Expression validation errors (for function type)
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        column:
+                          type: number
+                          description: Column number where the error occurred
+                        line:
+                          type: number
+                          description: Line number where the error occurred
+                        message:
+                          type: string
+                          description: Error message
+                      required:
+                      - column
+                      - line
+                      - message
+                  index:
+                    description: Field is indexed
+                    type: boolean
+                  labels:
+                    description: Field labels (localized)
+                    type: object
+                    additionalProperties:
+                      type: string
+                  name:
+                    type: string
+                    description: Field name
+                  optionColor:
+                    description: Color expression for dchoice/dmulti fields
+                    type: string
+                  optionIcon:
+                    description: Icon expression for dchoice/dmulti fields
+                    type: string
+                  optionName:
+                    description: Display name expression for dchoice/dmulti fields
+                    type: string
+                  options:
+                    description: Options array for choice/multi fields, or selection expression for dchoice/dmulti fields
+                    anyOf:
+                    - type: array
+                      items:
+                        type: object
+                        properties:
+                          color:
+                            description: Option color (hex string)
+                            type: string
+                          icon:
+                            description: Option icon name
+                            type: string
+                          id:
+                            type: string
+                            description: Stable option id
+                          labels:
+                            description: Localized option labels
+                            type: object
+                            additionalProperties:
+                              type: string
+                          name:
+                            type: string
+                            description: Option name
+                          order:
+                            type: number
+                            description: Option display order
+                          textColor:
+                            description: Option text color (hex string)
+                            type: string
+                        required:
+                        - id
+                        - name
+                        - order
+                    - type: string
+                  readRoles:
+                    description: Roles allowed to read the field
+                    type: array
+                    items:
+                      type: string
+                  refTableId:
+                    description: Reference table id
+                    type: string
+                  required:
+                    description: Field is required
+                    type: boolean
+                  search:
+                    description: Field is searchable
+                    type: boolean
+                  type:
+                    type: string
+                    enum:
+                    - any
+                    - appointment
+                    - boolean
+                    - choice
+                    - color
+                    - date
+                    - dchoice
+                    - dmulti
+                    - file
+                    - function
+                    - html
+                    - icon
+                    - lambda
+                    - multi
+                    - number
+                    - react
+                    - reference
+                    - reverse
+                    - rowId
+                    - string
+                    - styled
+                    - time
+                    - timeinterval
+                    - timestamp
+                    - unknown
+                    - user
+                    - void
+                    description: Field type
+                  unique:
+                    description: Field is unique
+                    type: boolean
+                  variant:
+                    description: Field variant (for string type)
+                    type: string
+                  writeRoles:
+                    description: Roles allowed to write to the field
+                    type: array
+                    items:
+                      type: string
+                required:
+                - name
+                - type
+            hasFiles:
+              description: Enable files for the table
+              type: boolean
+            hasGlobalSearch:
+              description: Enable global search for the table
+              type: boolean
+            hasHistory:
+              description: Enable history for the table
+              type: boolean
+            icon:
+              description: Table icon
+              type: object
+              properties:
+                color:
+                  description: Icon color (hex string)
+                  type: string
+                filling:
+                  description: Icon filling
+                  anyOf:
+                  - type: number
+                    enum:
+                    - 0
+                  - type: number
+                    enum:
+                    - 1
+                icon:
+                  type: string
+                  description: Icon name
+              required:
+              - icon
+            isEmailLinkingEnabled:
+              description: Enable email linking for the table
+              type: boolean
+            isHidden:
+              description: Hide the table
+              type: boolean
+            labels:
+              description: Table labels (localized)
+              type: object
+              additionalProperties:
+                type: string
+            name:
+              type: string
+            readRoles:
+              description: Roles allowed to read records
+              type: array
+              items:
+                type: string
+            writeRoles:
+              description: Roles allowed to update records
+              type: array
+              items:
+                type: string
+          description: Table details
+      required:
+      - data
     TablesResponse:
       type: object
       properties:
@@ -730,318 +1042,6 @@ components:
             required:
             - name
           description: List of tables
-      required:
-      - data
-    TableResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            createRoles:
-              description: Roles allowed to create records
-              type: array
-              items:
-                type: string
-            deleteRoles:
-              description: Roles allowed to delete records
-              type: array
-              items:
-                type: string
-            fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  expression:
-                    description: Expression (for function type)
-                    type: string
-                  expressionErrors:
-                    description: Expression validation errors (for function type)
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        column:
-                          type: number
-                          description: Column number where the error occurred
-                        line:
-                          type: number
-                          description: Line number where the error occurred
-                        message:
-                          type: string
-                          description: Error message
-                      required:
-                      - column
-                      - line
-                      - message
-                  index:
-                    description: Field is indexed
-                    type: boolean
-                  labels:
-                    description: Field labels (localized)
-                    type: object
-                    additionalProperties:
-                      type: string
-                  name:
-                    type: string
-                    description: Field name
-                  optionColor:
-                    description: Color expression for dchoice/dmulti fields
-                    type: string
-                  optionIcon:
-                    description: Icon expression for dchoice/dmulti fields
-                    type: string
-                  optionName:
-                    description: Display name expression for dchoice/dmulti fields
-                    type: string
-                  options:
-                    description: Options array for choice/multi fields, or selection expression for dchoice/dmulti fields
-                    anyOf:
-                    - type: array
-                      items:
-                        type: object
-                        properties:
-                          color:
-                            description: Option color (hex string)
-                            type: string
-                          icon:
-                            description: Option icon name
-                            type: string
-                          id:
-                            type: string
-                            description: Stable option id
-                          labels:
-                            description: Localized option labels
-                            type: object
-                            additionalProperties:
-                              type: string
-                          name:
-                            type: string
-                            description: Option name
-                          order:
-                            type: number
-                            description: Option display order
-                          textColor:
-                            description: Option text color (hex string)
-                            type: string
-                        required:
-                        - id
-                        - name
-                        - order
-                    - type: string
-                  readRoles:
-                    description: Roles allowed to read the field
-                    type: array
-                    items:
-                      type: string
-                  refTableId:
-                    description: Reference table id
-                    type: string
-                  required:
-                    description: Field is required
-                    type: boolean
-                  search:
-                    description: Field is searchable
-                    type: boolean
-                  type:
-                    type: string
-                    enum:
-                    - any
-                    - appointment
-                    - boolean
-                    - choice
-                    - color
-                    - date
-                    - dchoice
-                    - dmulti
-                    - file
-                    - function
-                    - html
-                    - icon
-                    - lambda
-                    - multi
-                    - number
-                    - react
-                    - reference
-                    - reverse
-                    - rowId
-                    - string
-                    - styled
-                    - time
-                    - timeinterval
-                    - timestamp
-                    - unknown
-                    - user
-                    - void
-                    description: Field type
-                  unique:
-                    description: Field is unique
-                    type: boolean
-                  variant:
-                    description: Field variant (for string type)
-                    type: string
-                  writeRoles:
-                    description: Roles allowed to write to the field
-                    type: array
-                    items:
-                      type: string
-                required:
-                - name
-                - type
-            hasFiles:
-              description: Enable files for the table
-              type: boolean
-            hasGlobalSearch:
-              description: Enable global search for the table
-              type: boolean
-            hasHistory:
-              description: Enable history for the table
-              type: boolean
-            icon:
-              description: Table icon
-              type: object
-              properties:
-                color:
-                  description: Icon color (hex string)
-                  type: string
-                filling:
-                  description: Icon filling
-                  anyOf:
-                  - type: number
-                    enum:
-                    - 0
-                  - type: number
-                    enum:
-                    - 1
-                icon:
-                  type: string
-                  description: Icon name
-              required:
-              - icon
-            isEmailLinkingEnabled:
-              description: Enable email linking for the table
-              type: boolean
-            isHidden:
-              description: Hide the table
-              type: boolean
-            labels:
-              description: Table labels (localized)
-              type: object
-              additionalProperties:
-                type: string
-            name:
-              type: string
-            readRoles:
-              description: Roles allowed to read records
-              type: array
-              items:
-                type: string
-            writeRoles:
-              description: Roles allowed to update records
-              type: array
-              items:
-                type: string
-          description: Table details
-      required:
-      - data
-    UpdateTableBody:
-      type: object
-      properties:
-        icon:
-          description: Table icon
-          type: object
-          properties:
-            color:
-              type: string
-            filling:
-              anyOf:
-              - type: number
-                enum:
-                - 0
-              - type: number
-                enum:
-                - 1
-            icon:
-              type: string
-              minLength: 1
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-            minLength: 1
-            maxLength: 100
-          description: Table labels (localized)
-        name:
-          type: string
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9_]+$
-          description: Table name
-        createRoles:
-          description: Roles allowed to create records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-        deleteRoles:
-          description: Roles allowed to delete records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-        hasFiles:
-          description: Enable files for the table
-          type: boolean
-        hasGlobalSearch:
-          description: Enable global search for the table
-          type: boolean
-        hasHistory:
-          description: Enable history for the table
-          type: boolean
-        isEmailLinkingEnabled:
-          description: Enable email linking for the table
-          type: boolean
-        isHidden:
-          description: Hide the table
-          type: boolean
-        readRoles:
-          description: Roles allowed to read records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-        writeRoles:
-          description: Roles allowed to update records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-    DeleteTableResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            id:
-              type: string
-              description: Deleted table id
       required:
       - data
   securitySchemes:

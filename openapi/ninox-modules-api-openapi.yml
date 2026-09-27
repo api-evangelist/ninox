@@ -336,67 +336,6 @@ paths:
       - Modules
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-              description: Error message
-      required:
-      - error
-    UpdateModuleBody:
-      type: object
-      properties:
-        name:
-          description: Module name
-          type: string
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9_]+$
-        hideNavigation:
-          description: Hide module from navigation
-          type: boolean
-        icon:
-          description: Module icon
-          type: object
-          properties:
-            color:
-              type: string
-            filling:
-              anyOf:
-              - type: number
-                enum:
-                - 0
-              - type: number
-                enum:
-                - 1
-            icon:
-              type: string
-              minLength: 1
-        isHidden:
-          description: Hide module
-          type: boolean
-        labels:
-          description: Module labels (localized)
-          type: object
-          additionalProperties:
-            type: string
-            minLength: 1
-            maxLength: 100
-        openRoles:
-          description: Module open roles
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-      description: Update Module request body
     ModulesResponse:
       type: object
       properties:
@@ -660,6 +599,78 @@ components:
           description: List of modules
       required:
       - data
+    UpdateModuleBody:
+      type: object
+      properties:
+        name:
+          description: Module name
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+        hideNavigation:
+          description: Hide module from navigation
+          type: boolean
+        icon:
+          description: Module icon
+          type: object
+          properties:
+            color:
+              type: string
+            filling:
+              anyOf:
+              - type: number
+                enum:
+                - 0
+              - type: number
+                enum:
+                - 1
+            icon:
+              type: string
+              minLength: 1
+        isHidden:
+          description: Hide module
+          type: boolean
+        labels:
+          description: Module labels (localized)
+          type: object
+          additionalProperties:
+            type: string
+            minLength: 1
+            maxLength: 100
+        openRoles:
+          description: Module open roles
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+      description: Update Module request body
+    DeleteModuleResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Deleted module id
+      required:
+      - data
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Error message
+      required:
+      - error
     CreateModuleBody:
       type: object
       properties:
@@ -712,17 +723,6 @@ components:
       required:
       - name
       description: Create Module request body
-    DeleteModuleResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            id:
-              type: string
-              description: Deleted module id
-      required:
-      - data
     ModuleResponse:
       type: object
       properties:
