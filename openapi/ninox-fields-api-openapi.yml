@@ -833,104 +833,17 @@ paths:
       - Fields
 components:
   schemas:
-    UpdateFieldBody:
+    ErrorResponse:
       type: object
       properties:
-        expression:
-          description: Expression (for function type)
-          type: string
-        labels:
-          description: Field labels (localized)
+        error:
           type: object
-          additionalProperties:
-            type: string
-            minLength: 1
-            maxLength: 100
-        name:
-          description: Field name
-          type: string
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9_]+$
-        optionColor:
-          description: Color expression (for dchoice/dmulti types)
-          type: string
-        optionIcon:
-          description: Icon expression (for dchoice/dmulti types)
-          type: string
-        optionName:
-          description: Display name expression (for dchoice/dmulti types)
-          type: string
-        options:
-          description: Options array (for choice/multi types) or selection expression (for dchoice/dmulti types)
-          anyOf:
-          - type: array
-            items:
-              type: object
-              properties:
-                color:
-                  description: Option color (hex string)
-                  type: string
-                icon:
-                  description: Option icon name
-                  type: string
-                id:
-                  description: Stable option id (omit for new options; system assigns id)
-                  type: string
-                labels:
-                  description: Localized option labels
-                  type: object
-                  additionalProperties:
-                    type: string
-                name:
-                  type: string
-                  minLength: 1
-                  description: Option name
-                order:
-                  description: Option display order
-                  type: integer
-                  minimum: 0
-                  maximum: 9007199254740991
-                textColor:
-                  description: Option text color (hex string)
-                  type: string
-              required:
-              - name
-              additionalProperties: false
-          - type: string
-        index:
-          description: Field is indexed
-          type: boolean
-        readRoles:
-          description: Roles allowed to read the field
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - user
-        required:
-          description: Field is required
-          type: boolean
-        search:
-          description: Field is searchable
-          type: boolean
-        unique:
-          description: Field is unique
-          type: boolean
-        writeRoles:
-          description: Roles allowed to write to the field
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - user
-      additionalProperties: false
+          properties:
+            message:
+              type: string
+              description: Error message
+      required:
+      - error
     FieldResponse:
       type: object
       properties:
@@ -1218,17 +1131,266 @@ components:
       - name
       - type
       additionalProperties: false
-    ErrorResponse:
+    DeleteFieldsBatchBody:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-              description: Error message
+        fieldNames:
+          minItems: 1
+          type: array
+          items:
+            type: string
+            minLength: 1
+            maxLength: 100
+            pattern: ^[a-z0-9_]+$
+            description: Field name
       required:
-      - error
+      - fieldNames
+      additionalProperties: false
+    UpdateFieldBody:
+      type: object
+      properties:
+        expression:
+          description: Expression (for function type)
+          type: string
+        labels:
+          description: Field labels (localized)
+          type: object
+          additionalProperties:
+            type: string
+            minLength: 1
+            maxLength: 100
+        name:
+          description: Field name
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+        optionColor:
+          description: Color expression (for dchoice/dmulti types)
+          type: string
+        optionIcon:
+          description: Icon expression (for dchoice/dmulti types)
+          type: string
+        optionName:
+          description: Display name expression (for dchoice/dmulti types)
+          type: string
+        options:
+          description: Options array (for choice/multi types) or selection expression (for dchoice/dmulti types)
+          anyOf:
+          - type: array
+            items:
+              type: object
+              properties:
+                color:
+                  description: Option color (hex string)
+                  type: string
+                icon:
+                  description: Option icon name
+                  type: string
+                id:
+                  description: Stable option id (omit for new options; system assigns id)
+                  type: string
+                labels:
+                  description: Localized option labels
+                  type: object
+                  additionalProperties:
+                    type: string
+                name:
+                  type: string
+                  minLength: 1
+                  description: Option name
+                order:
+                  description: Option display order
+                  type: integer
+                  minimum: 0
+                  maximum: 9007199254740991
+                textColor:
+                  description: Option text color (hex string)
+                  type: string
+              required:
+              - name
+              additionalProperties: false
+          - type: string
+        index:
+          description: Field is indexed
+          type: boolean
+        readRoles:
+          description: Roles allowed to read the field
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - user
+        required:
+          description: Field is required
+          type: boolean
+        search:
+          description: Field is searchable
+          type: boolean
+        unique:
+          description: Field is unique
+          type: boolean
+        writeRoles:
+          description: Roles allowed to write to the field
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - user
+      additionalProperties: false
+    FieldsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              expression:
+                description: Expression (for function type)
+                type: string
+              expressionErrors:
+                description: Expression validation errors (for function type)
+                type: array
+                items:
+                  type: object
+                  properties:
+                    column:
+                      type: number
+                      description: Column number where the error occurred
+                    line:
+                      type: number
+                      description: Line number where the error occurred
+                    message:
+                      type: string
+                      description: Error message
+                  required:
+                  - column
+                  - line
+                  - message
+              index:
+                description: Field is indexed
+                type: boolean
+              labels:
+                description: Field labels (localized)
+                type: object
+                additionalProperties:
+                  type: string
+              name:
+                type: string
+                description: Field name
+              optionColor:
+                description: Color expression for dchoice/dmulti fields
+                type: string
+              optionIcon:
+                description: Icon expression for dchoice/dmulti fields
+                type: string
+              optionName:
+                description: Display name expression for dchoice/dmulti fields
+                type: string
+              options:
+                description: Options array for choice/multi fields, or selection expression for dchoice/dmulti fields
+                anyOf:
+                - type: array
+                  items:
+                    type: object
+                    properties:
+                      color:
+                        description: Option color (hex string)
+                        type: string
+                      icon:
+                        description: Option icon name
+                        type: string
+                      id:
+                        type: string
+                        description: Stable option id
+                      labels:
+                        description: Localized option labels
+                        type: object
+                        additionalProperties:
+                          type: string
+                      name:
+                        type: string
+                        description: Option name
+                      order:
+                        type: number
+                        description: Option display order
+                      textColor:
+                        description: Option text color (hex string)
+                        type: string
+                    required:
+                    - id
+                    - name
+                    - order
+                - type: string
+              readRoles:
+                description: Roles allowed to read the field
+                type: array
+                items:
+                  type: string
+              refTableId:
+                description: Reference table id
+                type: string
+              required:
+                description: Field is required
+                type: boolean
+              search:
+                description: Field is searchable
+                type: boolean
+              type:
+                type: string
+                enum:
+                - any
+                - appointment
+                - boolean
+                - choice
+                - color
+                - date
+                - dchoice
+                - dmulti
+                - file
+                - function
+                - html
+                - icon
+                - lambda
+                - multi
+                - number
+                - react
+                - reference
+                - reverse
+                - rowId
+                - string
+                - styled
+                - time
+                - timeinterval
+                - timestamp
+                - unknown
+                - user
+                - void
+                description: Field type
+              unique:
+                description: Field is unique
+                type: boolean
+              variant:
+                description: Field variant (for string type)
+                type: string
+              writeRoles:
+                description: Roles allowed to write to the field
+                type: array
+                items:
+                  type: string
+            required:
+            - name
+            - type
+          description: List of fields
+      required:
+      - data
     CreateFieldsBatchBody:
       minItems: 1
       type: array
@@ -1377,168 +1539,6 @@ components:
         - name
         - type
         additionalProperties: false
-    FieldsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              expression:
-                description: Expression (for function type)
-                type: string
-              expressionErrors:
-                description: Expression validation errors (for function type)
-                type: array
-                items:
-                  type: object
-                  properties:
-                    column:
-                      type: number
-                      description: Column number where the error occurred
-                    line:
-                      type: number
-                      description: Line number where the error occurred
-                    message:
-                      type: string
-                      description: Error message
-                  required:
-                  - column
-                  - line
-                  - message
-              index:
-                description: Field is indexed
-                type: boolean
-              labels:
-                description: Field labels (localized)
-                type: object
-                additionalProperties:
-                  type: string
-              name:
-                type: string
-                description: Field name
-              optionColor:
-                description: Color expression for dchoice/dmulti fields
-                type: string
-              optionIcon:
-                description: Icon expression for dchoice/dmulti fields
-                type: string
-              optionName:
-                description: Display name expression for dchoice/dmulti fields
-                type: string
-              options:
-                description: Options array for choice/multi fields, or selection expression for dchoice/dmulti fields
-                anyOf:
-                - type: array
-                  items:
-                    type: object
-                    properties:
-                      color:
-                        description: Option color (hex string)
-                        type: string
-                      icon:
-                        description: Option icon name
-                        type: string
-                      id:
-                        type: string
-                        description: Stable option id
-                      labels:
-                        description: Localized option labels
-                        type: object
-                        additionalProperties:
-                          type: string
-                      name:
-                        type: string
-                        description: Option name
-                      order:
-                        type: number
-                        description: Option display order
-                      textColor:
-                        description: Option text color (hex string)
-                        type: string
-                    required:
-                    - id
-                    - name
-                    - order
-                - type: string
-              readRoles:
-                description: Roles allowed to read the field
-                type: array
-                items:
-                  type: string
-              refTableId:
-                description: Reference table id
-                type: string
-              required:
-                description: Field is required
-                type: boolean
-              search:
-                description: Field is searchable
-                type: boolean
-              type:
-                type: string
-                enum:
-                - any
-                - appointment
-                - boolean
-                - choice
-                - color
-                - date
-                - dchoice
-                - dmulti
-                - file
-                - function
-                - html
-                - icon
-                - lambda
-                - multi
-                - number
-                - react
-                - reference
-                - reverse
-                - rowId
-                - string
-                - styled
-                - time
-                - timeinterval
-                - timestamp
-                - unknown
-                - user
-                - void
-                description: Field type
-              unique:
-                description: Field is unique
-                type: boolean
-              variant:
-                description: Field variant (for string type)
-                type: string
-              writeRoles:
-                description: Roles allowed to write to the field
-                type: array
-                items:
-                  type: string
-            required:
-            - name
-            - type
-          description: List of fields
-      required:
-      - data
-    DeleteFieldsBatchBody:
-      type: object
-      properties:
-        fieldNames:
-          minItems: 1
-          type: array
-          items:
-            type: string
-            minLength: 1
-            maxLength: 100
-            pattern: ^[a-z0-9_]+$
-            description: Field name
-      required:
-      - fieldNames
-      additionalProperties: false
   securitySchemes:
     bearer:
       scheme: bearer

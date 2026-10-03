@@ -413,196 +413,6 @@ paths:
       - Tables
 components:
   schemas:
-    UpdateTableBody:
-      type: object
-      properties:
-        icon:
-          description: Table icon
-          type: object
-          properties:
-            color:
-              type: string
-            filling:
-              anyOf:
-              - type: number
-                enum:
-                - 0
-              - type: number
-                enum:
-                - 1
-            icon:
-              type: string
-              minLength: 1
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-            minLength: 1
-            maxLength: 100
-          description: Table labels (localized)
-        name:
-          type: string
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9_]+$
-          description: Table name
-        createRoles:
-          description: Roles allowed to create records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-        deleteRoles:
-          description: Roles allowed to delete records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-        hasFiles:
-          description: Enable files for the table
-          type: boolean
-        hasGlobalSearch:
-          description: Enable global search for the table
-          type: boolean
-        hasHistory:
-          description: Enable history for the table
-          type: boolean
-        isEmailLinkingEnabled:
-          description: Enable email linking for the table
-          type: boolean
-        isHidden:
-          description: Hide the table
-          type: boolean
-        readRoles:
-          description: Roles allowed to read records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-        writeRoles:
-          description: Roles allowed to update records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-    DeleteTableResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            id:
-              type: string
-              description: Deleted table id
-      required:
-      - data
-    CreateTableBody:
-      type: object
-      properties:
-        icon:
-          description: Table icon
-          type: object
-          properties:
-            color:
-              type: string
-            filling:
-              anyOf:
-              - type: number
-                enum:
-                - 0
-              - type: number
-                enum:
-                - 1
-            icon:
-              type: string
-              minLength: 1
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-            minLength: 1
-            maxLength: 100
-          description: Table labels (localized)
-        name:
-          type: string
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9_]+$
-          description: Table name
-        createRoles:
-          description: Roles allowed to create records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-        deleteRoles:
-          description: Roles allowed to delete records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-        hasFiles:
-          description: Enable files for the table
-          type: boolean
-        hasGlobalSearch:
-          description: Enable global search for the table
-          type: boolean
-        hasHistory:
-          description: Enable history for the table
-          type: boolean
-        isEmailLinkingEnabled:
-          description: Enable email linking for the table
-          type: boolean
-        isHidden:
-          description: Hide the table
-          type: boolean
-        readRoles:
-          description: Roles allowed to read records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-        writeRoles:
-          description: Roles allowed to update records
-          minItems: 1
-          maxItems: 2
-          type: array
-          items:
-            type: string
-            enum:
-            - admin
-            - editor
-      required:
-      - labels
-      - name
     ErrorResponse:
       type: object
       properties:
@@ -827,6 +637,94 @@ components:
           description: Table details
       required:
       - data
+    UpdateTableBody:
+      type: object
+      properties:
+        icon:
+          description: Table icon
+          type: object
+          properties:
+            color:
+              type: string
+            filling:
+              anyOf:
+              - type: number
+                enum:
+                - 0
+              - type: number
+                enum:
+                - 1
+            icon:
+              type: string
+              minLength: 1
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+            minLength: 1
+            maxLength: 100
+          description: Table labels (localized)
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          description: Table name
+        createRoles:
+          description: Roles allowed to create records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+        deleteRoles:
+          description: Roles allowed to delete records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+        hasFiles:
+          description: Enable files for the table
+          type: boolean
+        hasGlobalSearch:
+          description: Enable global search for the table
+          type: boolean
+        hasHistory:
+          description: Enable history for the table
+          type: boolean
+        isEmailLinkingEnabled:
+          description: Enable email linking for the table
+          type: boolean
+        isHidden:
+          description: Hide the table
+          type: boolean
+        readRoles:
+          description: Roles allowed to read records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+        writeRoles:
+          description: Roles allowed to update records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
     TablesResponse:
       type: object
       properties:
@@ -1042,6 +940,108 @@ components:
             required:
             - name
           description: List of tables
+      required:
+      - data
+    CreateTableBody:
+      type: object
+      properties:
+        icon:
+          description: Table icon
+          type: object
+          properties:
+            color:
+              type: string
+            filling:
+              anyOf:
+              - type: number
+                enum:
+                - 0
+              - type: number
+                enum:
+                - 1
+            icon:
+              type: string
+              minLength: 1
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+            minLength: 1
+            maxLength: 100
+          description: Table labels (localized)
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9_]+$
+          description: Table name
+        createRoles:
+          description: Roles allowed to create records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+        deleteRoles:
+          description: Roles allowed to delete records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+        hasFiles:
+          description: Enable files for the table
+          type: boolean
+        hasGlobalSearch:
+          description: Enable global search for the table
+          type: boolean
+        hasHistory:
+          description: Enable history for the table
+          type: boolean
+        isEmailLinkingEnabled:
+          description: Enable email linking for the table
+          type: boolean
+        isHidden:
+          description: Hide the table
+          type: boolean
+        readRoles:
+          description: Roles allowed to read records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+        writeRoles:
+          description: Roles allowed to update records
+          minItems: 1
+          maxItems: 2
+          type: array
+          items:
+            type: string
+            enum:
+            - admin
+            - editor
+      required:
+      - labels
+      - name
+    DeleteTableResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Deleted table id
       required:
       - data
   securitySchemes:

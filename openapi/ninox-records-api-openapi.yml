@@ -633,118 +633,6 @@ paths:
       - Records
 components:
   schemas:
-    ImportCSVResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            rowsImported:
-              type: number
-              description: Number of rows successfully imported
-            rowsSkipped:
-              type: number
-              description: Number of rows skipped (for update mode when no match is found)
-            rowsUpdated:
-              type: number
-              description: Number of existing rows updated
-      required:
-      - data
-    DeleteRowsResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            deletedIds:
-              type: array
-              items:
-                type: string
-              description: Deleted row ids
-      required:
-      - data
-    AddRowsBody:
-      type: object
-      properties:
-        records:
-          minItems: 1
-          type: array
-          items:
-            type: object
-            additionalProperties: {}
-          description: Array of records to add to the target table
-      required:
-      - records
-      additionalProperties: false
-    CreateRowsResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            ids:
-              type: array
-              items:
-                type: string
-              description: Created row ids
-      required:
-      - data
-    DeleteRowsBody:
-      type: object
-      properties:
-        records:
-          minItems: 1
-          type: array
-          items:
-            type: integer
-            maximum: 9007199254740991
-            exclusiveMinimum: 0
-          description: Array of record ids to delete
-      required:
-      - records
-      additionalProperties: false
-    UpdateRowsBody:
-      type: object
-      properties:
-        records:
-          minItems: 1
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-                maximum: 9007199254740991
-                exclusiveMinimum: 0
-            additionalProperties: {}
-          description: Array of records to update (each must include an id field as a positive integer)
-      required:
-      - records
-      additionalProperties: false
-    UpdateRowsResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            updatedIds:
-              type: array
-              items:
-                type: string
-              description: Updated row ids
-      required:
-      - data
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-              description: Error message
-      required:
-      - error
     RowsResponse:
       type: object
       properties:
@@ -796,6 +684,118 @@ components:
       required:
       - data
       - page_info
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Error message
+      required:
+      - error
+    CreateRowsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            ids:
+              type: array
+              items:
+                type: string
+              description: Created row ids
+      required:
+      - data
+    DeleteRowsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            deletedIds:
+              type: array
+              items:
+                type: string
+              description: Deleted row ids
+      required:
+      - data
+    AddRowsBody:
+      type: object
+      properties:
+        records:
+          minItems: 1
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+          description: Array of records to add to the target table
+      required:
+      - records
+      additionalProperties: false
+    ImportCSVResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            rowsImported:
+              type: number
+              description: Number of rows successfully imported
+            rowsSkipped:
+              type: number
+              description: Number of rows skipped (for update mode when no match is found)
+            rowsUpdated:
+              type: number
+              description: Number of existing rows updated
+      required:
+      - data
+    DeleteRowsBody:
+      type: object
+      properties:
+        records:
+          minItems: 1
+          type: array
+          items:
+            type: integer
+            maximum: 9007199254740991
+            exclusiveMinimum: 0
+          description: Array of record ids to delete
+      required:
+      - records
+      additionalProperties: false
+    UpdateRowsBody:
+      type: object
+      properties:
+        records:
+          minItems: 1
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                maximum: 9007199254740991
+                exclusiveMinimum: 0
+            additionalProperties: {}
+          description: Array of records to update (each must include an id field as a positive integer)
+      required:
+      - records
+      additionalProperties: false
+    UpdateRowsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            updatedIds:
+              type: array
+              items:
+                type: string
+              description: Updated row ids
+      required:
+      - data
   securitySchemes:
     bearer:
       scheme: bearer
